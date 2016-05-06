@@ -14,16 +14,21 @@
 (* :Sources: biblio *)
 (* :Discussion: *)
 
-RollDice::usage = StringJoin[
+BeginPackage["FondamentiDiProbabilita`"]
+
+LancioDado::usage = StringJoin[
 	"RollDice[] simula il lancio di un dado, restituendo un valore compreso fra 0 e 6.\n",
 	"RollDice[n] simula n volte il lancio di un dado, restituendo una lista di valori compresi fra 0 e 6."
 ]
 
-HistogramRollDice::usage =
+PlotLancioDado::usage =
 	"HistogramRollDice[n] disegna un istogramma per n prove ripetute del lancio di un dado."
 
 CalcoloProbabilita::usage =
 	"CalcoloProbabilita[m,n] restituisce la probabilità che un evento E accada, dati m casi favorevoli e n contrari."
+
+CalcoloProbabilitaContraria::usage =
+	"CalcoloProbabilitaContaria[m,n] restituisce la probabilità contraria di un evento, dati m casi favorevoli e n contrari."
 
 Begin["Private`"]
 
@@ -50,4 +55,14 @@ CalcoloProbabilita[favorevoli_, totali_] /;
 	favorevoli <= totali :=
 		favorevoli/totali
 
+(* Calcolo della probabilità contraria di un evento *)
+CalcoloProbabilitaContraria[favorevoli_, totali_] /; 
+	IntegerQ[favorevoli] && NonNegative[favorevoli] &&
+	IntegerQ[totali] && NonNegative[totali] && 
+	favorevoli <= totali :=
+		1 - favorevoli/totali
+
+
 End[]
+Protect[FondamentiDiProbabilita];
+EndPackage[]
