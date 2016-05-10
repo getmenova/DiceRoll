@@ -22,7 +22,7 @@ LancioDado::usage = StringJoin[
 ]
 
 PlotLancioDado::usage =
-	"HistogramRollDice[n] disegna un istogramma per n prove ripetute del lancio di un dado."
+	"PlotLancioDado[n] disegna un istogramma per n prove ripetute del lancio di un dado."
 
 CalcoloProbabilita::usage =
 	"CalcoloProbabilita[m,n] restituisce la probabilità che un evento E accada, dati m casi favorevoli e n contrari."
@@ -61,6 +61,11 @@ CalcoloProbabilitaContraria[favorevoli_, totali_] /;
 	IntegerQ[totali] && NonNegative[totali] && 
 	favorevoli <= totali :=
 		1 - favorevoli/totali
+
+(* Calcolo della somma di eventi *)
+CalcolaSomma[eventi_ /; ListQ[eventi], probEventi /; ListQ[probEventi], listaDiEventi_ /; ListQ[listaDiEventi]] :=
+	
+
 
 
 End[]
