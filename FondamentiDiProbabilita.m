@@ -62,6 +62,36 @@ CalcoloProbabilitaContraria[favorevoli_, totali_] /;
 	favorevoli <= totali :=
 		1 - favorevoli/totali
 
+(* Gioco delle tre carte *)
+PlayableTreCarte[] := 
+ Module[{positionCards = {1, 2, 3}, tableCards, choise, myHand, 
+   notRevealed, appoggio, temp2},
+  tableCards = RandomChoice[Permutations[{1, 0, 0}]];
+  choise = 
+   ChoiceDialog[
+    "Scegli una carta", {prima -> 1, seconda -> 2, terza -> 3}];
+  myHand = 
+   Complement[positionCards, Intersection[positionCards, {choise}]];
+  If[tableCards[[myHand[[1]]]] == 0 && 
+    tableCards[[myHand[[2]]]] == 0,
+   notRevealed = RandomChoice[myHand],
+   If[tableCards[[myHand[[1]]]] == 1,
+     notRevealed = myHand[[1]],
+     notRevealed = myHand[[2]]
+     ];
+   ];
+  temp2 = ChoiceDialog["Vuoi cambiare carta?", {Si -> 1, No -> 2}];
+  If[temp2 == 1,
+   appoggio = notRevealed;
+   notRevealed = choise;
+   choise = appoggio;
+   ];
+  If[tableCards[[choise]] == 1,
+   MessageDialog["Hai vinto!"],
+   MessageDialog["Hai perso!"]
+   ];
+  ]
+
 (* Calcolo della somma di eventi *)
 CalcolaSomma[eventi_ /; ListQ[eventi], probEventi /; ListQ[probEventi], listaDiEventi_ /; ListQ[listaDiEventi]] :=
 	
