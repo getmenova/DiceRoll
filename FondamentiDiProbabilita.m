@@ -70,7 +70,7 @@ PlayableTreCarte[] :=
  Module[{positionCards = {1, 2, 3}, tableCards, choise, myHand, 
    notRevealed, appoggio, temp2},
   tableCards = RandomChoice[Permutations[{1, 0, 0}]];
-  choise = ChoiceDialog["Scegli una carta", {prima -> 1, seconda -> 2, terza -> 3}];
+  choise = ChoiceDialog["Scegli una carta", {Import["cover.jpg", "Graphics"] -> 1, Import["cover.jpg", "Graphics"] -> 2, Import["cover.jpg", "Graphics"] -> 3}];
   myHand = Complement[positionCards, Intersection[positionCards, {choise}]];
   If[tableCards[[myHand[[1]]]] == 0 && 
   	tableCards[[myHand[[2]]]] == 0,
