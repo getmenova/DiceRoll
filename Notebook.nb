@@ -1,0 +1,253 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10419,        244]
+NotebookOptionsPosition[      9597,        211]
+NotebookOutlinePosition[      9934,        226]
+CellTagsIndexPosition[      9891,        223]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ StyleBox["Il Calcolo delle Probabilit\[AGrave] per le Scuole Superiori\n",
+  FontSize->36,
+  FontColor->GrayLevel[0]],
+ StyleBox["Amerigo Mancino, Bartolomeo Lombardi, Andrea Segalini", "Author",
+  FontSize->16,
+  FontColor->GrayLevel[0]],
+ StyleBox["\n",
+  FontSize->16,
+  FontColor->GrayLevel[0]]
+}], "Title",
+ CellChangeTimes->{{3.6721125776788607`*^9, 3.672112587488381*^9}, {
+  3.672112658780295*^9, 3.6721127410011883`*^9}},
+ TextAlignment->Center],
+
+Cell[CellGroupData[{
+
+Cell["1. Introduzione", "Section",
+ CellChangeTimes->{{3.672112743307108*^9, 3.67211276724469*^9}, {
+  3.6721128778668203`*^9, 3.672112882871624*^9}, {3.672112914026764*^9, 
+  3.672112915232586*^9}, {3.672112966562393*^9, 3.672112994093842*^9}, {
+  3.672113188528625*^9, 3.672113192081991*^9}, {3.672113253806538*^9, 
+  3.672113267088422*^9}}],
+
+Cell[TextData[{
+ "La Teoria delle Probabilit\[AGrave] \[EGrave] forse una delle branche pi\
+\[UGrave] affascinanti della Matematica. Vi \[EGrave] mai capitato, giocando \
+a Monopoli o a Dungeons & Dragons, che, lanciando i dadi, uscisse proprio il \
+punteggio che volevate evitare? Avete mai partecipato a qualche gioco a premi \
+in cui avevate comprato molti biglietti, senza riuscire tuttavia a vincere \
+qualcosa?\n\[LeftGuillemet]Che sfortuna!\[RightGuillemet], sar\[AGrave] stato \
+il vostro primo pensiero. Molto spesso, in questi casi, infatti, siamo \
+portati a credere a miti, storie, false credenze. Come dimenticare il buon \
+vecchio ferro di cavallo o il quadrifoglio portafortuna? Proprio lei, la \
+Fortuna, divinit\[AGrave] venerata dagli antichi greci come entit\[AGrave] \
+generatrice degli eventi in maniera favorevole o sfavorefole ad un individuo, \
+sembra essere la causa prima di circostanze non spiegabili razionalmente. La \
+scienza, tuttavia, ancora una volta, riesce a mettere al bando tutto questo, \
+fornendo una teoria concreta e coerente per affrontare questo genere di \
+situazioni. Nei prossimi paragrafi andremo ad analizzare il concetto di \
+\[OpenCurlyDoubleQuote]probabilit\[AGrave]\[CloseCurlyDoubleQuote] e vedremo, \
+anche tramite esempi pratici, come applicare questa teoria in semplici casi \
+piuttosto verosimli. \nCarichiamo dunque per prima cosa il package ",
+ StyleBox["Mathematica",
+  FontSlant->"Italic"],
+ " che abbiamo creato:"
+}], "Text",
+ CellChangeTimes->{{3.67211326925077*^9, 3.6721134581710176`*^9}, {
+   3.672113492136977*^9, 3.6721136611907063`*^9}, {3.672113735181714*^9, 
+   3.672114038475952*^9}, {3.672114077971511*^9, 3.672114103365088*^9}, {
+   3.6721141682989483`*^9, 3.672114279668131*^9}, {3.6721143163271093`*^9, 
+   3.6721143486858177`*^9}, 3.6721146334896708`*^9, 3.672114697981059*^9}],
+
+Cell[BoxData[
+ RowBox[{"<<", " ", "FondamentiDiProbabilita.m"}]], "Code",
+ CellChangeTimes->{{3.672114374160486*^9, 3.6721143827651043`*^9}}],
+
+Cell[TextData[{
+ "Diamo dunque alcune definizioni di base che ci saranno \
+d\[CloseCurlyQuote]aiuto per comprendere appieno ci\[OGrave] di cui stiamo \
+parlando.\n\n",
+ StyleBox["Definizione.\n",
+  FontWeight->"Bold"],
+ "Un ",
+ StyleBox["evento",
+  FontColor->RGBColor[1, 0, 0]],
+ " \[EGrave] un qualsiasi fatto che, a seguito di una prova, pu\[OGrave] \
+accadere oppure no; la ",
+ StyleBox["probabilit\[AGrave] di un evento",
+  FontColor->RGBColor[1, 0, 0]],
+ " \[EGrave] invece la probabilit\[AGrave] oggettiva di questo.\n\n\
+Banalmente, il lancio di un dado \[EGrave] un evento, \
+l\[CloseCurlyQuote]estrazione di un sette di cuori da un mazzo di carte \
+\[EGrave] un altro evento, cos\[IGrave] come pescare una biglia bianca da un \
+sacchetto con sfere bianche e nere \[EGrave] ancora un altro evento. Ma \
+possiamo considerare anche casi pi\[UGrave] eclatanti: \
+l\[CloseCurlyQuote]estrazione dei biglietti vincenti della Lotteria Italia, i \
+numeri del SuperEnalotto o della Tombola, il Sette e Mezzo sono tutti giochi \
+basati sulla probabilit\[AGrave] e sul verificarsi o meno di certi eventi.\n\
+Un evento certo (ossia un evento che sicuramente accadr\[AGrave]) ha \
+probabilit\[AGrave] 1, mentre un evento impossibile ha probabilit\[AGrave] 0. \
+Di conseguenza, la probabilit\[AGrave] di un evento, come definita sopra, \
+\[EGrave] un numero compreso fra 0 e 1.\n\nIl calcolo diretto della \
+probabilit\[AGrave] \[EGrave] applicabile solo ad eventi che possono essere \
+ricondotti ad uno schema di casi. Prendiamo in considerazione il lancio di un \
+dado a sei facce. Supponiamo di desiderare l\[CloseCurlyQuote]uscita di un \
+numero pari da questo evento (ossia 2,4 oppure 6). I casi possibili tuttavia \
+sono in numero maggiore: il dado pu\[OGrave] restuirci 1,3,4,5 o 6. Allora, \
+dando in input alla seguente funzione il numero di casi favorevoli ed il \
+numero di casi possibili otteniamo il risultato desiderato:"
+}], "Text",
+ CellChangeTimes->{{3.67211366211733*^9, 3.672113664172353*^9}, 
+   3.672114357137917*^9, {3.672114407684277*^9, 3.672114447778171*^9}, {
+   3.672114708862668*^9, 3.672114713177679*^9}, {3.672114814552896*^9, 
+   3.672114896259818*^9}, {3.6721149527896214`*^9, 3.67211495819322*^9}, {
+   3.6721149952741327`*^9, 3.6721150955125427`*^9}, {3.672115150335479*^9, 
+   3.672115193209882*^9}, {3.672115279724698*^9, 3.6721153044313803`*^9}, {
+   3.672115348108848*^9, 3.672115360015448*^9}, {3.672115459651745*^9, 
+   3.672115646341498*^9}, {3.6721156955603724`*^9, 3.6721157524678583`*^9}, {
+   3.672115795010148*^9, 3.672115928608265*^9}, {3.672116026582623*^9, 
+   3.672116074081203*^9}, {3.672116431382062*^9, 3.6721164352608767`*^9}, {
+   3.6721165964298983`*^9, 3.672116611065448*^9}, {3.6721166570327044`*^9, 
+   3.672116791708445*^9}, {3.672116823996018*^9, 3.672116890065607*^9}, {
+   3.672116933534827*^9, 3.672116960341563*^9}, {3.672116990969636*^9, 
+   3.6721170173839207`*^9}, {3.672117061966423*^9, 3.672117111439934*^9}, {
+   3.672117698192212*^9, 3.672117730327649*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CalcoloProbabilita", "[", 
+  RowBox[{"3", ",", "6"}], "]"}]], "Code",
+ CellChangeTimes->{{3.672117410678463*^9, 3.672117411255094*^9}, {
+  3.672117451437518*^9, 3.672117518622881*^9}, {3.672117555434545*^9, 
+  3.672117569565634*^9}}],
+
+Cell[BoxData[
+ FractionBox["1", "2"]], "Output",
+ CellChangeTimes->{3.672117580358449*^9, 3.672117690198645*^9},
+ Background->RGBColor[0.87, 0.94, 1]]
+}, Open  ]],
+
+Cell["O pi\[UGrave] precisamente:", "Text",
+ CellChangeTimes->{{3.672117735640682*^9, 3.6721177808429413`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{"CalcoloProbabilita", "[", 
+   RowBox[{"3", ",", "6"}], "]"}], "]"}]], "Code",
+ CellChangeTimes->{{3.672117766687996*^9, 3.672117778590329*^9}}],
+
+Cell[BoxData["0.5`"], "Output",
+ CellChangeTimes->{3.672117784028026*^9},
+ Background->RGBColor[0.87, 0.94, 1]]
+}, Open  ]],
+
+Cell["\<\
+Ossia la probabilit\[AGrave] che, lanciando un dado una volta esca un numero \
+pari, \[EGrave] esattamente un mezzo. Questo significa che abbiamo la stessa \
+probabilit\[AGrave] che esca un numero pari o un numero dispari: il 50%. \
+Questo calcolo, all\[CloseCurlyQuote]apparenza quasi magico, \[EGrave] in \
+realt\[AGrave] giustificato dalla Formula della Probabilit\[AGrave] Classica:\
+\
+\>", "Text",
+ CellChangeTimes->{{3.672117846191703*^9, 3.672118021429335*^9}, 
+   3.6721180546382923`*^9, {3.672118518705114*^9, 3.672118529065544*^9}, {
+   3.672118562377221*^9, 3.6721185715471087`*^9}, {3.6721186780403852`*^9, 
+   3.6721187198851223`*^9}, {3.672118763622015*^9, 3.672118770474082*^9}, {
+   3.67211944927634*^9, 3.6721194881579847`*^9}, {3.6721195671939707`*^9, 
+   3.672119593291828*^9}, {3.6721203005835238`*^9, 3.672120390268445*^9}, {
+   3.672120438134718*^9, 3.672120451428342*^9}, {3.672120541428842*^9, 
+   3.672120555572165*^9}, {3.6721205998275967`*^9, 3.672120626636237*^9}, {
+   3.672120792465859*^9, 3.672120828807845*^9}, {3.672120871815578*^9, 
+   3.6721210642088213`*^9}, {3.672121124413814*^9, 3.672121249434353*^9}, {
+   3.672121302600556*^9, 3.672121369919874*^9}, 3.672121582336383*^9, {
+   3.672121612852648*^9, 3.672121648955352*^9}}],
+
+Cell[TextData[{
+ StyleBox["P(A) = ",
+  FontSize->24],
+ Cell[BoxData[
+  TagBox[
+   FractionBox[
+    RowBox[{"Numero", " ", "di", " ", "casi", " ", "favorevoli"}], 
+    RowBox[{"Numero", " ", "di", " ", "casi", " ", "possibili"}]],
+   DisplayForm]], "Output",
+  GeneratedCell->False,
+  CellAutoOverwrite->False,
+  CellChangeTimes->{3.67212111730805*^9, 3.6721212979635277`*^9},
+  FontFamily->"Arial",
+  FontSize->24]
+}], "Text",
+ CellChangeTimes->{{3.672121656088235*^9, 3.672121662395175*^9}, {
+  3.672121692732748*^9, 3.672121707972032*^9}},
+ TextAlignment->Center],
+
+Cell["\<\
+Chiaramente la formula in questione \[EGrave] applicabile solo in presenza di \
+uno schema di casi. Nel caso del lancio del dado, infatti, sapevamo qual\
+\[CloseCurlyQuote]era la tabella dei possibili esiti. Non sempre questo \
+avviene.\
+\>", "Text",
+ CellChangeTimes->{{3.672121745637779*^9, 3.672121776370672*^9}, {
+  3.672121998461918*^9, 3.672122047229354*^9}}]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1321, 744},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.3 for Linux x86 (64-bit) (December 10, 2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 471, 13, 136, "Title"],
+Cell[CellGroupData[{
+Cell[1076, 39, 343, 5, 67, "Section"],
+Cell[1422, 46, 1854, 27, 171, "Text"],
+Cell[3279, 75, 141, 2, 51, "Code"],
+Cell[3423, 79, 3024, 48, 287, "Text"],
+Cell[CellGroupData[{
+Cell[6472, 131, 257, 5, 51, "Code"],
+Cell[6732, 138, 150, 3, 65, "Output"]
+}, Open  ]],
+Cell[6897, 144, 111, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[7033, 149, 188, 4, 51, "Code"],
+Cell[7224, 155, 111, 2, 48, "Output"]
+}, Open  ]],
+Cell[7350, 160, 1273, 19, 51, "Text"],
+Cell[8626, 181, 565, 17, 61, "Text"],
+Cell[9194, 200, 375, 7, 51, "Text"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
