@@ -30,6 +30,9 @@ CalcoloProbabilita::usage =
 CalcoloProbabilitaContraria::usage =
 	"CalcoloProbabilitaContaria[m,n] restituisce la probabilità contraria di un evento, dati m casi favorevoli e n contrari."
 
+PlayableTreCarte::usage = 
+	"Function per il gioco delle tre carte."
+
 Begin["Private`"]
 
 (* Function che simula n volte il lancio di un dado. *)
@@ -67,14 +70,11 @@ PlayableTreCarte[] :=
  Module[{positionCards = {1, 2, 3}, tableCards, choise, myHand, 
    notRevealed, appoggio, temp2},
   tableCards = RandomChoice[Permutations[{1, 0, 0}]];
-  choise = 
-   ChoiceDialog[
-    "Scegli una carta", {prima -> 1, seconda -> 2, terza -> 3}];
-  myHand = 
-   Complement[positionCards, Intersection[positionCards, {choise}]];
+  choise = ChoiceDialog["Scegli una carta", {prima -> 1, seconda -> 2, terza -> 3}];
+  myHand = Complement[positionCards, Intersection[positionCards, {choise}]];
   If[tableCards[[myHand[[1]]]] == 0 && 
-    tableCards[[myHand[[2]]]] == 0,
-   notRevealed = RandomChoice[myHand],
+  	tableCards[[myHand[[2]]]] == 0,
+   	notRevealed = RandomChoice[myHand],
    If[tableCards[[myHand[[1]]]] == 1,
      notRevealed = myHand[[1]],
      notRevealed = myHand[[2]]
@@ -91,12 +91,6 @@ PlayableTreCarte[] :=
    MessageDialog["Hai perso!"]
    ];
   ]
-
-(* Calcolo della somma di eventi *)
-CalcolaSomma[eventi_ /; ListQ[eventi], probEventi /; ListQ[probEventi], listaDiEventi_ /; ListQ[listaDiEventi]] :=
-	
-
-
 
 End[]
 Protect[FondamentiDiProbabilita];
