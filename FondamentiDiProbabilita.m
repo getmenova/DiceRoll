@@ -30,8 +30,8 @@ CalcoloProbabilita::usage =
 CalcoloProbabilitaContraria::usage =
 	"CalcoloProbabilitaContaria[m,n] restituisce la probabilità contraria di un evento, dati m casi favorevoli e n contrari."
 
-PlayableTreCarte::usage = 
-	"Function per il gioco delle tre carte."
+TreCarte::usage = 
+	"TreCarte[] simula il famoso gioco delle tre carte."
 
 Begin["Private`"]
 
@@ -66,7 +66,7 @@ CalcoloProbabilitaContraria[favorevoli_, totali_] /;
 		1 - favorevoli/totali
 
 (* Gioco delle tre carte *)
-PlayableTreCarte[] := 
+TreCarte[] := 
  Module[{positionCards = {1, 2, 3}, tableCards, choise, notRevealed, 
    appoggio, nextchoise},
   tableCards = RandomChoice[Permutations[{1, 0, 0}]];
@@ -159,21 +159,21 @@ PlayableTreCarte[] :=
    DialogInput[
     DialogNotebook[{
       Row[{TextCell["Mi dispiace, hai perso!!!"]}],
-      If[nextchoise == 1,
+      If[tableCards[[1]] == 1,
        Row[{
          Import["coverWin.jpg", "Graphics"],
          Import["coverChoose.jpg", "Graphics"],
          Import["coverChoose.jpg", "Graphics"]
          }]
        ],
-      If[nextchoise == 2,
+      If[tableCards[[2]] == 1,
        Row[{
          Import["coverChoose.jpg", "Graphics"],
          Import["coverWin.jpg", "Graphics"],
          Import["coverChoose.jpg", "Graphics"]
          }]
        ],
-      If[nextchoise == 3,
+      If[tableCards[[3]] == 1,
        Row[{
          Import["coverChoose.jpg", "Graphics"],
          Import["coverChoose.jpg", "Graphics"],
