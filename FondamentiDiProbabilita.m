@@ -67,28 +67,120 @@ CalcoloProbabilitaContraria[favorevoli_, totali_] /;
 
 (* Gioco delle tre carte *)
 PlayableTreCarte[] := 
- Module[{positionCards = {1, 2, 3}, tableCards, choise, myHand, 
-   notRevealed, appoggio, temp2},
+ Module[{positionCards = {1, 2, 3}, tableCards, choise, notRevealed, 
+   appoggio, nextchoise},
   tableCards = RandomChoice[Permutations[{1, 0, 0}]];
-  choise = ChoiceDialog["Scegli una carta", {Import["cover.jpg", "Graphics"] -> 1, Import["cover.jpg", "Graphics"] -> 2, Import["cover.jpg", "Graphics"] -> 3}];
-  myHand = Complement[positionCards, Intersection[positionCards, {choise}]];
+  Print[tableCards];
+  choise = DialogInput[
+    DialogNotebook[{
+      Row[{TextCell["Scegli una carta"]}],
+      Row[{
+        Button[Graphics[Import["cover.jpg", "Graphics"]], 
+         DialogReturn[1]],
+        Button[Graphics[Import["cover.jpg", "Graphics"]], 
+         DialogReturn[2]],
+        Button[Graphics[Import["cover.jpg", "Graphics"]], 
+         DialogReturn[3]]
+        }]
+      }]
+    ];
+  myHand = 
+   Complement[positionCards, Intersection[positionCards, {choise}]];
+  Print[myHand];
   If[tableCards[[myHand[[1]]]] == 0 && 
-  	tableCards[[myHand[[2]]]] == 0,
-   	notRevealed = RandomChoice[myHand],
+    tableCards[[myHand[[2]]]] == 0,
+   notRevealed = RandomChoice[myHand];
+   revelated = Complement[myHand, {notRevealed}],
    If[tableCards[[myHand[[1]]]] == 1,
-     notRevealed = myHand[[1]],
-     notRevealed = myHand[[2]]
+     notRevealed = myHand[[1]];
+     revelated = {myHand[[2]]},
+     notRevealed = myHand[[2]];
+     revelated = {myHand[[1]]}
      ];
    ];
-  temp2 = ChoiceDialog["Vuoi cambiare carta?", {Si -> 1, No -> 2}];
-  If[temp2 == 1,
-   appoggio = notRevealed;
-   notRevealed = choise;
-   choise = appoggio;
-   ];
-  If[tableCards[[choise]] == 1,
-   MessageDialog["Hai vinto!"],
-   MessageDialog["Hai perso!"]
+  Print[revelated[[1]]];
+  nextchoise = DialogInput[
+    DialogNotebook[{
+      Row[{TextCell["Vuoi cambiare carta?"]}],
+      If[revelated[[1]] == 1,
+       Row[{
+         Import["coverChoose.jpg", "Graphics"],
+         Button[Graphics[Import["cover.jpg", "Graphics"]], 
+          DialogReturn[2]],
+         Button[Graphics[Import["cover.jpg", "Graphics"]], 
+          DialogReturn[3]]
+         }]
+       ],
+      If[revelated[[1]] == 2,
+       Row[{
+         Button[Graphics[Import["cover.jpg", "Graphics"]], 
+          DialogReturn[1]],
+         Import["coverChoose.jpg", "Graphics"],
+         Button[Graphics[Import["cover.jpg", "Graphics"]], 
+          DialogReturn[3]]
+         }]
+       ],
+      If[revelated[[1]] == 3,
+       Row[{
+         Button[Graphics[Import["cover.jpg", "Graphics"]], 
+          DialogReturn[1]],
+         Button[Graphics[Import["cover.jpg", "Graphics"]], 
+          DialogReturn[2]],
+         Import["coverChoose.jpg", "Graphics"]
+         }]
+       ]
+      }]];
+  If[tableCards[[nextchoise]] == 1,
+   DialogInput[
+    DialogNotebook[{
+      Row[{TextCell["Complimenti, hai vinto!!!"]}],
+      If[nextchoise == 1,
+       Row[{
+         Import["coverWin.jpg", "Graphics"],
+         Import["coverChoose.jpg", "Graphics"],
+         Import["coverChoose.jpg", "Graphics"]
+         }]
+       ],
+      If[nextchoise == 2,
+       Row[{
+         Import["coverChoose.jpg", "Graphics"],
+         Import["coverWin.jpg", "Graphics"],
+         Import["coverChoose.jpg", "Graphics"]
+         }]
+       ],
+      If[nextchoise == 3,
+       Row[{
+         Import["coverChoose.jpg", "Graphics"],
+         Import["coverChoose.jpg", "Graphics"],
+         Import["coverWin.jpg", "Graphics"]
+         }]
+       ]
+      }]],
+   DialogInput[
+    DialogNotebook[{
+      Row[{TextCell["Mi dispiace, hai perso!!!"]}],
+      If[nextchoise == 1,
+       Row[{
+         Import["coverWin.jpg", "Graphics"],
+         Import["coverChoose.jpg", "Graphics"],
+         Import["coverChoose.jpg", "Graphics"]
+         }]
+       ],
+      If[nextchoise == 2,
+       Row[{
+         Import["coverChoose.jpg", "Graphics"],
+         Import["coverWin.jpg", "Graphics"],
+         Import["coverChoose.jpg", "Graphics"]
+         }]
+       ],
+      If[nextchoise == 3,
+       Row[{
+         Import["coverChoose.jpg", "Graphics"],
+         Import["coverChoose.jpg", "Graphics"],
+         Import["coverWin.jpg", "Graphics"]
+         }]
+       ]
+      }]]
    ];
   ]
 
