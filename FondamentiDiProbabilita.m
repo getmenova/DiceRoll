@@ -73,7 +73,6 @@ TreCarte[] :=
  Module[{positionCards = {1, 2, 3}, tableCards, choise, notRevealed, 
    appoggio, nextchoise, revelated, myHand},
   tableCards = RandomChoice[Permutations[{1, 0, 0}]];
-  Print[tableCards];
   choise = DialogInput[
     DialogNotebook[{
       Row[{TextCell["Scegli una carta"]}],
@@ -89,7 +88,6 @@ TreCarte[] :=
     ];
   myHand = 
    Complement[positionCards, Intersection[positionCards, {choise}]];
-  Print[myHand];
   If[tableCards[[myHand[[1]]]] == 0 && 
     tableCards[[myHand[[2]]]] == 0,
    notRevealed = RandomChoice[myHand];
@@ -101,7 +99,6 @@ TreCarte[] :=
      revelated = {myHand[[1]]}
      ];
    ];
-  Print[revelated[[1]]];
   If[revelated[[1]] == 1,
    nextchoise = DialogInput[
      DialogNotebook[{
