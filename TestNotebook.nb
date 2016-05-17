@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    226242,       5453]
-NotebookOptionsPosition[    202161,       4804]
-NotebookOutlinePosition[    211024,       4981]
-CellTagsIndexPosition[    208500,       4937]
+NotebookDataLength[    233877,       5570]
+NotebookOptionsPosition[    210016,       4926]
+NotebookOutlinePosition[    218879,       5103]
+CellTagsIndexPosition[    216355,       5059]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -4021,10 +4021,9 @@ Cell[BoxData[
 Cell[BoxData[
  RowBox[{
   StyleBox[
-   RowBox[{"Intersection", "::", "normal"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Nonatomic expression expected at position \[NoBreak]\\!\\(\
-\\*RowBox[{\\\"2\\\"}]\\)\[NoBreak] in \
+   RowBox[{"Intersection", "::", "normal"}], "MessageName"], ":", 
+  " ", "\<\"Nonatomic expression expected at position \
+\[NoBreak]\\!\\(\\*RowBox[{\\\"2\\\"}]\\)\[NoBreak] in \
 \[NoBreak]\\!\\(\\*RowBox[{RowBox[{\\\"{\\\", RowBox[{\\\"1\\\", \\\",\\\", \
 \\\"2\\\", \\\",\\\", \\\"3\\\"}], \\\"}\\\"}], \\\"\[Intersection]\\\", \
 \\\"2\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
@@ -4036,9 +4035,8 @@ ButtonData:>\\\"paclet:ref/message/General/normal\\\", ButtonNote -> \
 Cell[BoxData[
  RowBox[{
   StyleBox[
-   RowBox[{"Complement", "::", "heads"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Heads \[NoBreak]\\!\\(\\*RowBox[{\\\"Intersection\\\"}]\\)\
+   RowBox[{"Complement", "::", "heads"}], "MessageName"], ":", 
+  " ", "\<\"Heads \[NoBreak]\\!\\(\\*RowBox[{\\\"Intersection\\\"}]\\)\
 \[NoBreak] and \[NoBreak]\\!\\(\\*RowBox[{\\\"List\\\"}]\\)\[NoBreak] at \
 positions \[NoBreak]\\!\\(\\*RowBox[{\\\"2\\\"}]\\)\[NoBreak] and \
 \[NoBreak]\\!\\(\\*RowBox[{\\\"1\\\"}]\\)\[NoBreak] are expected to be the \
@@ -4251,21 +4249,21 @@ Cell[BoxData[
      RowBox[{"Print", "[", 
       RowBox[{"revelated", "[", 
        RowBox[{"[", "1", "]"}], "]"}], "]"}], ";", "\[IndentingNewLine]", 
-     RowBox[{"nextchoise", "=", 
-      RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
-       RowBox[{"DialogNotebook", "[", 
-        RowBox[{"{", "\[IndentingNewLine]", 
-         RowBox[{
-          RowBox[{"Row", "[", 
-           RowBox[{"{", 
-            RowBox[{"TextCell", "[", "\"\<Vuoi cambiare carta?\>\"", "]"}], 
-            "}"}], "]"}], ",", "\[IndentingNewLine]", 
-          RowBox[{"If", "[", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"revelated", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "1"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"nextchoise", " ", "=", " ", 
+        RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
+         RowBox[{"DialogNotebook", "[", 
+          RowBox[{"{", "\[IndentingNewLine]", 
            RowBox[{
-            RowBox[{
-             RowBox[{"revelated", "[", 
-              RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "1"}], ",", 
-            "\[IndentingNewLine]", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{"TextCell", "[", "\"\<Vuoi cambiare carta?\>\"", "]"}], 
+              "}"}], "]"}], ",", "\[IndentingNewLine]", 
             RowBox[{"Row", "[", 
              RowBox[{"{", "\[IndentingNewLine]", 
               RowBox[{
@@ -4291,13 +4289,23 @@ Cell[BoxData[
                    "]"}], ",", 
                  RowBox[{"DialogReturn", "[", "3", "]"}]}], "]"}]}], 
               "\[IndentingNewLine]", "}"}], "]"}]}], "\[IndentingNewLine]", 
-           "]"}], ",", "\[IndentingNewLine]", 
-          RowBox[{"If", "[", 
+           "}"}], "]"}], "\[IndentingNewLine]", "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"revelated", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "2"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"nextchoise", " ", "=", " ", 
+        RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
+         RowBox[{"DialogNotebook", "[", 
+          RowBox[{"{", "\[IndentingNewLine]", 
            RowBox[{
-            RowBox[{
-             RowBox[{"revelated", "[", 
-              RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "2"}], ",", 
-            "\[IndentingNewLine]", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{"TextCell", "[", "\"\<Vuoi cambiare carta?\>\"", "]"}], 
+              "}"}], "]"}], ",", "\[IndentingNewLine]", 
             RowBox[{"Row", "[", 
              RowBox[{"{", "\[IndentingNewLine]", 
               RowBox[{
@@ -4323,13 +4331,23 @@ Cell[BoxData[
                    "]"}], ",", 
                  RowBox[{"DialogReturn", "[", "3", "]"}]}], "]"}]}], 
               "\[IndentingNewLine]", "}"}], "]"}]}], "\[IndentingNewLine]", 
-           "]"}], ",", "\[IndentingNewLine]", 
-          RowBox[{"If", "[", 
+           "}"}], "]"}], "\[IndentingNewLine]", "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"revelated", "[", 
+         RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "3"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"nextchoise", " ", "=", " ", 
+        RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
+         RowBox[{"DialogNotebook", "[", 
+          RowBox[{"{", "\[IndentingNewLine]", 
            RowBox[{
-            RowBox[{
-             RowBox[{"revelated", "[", 
-              RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "3"}], ",", 
-            "\[IndentingNewLine]", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{"TextCell", "[", "\"\<Vuoi cambiare carta?\>\"", "]"}], 
+              "}"}], "]"}], ",", "\[IndentingNewLine]", 
             RowBox[{"Row", "[", 
              RowBox[{"{", "\[IndentingNewLine]", 
               RowBox[{
@@ -4355,155 +4373,249 @@ Cell[BoxData[
                 RowBox[{
                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
                 "]"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], 
-           "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "}"}], 
-        "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           "\[IndentingNewLine]", "}"}], "]"}], "\[IndentingNewLine]", 
+         "]"}]}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     
      RowBox[{"If", "[", 
       RowBox[{
        RowBox[{
         RowBox[{"tableCards", "[", 
          RowBox[{"[", "nextchoise", "]"}], "]"}], " ", "\[Equal]", " ", "1"}],
         ",", "\[IndentingNewLine]", 
-       RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
-        RowBox[{"DialogNotebook", "[", 
-         RowBox[{"{", "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{"Row", "[", 
-            RowBox[{"{", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"nextchoise", "\[Equal]", "1"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
+           RowBox[{"DialogNotebook", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
              RowBox[{
-             "TextCell", "[", "\"\<Complimenti, hai vinto!!!\>\"", "]"}], 
-             "}"}], "]"}], ",", "\[IndentingNewLine]", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{"nextchoise", "\[Equal]", "1"}], ",", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Row", "[", 
-              RowBox[{"{", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], 
-            "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{"nextchoise", "\[Equal]", "2"}], ",", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Row", "[", 
-              RowBox[{"{", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], 
-            "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{"nextchoise", "\[Equal]", "3"}], ",", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Row", "[", 
-              RowBox[{"{", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], 
-            "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "}"}], 
-         "]"}], "]"}], ",", "\[IndentingNewLine]", 
-       RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
-        RowBox[{"DialogNotebook", "[", 
-         RowBox[{"{", "\[IndentingNewLine]", 
-          RowBox[{
-           RowBox[{"Row", "[", 
-            RowBox[{"{", 
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                "TextCell", "[", "\"\<Complimenti, hai vinto!!!\>\"", "]"}], 
+                "}"}], "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Grid", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
+                    "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{",", 
+                   RowBox[{"Button", "[", 
+                    RowBox[{"\"\<Fine Partita\>\"", ",", 
+                    RowBox[{"DialogReturn", "[", "0", "]"}]}], "]"}]}], 
+                  "}"}]}], "}"}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+            "]"}], "\[IndentingNewLine]", "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"nextchoise", "\[Equal]", "2"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
+           RowBox[{"DialogNotebook", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
              RowBox[{
-             "TextCell", "[", "\"\<Mi dispiace, hai perso!!!\>\"", "]"}], 
-             "}"}], "]"}], ",", "\[IndentingNewLine]", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{"nextchoise", "\[Equal]", "1"}], ",", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Row", "[", 
-              RowBox[{"{", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], 
-            "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{"nextchoise", "\[Equal]", "2"}], ",", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Row", "[", 
-              RowBox[{"{", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], 
-            "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
-           RowBox[{"If", "[", 
-            RowBox[{
-             RowBox[{"nextchoise", "\[Equal]", "3"}], ",", 
-             "\[IndentingNewLine]", 
-             RowBox[{"Row", "[", 
-              RowBox[{"{", "\[IndentingNewLine]", 
-               RowBox[{
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}], ",", "\[IndentingNewLine]", 
-                RowBox[{"Import", "[", 
-                 RowBox[{
-                 "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
-                 "]"}]}], "\[IndentingNewLine]", "}"}], "]"}]}], 
-            "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "}"}], 
-         "]"}], "]"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
-   "\[IndentingNewLine]", "]"}]}]], "Input",
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                "TextCell", "[", "\"\<Complimenti, hai vinto!!!\>\"", "]"}], 
+                "}"}], "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Grid", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
+                    "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{",", 
+                   RowBox[{"Button", "[", 
+                    RowBox[{"\"\<Fine Partita\>\"", ",", 
+                    RowBox[{"DialogReturn", "[", "0", "]"}]}], "]"}]}], 
+                  "}"}]}], "}"}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+            "]"}], "\[IndentingNewLine]", "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"nextchoise", "\[Equal]", "3"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
+           RowBox[{"DialogNotebook", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                "TextCell", "[", "\"\<Complimenti, hai vinto!!!\>\"", "]"}], 
+                "}"}], "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Grid", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
+                    "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{",", 
+                   RowBox[{"Button", "[", 
+                    RowBox[{"\"\<Fine Partita\>\"", ",", 
+                    RowBox[{"DialogReturn", "[", "0", "]"}]}], "]"}]}], 
+                  "}"}]}], "}"}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+            "]"}], "\[IndentingNewLine]", "]"}]}], "]"}]}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"tableCards", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "\[Equal]", "1"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
+           RowBox[{"DialogNotebook", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                "TextCell", "[", "\"\<Mi dispiace, hai perso!!!\>\"", "]"}], 
+                "}"}], "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Grid", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
+                    "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{",", 
+                   RowBox[{"Button", "[", 
+                    RowBox[{"\"\<Fine Partita\>\"", ",", 
+                    RowBox[{"DialogReturn", "[", "0", "]"}]}], "]"}]}], 
+                  "}"}]}], "}"}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+            "]"}], "\[IndentingNewLine]", "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"tableCards", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], "\[Equal]", "1"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
+           RowBox[{"DialogNotebook", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                "TextCell", "[", "\"\<Mi dispiace, hai perso!!!\>\"", "]"}], 
+                "}"}], "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Grid", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
+                    "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{",", 
+                   RowBox[{"Button", "[", 
+                    RowBox[{"\"\<Fine Partita\>\"", ",", 
+                    RowBox[{"DialogReturn", "[", "0", "]"}]}], "]"}]}], 
+                  "}"}]}], "}"}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+            "]"}], "\[IndentingNewLine]", "]"}]}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"tableCards", "[", 
+            RowBox[{"[", "3", "]"}], "]"}], "\[Equal]", "1"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"DialogInput", "[", "\[IndentingNewLine]", 
+           RowBox[{"DialogNotebook", "[", 
+            RowBox[{"{", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"Row", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                "TextCell", "[", "\"\<Mi dispiace, hai perso!!!\>\"", "]"}], 
+                "}"}], "]"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"Grid", "[", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverChoose.jpg\>\"", ",", " ", "\"\<Graphics\>\""}],
+                     "]"}], ",", "\[IndentingNewLine]", 
+                   RowBox[{"Import", "[", 
+                    RowBox[{
+                    "\"\<coverWin.jpg\>\"", ",", " ", "\"\<Graphics\>\""}], 
+                    "]"}]}], "\[IndentingNewLine]", "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{",", 
+                   RowBox[{"Button", "[", 
+                    RowBox[{"\"\<Fine Partita\>\"", ",", 
+                    RowBox[{"DialogReturn", "[", "0", "]"}]}], "]"}]}], 
+                  "}"}]}], "}"}], "]"}]}], "\[IndentingNewLine]", "}"}], 
+            "]"}], "\[IndentingNewLine]", "]"}]}], "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
  CellChangeTimes->{{3.672124086836831*^9, 3.672124318043662*^9}, {
    3.6721244024139433`*^9, 3.6721244048291883`*^9}, {3.672124481650502*^9, 
    3.672124580322901*^9}, {3.6721246251228724`*^9, 3.672124651723176*^9}, {
@@ -4556,14 +4668,40 @@ Cell[BoxData[
    3.67214021099937*^9}, {3.672140307764194*^9, 3.6721403665923977`*^9}, {
    3.672140433234494*^9, 3.672140450981604*^9}, {3.672140506717359*^9, 
    3.672140518493107*^9}, {3.6721405885125713`*^9, 3.672140594019312*^9}, {
-   3.672140676098312*^9, 3.672140677499632*^9}}],
+   3.672140676098312*^9, 3.672140677499632*^9}, {3.6724620433651943`*^9, 
+   3.6724620884569063`*^9}, {3.672462236472953*^9, 3.6724623428427887`*^9}, {
+   3.672462394097159*^9, 3.672462468220483*^9}, {3.672462499750517*^9, 
+   3.672462623729314*^9}, {3.672462661495728*^9, 3.672462667047256*^9}, {
+   3.6724627513727083`*^9, 3.6724627614450083`*^9}, {3.672462879386777*^9, 
+   3.67246294037108*^9}, {3.67246306900471*^9, 3.672463091418079*^9}, {
+   3.672463121920361*^9, 3.672463127029252*^9}, {3.672463160049163*^9, 
+   3.672463169232842*^9}, {3.6724632250325813`*^9, 3.672463384321435*^9}, {
+   3.672463514399572*^9, 3.672463540789804*^9}, {3.672463585723668*^9, 
+   3.672463592078826*^9}, {3.672463626877079*^9, 3.6724636287596684`*^9}, {
+   3.672463672952709*^9, 3.672463762520108*^9}, {3.672463884971199*^9, 
+   3.672463963107996*^9}, {3.672464180165905*^9, 3.672464195267043*^9}, {
+   3.672464257580935*^9, 3.672464290338496*^9}, {3.672464500454438*^9, 
+   3.672464507810993*^9}, {3.672464538559772*^9, 3.672464600206633*^9}, {
+   3.672464713915905*^9, 3.672464718109041*^9}, {3.672464753823398*^9, 
+   3.6724647907710733`*^9}, {3.6724648448814983`*^9, 
+   3.6724648478300867`*^9}, {3.672464882448101*^9, 3.672464966693104*^9}, {
+   3.672465013919883*^9, 3.67246505563619*^9}, {3.6724651026586437`*^9, 
+   3.672465219038542*^9}, {3.6724652720733347`*^9, 3.672465274782893*^9}, {
+   3.67246534920297*^9, 3.672465380396884*^9}, 3.6724654529540358`*^9, {
+   3.6724654859581337`*^9, 3.672465489264078*^9}, {3.672465524605377*^9, 
+   3.672465676764141*^9}, {3.672465740871419*^9, 3.672465756282392*^9}, {
+   3.672465837222187*^9, 3.672465913243511*^9}, {3.672465944158239*^9, 
+   3.672466158065761*^9}, {3.67246620298908*^9, 3.672466235416106*^9}}],
 
 Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"PlayableTreCarte", "[", "]"}]], "Input",
  CellChangeTimes->{{3.672123806035714*^9, 3.672123811089102*^9}, {
-  3.672133325994145*^9, 3.672133326704595*^9}}],
+  3.672133325994145*^9, 3.672133326704595*^9}, {3.672458766951015*^9, 
+  3.6724587697241287`*^9}, {3.6724588099700613`*^9, 3.672458813037141*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"{", 
@@ -4609,63 +4747,27 @@ Cell[BoxData[
    3.672139476642797*^9}, 3.672140216620784*^9, 3.672140250808332*^9, 
    3.6721403232002563`*^9, 3.672140377574638*^9, {3.672140524127833*^9, 
    3.67214054082071*^9}, 3.672140600974625*^9, {3.6721406522753773`*^9, 
-   3.672140699281912*^9}, 3.672140739788413*^9, 3.6721408816188993`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Import", "::", "nffil"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"File not found during \
-\[NoBreak]\\!\\(\\*RowBox[{\\\"Import\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\
-\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Import/nffil\\\", ButtonNote -> \
-\\\"Import::nffil\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6721408816518097`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Import", "::", "nffil"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"File not found during \
-\[NoBreak]\\!\\(\\*RowBox[{\\\"Import\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\
-\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Import/nffil\\\", ButtonNote -> \
-\\\"Import::nffil\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.672140881681575*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Import", "::", "nffil"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"File not found during \
-\[NoBreak]\\!\\(\\*RowBox[{\\\"Import\\\"}]\\)\[NoBreak]. \\!\\(\\*ButtonBox[\
-\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Import/nffil\\\", ButtonNote -> \
-\\\"Import::nffil\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6721408817170258`*^9}],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"General", "::", "stop"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"Further output of \
-\[NoBreak]\\!\\(\\*StyleBox[RowBox[{\\\"Import\\\", \\\"::\\\", \
-\\\"nffil\\\"}], \\\"MessageName\\\"]\\)\[NoBreak] will be suppressed during \
-this calculation. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/General/stop\\\", ButtonNote -> \
-\\\"General::stop\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.6721408817452517`*^9}],
-
-Cell[CellGroupData[{
+   3.672140699281912*^9}, 3.672140739788413*^9, 3.6721408816188993`*^9, 
+   3.672461991822424*^9, {3.6724620919733467`*^9, 3.6724620975011387`*^9}, {
+   3.672462263417227*^9, 3.672462285586718*^9}, {3.672462345195537*^9, 
+   3.6724623566403217`*^9}, {3.6724624228664417`*^9, 
+   3.6724624328145647`*^9}, {3.672462474162101*^9, 3.672462504708743*^9}, 
+   3.6724625348011703`*^9, {3.6724625755005817`*^9, 3.672462616535562*^9}, 
+   3.6724626919939947`*^9, 3.672462763323325*^9, 3.6724629047974052`*^9, 
+   3.672462943748152*^9, 3.672463206632762*^9, {3.672463246479095*^9, 
+   3.6724632689700527`*^9}, {3.672463315860568*^9, 3.672463329568918*^9}, {
+   3.672463415556312*^9, 3.672463429656973*^9}, {3.672463662687666*^9, 
+   3.6724637043855553`*^9}, {3.672463743634199*^9, 3.672463768736587*^9}, 
+   3.6724639375292788`*^9, 3.672463979396007*^9, 3.672464054889288*^9, {
+   3.672464197914411*^9, 3.672464209663294*^9}, 3.672464292446557*^9, {
+   3.672464359256233*^9, 3.672464373038892*^9}, 3.672465394563628*^9, 
+   3.672465680266982*^9, 3.672465717498266*^9, 3.672465761393055*^9, 
+   3.672466122401435*^9, 3.67246616609999*^9, {3.672466238556437*^9, 
+   3.67246625002671*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
-  RowBox[{"1", ",", "2", ",", "3"}], "}"}]], "Print",
+  RowBox[{"2", ",", "3"}], "}"}]], "Print",
  CellChangeTimes->{
   3.672124724277341*^9, 3.672124773817162*^9, {3.672124808263302*^9, 
    3.6721248345305347`*^9}, 3.672124925697442*^9, 3.672125006180749*^9, {
@@ -4707,9 +4809,25 @@ Cell[BoxData[
    3.672139476642797*^9}, 3.672140216620784*^9, 3.672140250808332*^9, 
    3.6721403232002563`*^9, 3.672140377574638*^9, {3.672140524127833*^9, 
    3.67214054082071*^9}, 3.672140600974625*^9, {3.6721406522753773`*^9, 
-   3.672140699281912*^9}, 3.672140739788413*^9, 3.672140883855259*^9}],
+   3.672140699281912*^9}, 3.672140739788413*^9, 3.6721408816188993`*^9, 
+   3.672461991822424*^9, {3.6724620919733467`*^9, 3.6724620975011387`*^9}, {
+   3.672462263417227*^9, 3.672462285586718*^9}, {3.672462345195537*^9, 
+   3.6724623566403217`*^9}, {3.6724624228664417`*^9, 
+   3.6724624328145647`*^9}, {3.672462474162101*^9, 3.672462504708743*^9}, 
+   3.6724625348011703`*^9, {3.6724625755005817`*^9, 3.672462616535562*^9}, 
+   3.6724626919939947`*^9, 3.672462763323325*^9, 3.6724629047974052`*^9, 
+   3.672462943748152*^9, 3.672463206632762*^9, {3.672463246479095*^9, 
+   3.6724632689700527`*^9}, {3.672463315860568*^9, 3.672463329568918*^9}, {
+   3.672463415556312*^9, 3.672463429656973*^9}, {3.672463662687666*^9, 
+   3.6724637043855553`*^9}, {3.672463743634199*^9, 3.672463768736587*^9}, 
+   3.6724639375292788`*^9, 3.672463979396007*^9, 3.672464054889288*^9, {
+   3.672464197914411*^9, 3.672464209663294*^9}, 3.672464292446557*^9, {
+   3.672464359256233*^9, 3.672464373038892*^9}, 3.672465394563628*^9, 
+   3.672465680266982*^9, 3.672465717498266*^9, 3.672465761393055*^9, 
+   3.672466122401435*^9, 3.67246616609999*^9, {3.672466238556437*^9, 
+   3.672466252337875*^9}}],
 
-Cell[BoxData["1"], "Print",
+Cell[BoxData["3"], "Print",
  CellChangeTimes->{
   3.672124724277341*^9, 3.672124773817162*^9, {3.672124808263302*^9, 
    3.6721248345305347`*^9}, 3.672124925697442*^9, 3.672125006180749*^9, {
@@ -4751,20 +4869,24 @@ Cell[BoxData["1"], "Print",
    3.672139476642797*^9}, 3.672140216620784*^9, 3.672140250808332*^9, 
    3.6721403232002563`*^9, 3.672140377574638*^9, {3.672140524127833*^9, 
    3.67214054082071*^9}, 3.672140600974625*^9, {3.6721406522753773`*^9, 
-   3.672140699281912*^9}, 3.672140739788413*^9, 3.672140883862919*^9}]
-}, Open  ]],
-
-Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Part", "::", "pkspec1"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"The expression \
-\[NoBreak]\\!\\(\\*RowBox[{\\\"$Failed\\\"}]\\)\[NoBreak] cannot be used as a \
-part specification. \\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", \
-ButtonStyle->\\\"Link\\\", ButtonFrame->None, ButtonData:>\\\"paclet:ref/Part\
-\\\", ButtonNote -> \\\"Part::pkspec1\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{3.672140885133408*^9}]
+   3.672140699281912*^9}, 3.672140739788413*^9, 3.6721408816188993`*^9, 
+   3.672461991822424*^9, {3.6724620919733467`*^9, 3.6724620975011387`*^9}, {
+   3.672462263417227*^9, 3.672462285586718*^9}, {3.672462345195537*^9, 
+   3.6724623566403217`*^9}, {3.6724624228664417`*^9, 
+   3.6724624328145647`*^9}, {3.672462474162101*^9, 3.672462504708743*^9}, 
+   3.6724625348011703`*^9, {3.6724625755005817`*^9, 3.672462616535562*^9}, 
+   3.6724626919939947`*^9, 3.672462763323325*^9, 3.6724629047974052`*^9, 
+   3.672462943748152*^9, 3.672463206632762*^9, {3.672463246479095*^9, 
+   3.6724632689700527`*^9}, {3.672463315860568*^9, 3.672463329568918*^9}, {
+   3.672463415556312*^9, 3.672463429656973*^9}, {3.672463662687666*^9, 
+   3.6724637043855553`*^9}, {3.672463743634199*^9, 3.672463768736587*^9}, 
+   3.6724639375292788`*^9, 3.672463979396007*^9, 3.672464054889288*^9, {
+   3.672464197914411*^9, 3.672464209663294*^9}, 3.672464292446557*^9, {
+   3.672464359256233*^9, 3.672464373038892*^9}, 3.672465394563628*^9, 
+   3.672465680266982*^9, 3.672465717498266*^9, 3.672465761393055*^9, 
+   3.672466122401435*^9, 3.67246616609999*^9, {3.672466238556437*^9, 
+   3.6724662523402033`*^9}}]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4803,7 +4925,7 @@ Cell[BoxData[
 }, Open  ]]
 },
 WindowSize->{1321, 716},
-WindowMargins->{{-6, Automatic}, {Automatic, -10}},
+WindowMargins->{{Automatic, -6}, {Automatic, -10}},
 FrontEndVersion->"10.3 for Linux x86 (64-bit) (December 10, 2015)",
 StyleDefinitions->"Default.nb"
 ]
@@ -4930,52 +5052,52 @@ CellTagsIndex->{
   Cell[163467, 3984, 977, 18, 44, "Print",
    CellTags->"Info-f984c0a4-bbb0-4d90-b516-5270d22a906f"]},
  "Info-fdb2015f-71a9-436a-9495-0a623abd61bd"->{
-  Cell[167376, 4091, 1493, 25, 63, "Print",
+  Cell[167350, 4089, 1493, 25, 63, "Print",
    CellTags->"Info-fdb2015f-71a9-436a-9495-0a623abd61bd"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info-04200f45-2a9b-4994-87a8-c8d35997eeed", 202484, 4814},
- {"Info-10810e07-7ebf-427f-bbb3-a589ea606f6d", 202631, 4817},
- {"Info-4aea8be7-a096-4e22-a7b0-ae3767d4ac92", 202777, 4820},
- {"Info-7c7c1db7-c204-4d80-be48-47e2af1e475f", 202926, 4823},
- {"Info-ce61ce8e-a67d-4d58-b15c-c9f5e2ebc056", 203076, 4826},
- {"Info-0c593796-c304-409e-a62e-34985b19e485", 203228, 4829},
- {"Info-feedd0fe-f32d-47f4-8029-02af9c6f4230", 203378, 4832},
- {"Info-e9d23d51-3e9c-4ef7-acab-3c558ab80a5d", 203528, 4835},
- {"Info-2c9169cf-4ec0-4f54-9ee6-570ea02bfab2", 203678, 4838},
- {"Info-fdc69621-efd3-4ac4-a50d-445bf1902e1f", 203830, 4841},
- {"Info-f892293f-0691-4075-958c-217c169f9776", 203981, 4844},
- {"Info-252db92e-d13d-4bb5-aa92-a2d7304f7e64", 204131, 4847},
- {"Info-0f60749a-1330-49e2-b3af-c67514dbc35f", 204283, 4850},
- {"Info-c0c54ed1-4928-4f1f-a0dc-a3bec96adb9b", 204435, 4853},
- {"Info-e693b417-a496-475e-8e33-1eb70b2bfeda", 204587, 4856},
- {"Info-c006dba7-9d79-47fe-9a0b-b60c0e6ab1dd", 204738, 4859},
- {"Info-bf5cef95-0f85-4f04-9eae-31ea2b15751d", 204888, 4862},
- {"Info-219a65a6-b33e-4833-8ac6-f862381c99ee", 205038, 4865},
- {"Info-cf4a7875-73f6-4155-bdd9-e672514b2b23", 205189, 4868},
- {"Info-217ab57e-aea4-442a-93d0-19005c6d871b", 205341, 4871},
- {"Info-462a04d6-e0a5-47aa-95b2-e58f068bf30c", 205493, 4874},
- {"Info-6b89579f-4681-4552-a563-52afb16b7178", 205643, 4877},
- {"Info-b3f2b1f5-afec-4f22-858e-03092fdc94a9", 205795, 4880},
- {"Info-7977e626-cacd-4d38-8036-b687adf559d8", 205946, 4883},
- {"Info-29826e5a-f7f0-4d63-8574-7adeebbebced", 206097, 4886},
- {"Info-9f39f715-79fd-4147-8b39-2f0ce8afd7e7", 206248, 4889},
- {"Info-8afd66df-07c6-456f-98cb-94bbd857c053", 206399, 4892},
- {"Info-446b8619-b438-4551-adde-2acea1f4f213", 206552, 4895},
- {"Info-fcaf77f9-fc3a-454d-a929-59ab8588f6cd", 206704, 4898},
- {"Info-8eba2e8b-b6e2-426c-a46c-7325be4e9f8d", 206856, 4901},
- {"Info-abed84c0-b21c-4b6d-b9ad-fbd2dfd4f32e", 207009, 4904},
- {"Info-3c231881-368c-484a-b2f9-3cbb38c6f365", 207160, 4907},
- {"Info-036b766b-5cdf-49a6-bbe3-7251872e389d", 207312, 4910},
- {"Info-547f6dac-fa1c-452b-895f-01add382295d", 207463, 4913},
- {"Info-3064d23d-5b8d-4c66-9a2d-cb53fcf7497e", 207615, 4916},
- {"Info-c7c5d4ea-22bf-4af8-8838-9d8e3be6e3c8", 207767, 4919},
- {"Info-b2c4b6a6-8de2-4598-a757-21f12a8041ba", 207919, 4922},
- {"Info-0d331391-2350-4cab-9151-33e93fa9604f", 208070, 4925},
- {"Info-f984c0a4-bbb0-4d90-b516-5270d22a906f", 208222, 4928},
- {"Info-fdb2015f-71a9-436a-9495-0a623abd61bd", 208373, 4931}
+ {"Info-04200f45-2a9b-4994-87a8-c8d35997eeed", 210339, 4936},
+ {"Info-10810e07-7ebf-427f-bbb3-a589ea606f6d", 210486, 4939},
+ {"Info-4aea8be7-a096-4e22-a7b0-ae3767d4ac92", 210632, 4942},
+ {"Info-7c7c1db7-c204-4d80-be48-47e2af1e475f", 210781, 4945},
+ {"Info-ce61ce8e-a67d-4d58-b15c-c9f5e2ebc056", 210931, 4948},
+ {"Info-0c593796-c304-409e-a62e-34985b19e485", 211083, 4951},
+ {"Info-feedd0fe-f32d-47f4-8029-02af9c6f4230", 211233, 4954},
+ {"Info-e9d23d51-3e9c-4ef7-acab-3c558ab80a5d", 211383, 4957},
+ {"Info-2c9169cf-4ec0-4f54-9ee6-570ea02bfab2", 211533, 4960},
+ {"Info-fdc69621-efd3-4ac4-a50d-445bf1902e1f", 211685, 4963},
+ {"Info-f892293f-0691-4075-958c-217c169f9776", 211836, 4966},
+ {"Info-252db92e-d13d-4bb5-aa92-a2d7304f7e64", 211986, 4969},
+ {"Info-0f60749a-1330-49e2-b3af-c67514dbc35f", 212138, 4972},
+ {"Info-c0c54ed1-4928-4f1f-a0dc-a3bec96adb9b", 212290, 4975},
+ {"Info-e693b417-a496-475e-8e33-1eb70b2bfeda", 212442, 4978},
+ {"Info-c006dba7-9d79-47fe-9a0b-b60c0e6ab1dd", 212593, 4981},
+ {"Info-bf5cef95-0f85-4f04-9eae-31ea2b15751d", 212743, 4984},
+ {"Info-219a65a6-b33e-4833-8ac6-f862381c99ee", 212893, 4987},
+ {"Info-cf4a7875-73f6-4155-bdd9-e672514b2b23", 213044, 4990},
+ {"Info-217ab57e-aea4-442a-93d0-19005c6d871b", 213196, 4993},
+ {"Info-462a04d6-e0a5-47aa-95b2-e58f068bf30c", 213348, 4996},
+ {"Info-6b89579f-4681-4552-a563-52afb16b7178", 213498, 4999},
+ {"Info-b3f2b1f5-afec-4f22-858e-03092fdc94a9", 213650, 5002},
+ {"Info-7977e626-cacd-4d38-8036-b687adf559d8", 213801, 5005},
+ {"Info-29826e5a-f7f0-4d63-8574-7adeebbebced", 213952, 5008},
+ {"Info-9f39f715-79fd-4147-8b39-2f0ce8afd7e7", 214103, 5011},
+ {"Info-8afd66df-07c6-456f-98cb-94bbd857c053", 214254, 5014},
+ {"Info-446b8619-b438-4551-adde-2acea1f4f213", 214407, 5017},
+ {"Info-fcaf77f9-fc3a-454d-a929-59ab8588f6cd", 214559, 5020},
+ {"Info-8eba2e8b-b6e2-426c-a46c-7325be4e9f8d", 214711, 5023},
+ {"Info-abed84c0-b21c-4b6d-b9ad-fbd2dfd4f32e", 214864, 5026},
+ {"Info-3c231881-368c-484a-b2f9-3cbb38c6f365", 215015, 5029},
+ {"Info-036b766b-5cdf-49a6-bbe3-7251872e389d", 215167, 5032},
+ {"Info-547f6dac-fa1c-452b-895f-01add382295d", 215318, 5035},
+ {"Info-3064d23d-5b8d-4c66-9a2d-cb53fcf7497e", 215470, 5038},
+ {"Info-c7c5d4ea-22bf-4af8-8838-9d8e3be6e3c8", 215622, 5041},
+ {"Info-b2c4b6a6-8de2-4598-a757-21f12a8041ba", 215774, 5044},
+ {"Info-0d331391-2350-4cab-9151-33e93fa9604f", 215925, 5047},
+ {"Info-f984c0a4-bbb0-4d90-b516-5270d22a906f", 216077, 5050},
+ {"Info-fdb2015f-71a9-436a-9495-0a623abd61bd", 216228, 5053}
  }
 *)
 (*NotebookFileOutline
@@ -5410,50 +5532,45 @@ Cell[163467, 3984, 977, 18, 44, "Print",
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[164481, 4007, 391, 11, 32, "Input"],
-Cell[164875, 4020, 675, 13, 23, "Message"],
-Cell[165553, 4035, 672, 12, 23, "Message"],
-Cell[166228, 4049, 342, 10, 32, "Output"]
+Cell[164875, 4020, 662, 12, 23, "Message"],
+Cell[165540, 4034, 659, 11, 23, "Message"],
+Cell[166202, 4047, 342, 10, 32, "Output"]
 }, Open  ]],
-Cell[166585, 4062, 94, 1, 32, "Input"],
-Cell[166682, 4065, 93, 1, 32, "Input"],
+Cell[166559, 4060, 94, 1, 32, "Input"],
+Cell[166656, 4063, 93, 1, 32, "Input"],
 Cell[CellGroupData[{
-Cell[166800, 4070, 247, 6, 55, "Input"],
-Cell[167050, 4078, 115, 3, 32, "Output"]
+Cell[166774, 4068, 247, 6, 55, "Input"],
+Cell[167024, 4076, 115, 3, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[167202, 4086, 171, 3, 32, "Input"],
-Cell[167376, 4091, 1493, 25, 63, "Print",
+Cell[167176, 4084, 171, 3, 32, "Input"],
+Cell[167350, 4089, 1493, 25, 63, "Print",
  CellTags->"Info-fdb2015f-71a9-436a-9495-0a623abd61bd"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[168906, 4121, 176, 4, 32, "Input"],
-Cell[169085, 4127, 116, 2, 32, "Output"]
+Cell[168880, 4119, 176, 4, 32, "Input"],
+Cell[169059, 4125, 116, 2, 32, "Output"]
 }, Open  ]],
-Cell[169216, 4132, 20260, 426, 2299, "Input"],
+Cell[169190, 4130, 27176, 563, 2926, "Input"],
 Cell[CellGroupData[{
-Cell[189501, 4562, 179, 3, 65, "Input"],
-Cell[189683, 4567, 3081, 44, 23, "Print"],
-Cell[192767, 4613, 463, 10, 23, "Message"],
-Cell[193233, 4625, 461, 10, 23, "Message"],
-Cell[193697, 4637, 463, 10, 23, "Message"],
-Cell[194163, 4649, 564, 12, 23, "Message"],
+Cell[196391, 4697, 278, 4, 32, "Input"],
 Cell[CellGroupData[{
-Cell[194752, 4665, 3079, 44, 23, "Print"],
-Cell[197834, 4711, 3024, 42, 23, "Print"]
-}, Open  ]],
-Cell[200873, 4756, 478, 10, 23, "Message"]
+Cell[196694, 4705, 4185, 60, 23, "Print"],
+Cell[200882, 4767, 4176, 60, 23, "Print"],
+Cell[205061, 4829, 4133, 58, 23, "Print"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[201388, 4771, 72, 1, 32, "Input"],
-Cell[201463, 4774, 75, 1, 32, "Output"]
+Cell[209243, 4893, 72, 1, 32, "Input"],
+Cell[209318, 4896, 75, 1, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[201575, 4780, 172, 4, 32, "Input"],
-Cell[201750, 4786, 115, 3, 32, "Output"]
+Cell[209430, 4902, 172, 4, 32, "Input"],
+Cell[209605, 4908, 115, 3, 32, "Output"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[201902, 4794, 126, 2, 32, "Input"],
-Cell[202031, 4798, 114, 3, 23, "Print"]
+Cell[209757, 4916, 126, 2, 32, "Input"],
+Cell[209886, 4920, 114, 3, 23, "Print"]
 }, Open  ]]
 }
 ]
