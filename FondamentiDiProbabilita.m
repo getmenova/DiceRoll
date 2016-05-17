@@ -75,7 +75,7 @@ TreCarte[] :=
   tableCards = RandomChoice[Permutations[{1, 0, 0}]];
   choise = DialogInput[
     DialogNotebook[{
-      Row[{TextCell["Scegli una carta"]}],
+      Row[{TextCell["Scegli una carta."]}],
       Row[{
         Button[Graphics[Import["cover.jpg", "Graphics"]], 
          DialogReturn[1]],
@@ -102,7 +102,7 @@ TreCarte[] :=
   If[revelated[[1]] == 1,
    nextchoise = DialogInput[
      DialogNotebook[{
-       Row[{TextCell["Vuoi cambiare carta?"]}],
+       Row[{TextCell["Vuoi cambiare la carta scelta in precedenza?"]}],
        Row[{
          Import["coverChoose.jpg", "Graphics"],
          Button[Graphics[Import["cover.jpg", "Graphics"]], 
@@ -116,7 +116,7 @@ TreCarte[] :=
   If[revelated[[1]] == 2,
    nextchoise = DialogInput[
      DialogNotebook[{
-       Row[{TextCell["Vuoi cambiare carta?"]}],
+       Row[{TextCell["Vuoi cambiare la carta scelta in precedenza?"]}],
        Row[{
          Button[Graphics[Import["cover.jpg", "Graphics"]], 
           DialogReturn[1]],
@@ -130,7 +130,7 @@ TreCarte[] :=
   If[revelated[[1]] == 3,
    nextchoise = DialogInput[
      DialogNotebook[{
-       Row[{TextCell["Vuoi cambiare carta?"]}],
+       Row[{TextCell["Vuoi cambiare la carta scelta in precedenza?"]}],
        Row[{
          Button[Graphics[Import["cover.jpg", "Graphics"]], 
           DialogReturn[1]],
@@ -145,7 +145,7 @@ TreCarte[] :=
    If[nextchoise == 1,
     DialogInput[
      DialogNotebook[{
-       Row[{TextCell["Complimenti, hai vinto!!!"]}],
+       Row[{TextCell["Complimenti, hai vinto!"]}],
        Grid[{{
           Import["coverWin.jpg", "Graphics"],
           Import["coverChoose.jpg", "Graphics"],
@@ -156,7 +156,7 @@ TreCarte[] :=
    If[nextchoise == 2,
     DialogInput[
      DialogNotebook[{
-       Row[{TextCell["Complimenti, hai vinto!!!"]}],
+       Row[{TextCell["Complimenti, hai vinto!"]}],
        Grid[{{
           Import["coverChoose.jpg", "Graphics"],
           Import["coverWin.jpg", "Graphics"],
@@ -167,7 +167,7 @@ TreCarte[] :=
    If[nextchoise == 3,
     DialogInput[
      DialogNotebook[{
-       Row[{TextCell["Complimenti, hai vinto!!!"]}],
+       Row[{TextCell["Complimenti, hai vinto!"]}],
        Grid[{{
           Import["coverChoose.jpg", "Graphics"],
           Import["coverChoose.jpg", "Graphics"],
@@ -179,7 +179,7 @@ TreCarte[] :=
    If[tableCards[[1]] == 1,
     DialogInput[
      DialogNotebook[{
-       Row[{TextCell["Mi dispiace, hai perso!!!"]}],
+       Row[{TextCell["Mi dispiace, hai perso!"]}],
        Grid[{{
           Import["coverWin.jpg", "Graphics"],
           Import["coverChoose.jpg", "Graphics"],
@@ -190,7 +190,7 @@ TreCarte[] :=
    If[tableCards[[2]] == 1,
     DialogInput[
      DialogNotebook[{
-       Row[{TextCell["Mi dispiace, hai perso!!!"]}],
+       Row[{TextCell["Mi dispiace, hai perso!"]}],
        Grid[{{
           Import["coverChoose.jpg", "Graphics"],
           Import["coverWin.jpg", "Graphics"],
@@ -201,7 +201,7 @@ TreCarte[] :=
    If[tableCards[[3]] == 1,
     DialogInput[
      DialogNotebook[{
-       Row[{TextCell["Mi dispiace, hai perso!!!"]}],
+       Row[{TextCell["Mi dispiace, hai perso!"]}],
        Grid[{{
           Import["coverChoose.jpg", "Graphics"],
           Import["coverChoose.jpg", "Graphics"],
