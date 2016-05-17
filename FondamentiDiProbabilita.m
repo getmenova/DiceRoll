@@ -33,6 +33,9 @@ CalcoloProbabilitaContraria::usage =
 TreCarte::usage = 
 	"TreCarte[] simula il famoso gioco delle tre carte."
 
+RipetiTreCarte::usage =
+	"RipetiTreCarte[] simula prove ripetute per il gioco delle tre carte, resitituendo un istogramma dei risultati."
+
 Begin["Private`"]
 
 (* Function che simula n volte il lancio di un dado. *)
@@ -68,7 +71,7 @@ CalcoloProbabilitaContraria[favorevoli_, totali_] /;
 (* Gioco delle tre carte *)
 TreCarte[] := 
  Module[{positionCards = {1, 2, 3}, tableCards, choise, notRevealed, 
-   appoggio, nextchoise},
+   appoggio, nextchoise, revelated, myHand},
   tableCards = RandomChoice[Permutations[{1, 0, 0}]];
   Print[tableCards];
   choise = DialogInput[
@@ -99,10 +102,10 @@ TreCarte[] :=
      ];
    ];
   Print[revelated[[1]]];
-  nextchoise = DialogInput[
-    DialogNotebook[{
-      Row[{TextCell["Vuoi cambiare carta?"]}],
-      If[revelated[[1]] == 1,
+  If[revelated[[1]] == 1,
+   nextchoise = DialogInput[
+     DialogNotebook[{
+       Row[{TextCell["Vuoi cambiare carta?"]}],
        Row[{
          Import["coverChoose.jpg", "Graphics"],
          Button[Graphics[Import["cover.jpg", "Graphics"]], 
@@ -110,78 +113,122 @@ TreCarte[] :=
          Button[Graphics[Import["cover.jpg", "Graphics"]], 
           DialogReturn[3]]
          }]
-       ],
-      If[revelated[[1]] == 2,
-       Row[{
-         Button[Graphics[Import["cover.jpg", "Graphics"]], 
-          DialogReturn[1]],
-         Import["coverChoose.jpg", "Graphics"],
-         Button[Graphics[Import["cover.jpg", "Graphics"]], 
-          DialogReturn[3]]
-         }]
-       ],
-      If[revelated[[1]] == 3,
-       Row[{
-         Button[Graphics[Import["cover.jpg", "Graphics"]], 
-          DialogReturn[1]],
-         Button[Graphics[Import["cover.jpg", "Graphics"]], 
-          DialogReturn[2]],
-         Import["coverChoose.jpg", "Graphics"]
-         }]
-       ]
-      }]];
-  If[tableCards[[nextchoise]] == 1,
-   DialogInput[
-    DialogNotebook[{
-      Row[{TextCell["Complimenti, hai vinto!!!"]}],
-      If[nextchoise == 1,
-       Row[{
-         Import["coverWin.jpg", "Graphics"],
-         Import["coverChoose.jpg", "Graphics"],
-         Import["coverChoose.jpg", "Graphics"]
-         }]
-       ],
-      If[nextchoise == 2,
-       Row[{
-         Import["coverChoose.jpg", "Graphics"],
-         Import["coverWin.jpg", "Graphics"],
-         Import["coverChoose.jpg", "Graphics"]
-         }]
-       ],
-      If[nextchoise == 3,
-       Row[{
-         Import["coverChoose.jpg", "Graphics"],
-         Import["coverChoose.jpg", "Graphics"],
-         Import["coverWin.jpg", "Graphics"]
-         }]
-       ]
-      }]],
-   DialogInput[
-    DialogNotebook[{
-      Row[{TextCell["Mi dispiace, hai perso!!!"]}],
-      If[tableCards[[1]] == 1,
-       Row[{
-         Import["coverWin.jpg", "Graphics"],
-         Import["coverChoose.jpg", "Graphics"],
-         Import["coverChoose.jpg", "Graphics"]
-         }]
-       ],
-      If[tableCards[[2]] == 1,
-       Row[{
-         Import["coverChoose.jpg", "Graphics"],
-         Import["coverWin.jpg", "Graphics"],
-         Import["coverChoose.jpg", "Graphics"]
-         }]
-       ],
-      If[tableCards[[3]] == 1,
-       Row[{
-         Import["coverChoose.jpg", "Graphics"],
-         Import["coverChoose.jpg", "Graphics"],
-         Import["coverWin.jpg", "Graphics"]
-         }]
-       ]
-      }]]
+       }]
+     ]
    ];
+  If[revelated[[1]] == 2,
+   nextchoise = DialogInput[
+     DialogNotebook[{
+       Row[{TextCell["Vuoi cambiare carta?"]}],
+       Row[{
+         Button[Graphics[Import["cover.jpg", "Graphics"]], 
+          DialogReturn[1]],
+         Import["coverChoose.jpg", "Graphics"],
+         Button[Graphics[Import["cover.jpg", "Graphics"]], 
+          DialogReturn[3]]
+         }]
+       }]
+     ]
+   ];
+  If[revelated[[1]] == 3,
+   nextchoise = DialogInput[
+     DialogNotebook[{
+       Row[{TextCell["Vuoi cambiare carta?"]}],
+       Row[{
+         Button[Graphics[Import["cover.jpg", "Graphics"]], 
+          DialogReturn[1]],
+         Button[Graphics[Import["cover.jpg", "Graphics"]], 
+          DialogReturn[2]],
+         Import["coverChoose.jpg", "Graphics"]
+         }]
+       }]
+     ]
+   ];
+  If[tableCards[[nextchoise]] == 1,
+   If[nextchoise == 1,
+    DialogInput[
+     DialogNotebook[{
+       Row[{TextCell["Complimenti, hai vinto!!!"]}],
+       Grid[{{
+          Import["coverWin.jpg", "Graphics"],
+          Import["coverChoose.jpg", "Graphics"],
+          Import["coverChoose.jpg", "Graphics"]
+          }, {Null, Button["Fine Partita", DialogReturn[0]]}}]
+       }]
+     ]];
+   If[nextchoise == 2,
+    DialogInput[
+     DialogNotebook[{
+       Row[{TextCell["Complimenti, hai vinto!!!"]}],
+       Grid[{{
+          Import["coverChoose.jpg", "Graphics"],
+          Import["coverWin.jpg", "Graphics"],
+          Import["coverChoose.jpg", "Graphics"]
+          }, {Null, Button["Fine Partita", DialogReturn[0]]}}]
+       }]
+     ]];
+   If[nextchoise == 3,
+    DialogInput[
+     DialogNotebook[{
+       Row[{TextCell["Complimenti, hai vinto!!!"]}],
+       Grid[{{
+          Import["coverChoose.jpg", "Graphics"],
+          Import["coverChoose.jpg", "Graphics"],
+          Import["coverWin.jpg", "Graphics"]
+          }, {Null, Button["Fine Partita", DialogReturn[0]]}}]
+       }]
+     ]];
+   Return[0],
+   If[tableCards[[1]] == 1,
+    DialogInput[
+     DialogNotebook[{
+       Row[{TextCell["Mi dispiace, hai perso!!!"]}],
+       Grid[{{
+          Import["coverWin.jpg", "Graphics"],
+          Import["coverChoose.jpg", "Graphics"],
+          Import["coverChoose.jpg", "Graphics"]
+          }, {Null, Button["Fine Partita", DialogReturn[0]]}}]
+       }]
+     ]];
+   If[tableCards[[2]] == 1,
+    DialogInput[
+     DialogNotebook[{
+       Row[{TextCell["Mi dispiace, hai perso!!!"]}],
+       Grid[{{
+          Import["coverChoose.jpg", "Graphics"],
+          Import["coverWin.jpg", "Graphics"],
+          Import["coverChoose.jpg", "Graphics"]
+          }, {Null, Button["Fine Partita", DialogReturn[0]]}}]
+       }]
+     ]];
+   If[tableCards[[3]] == 1,
+    DialogInput[
+     DialogNotebook[{
+       Row[{TextCell["Mi dispiace, hai perso!!!"]}],
+       Grid[{{
+          Import["coverChoose.jpg", "Graphics"],
+          Import["coverChoose.jpg", "Graphics"],
+          Import["coverWin.jpg", "Graphics"]
+          }, {Null, Button["Fine Partita", DialogReturn[0]]}}]
+       }]
+     ]];
+   Return[1]];
+  ]
+
+(* Function delle prove ripetute del gioco delle tre carte *)
+RipetiTreCarte[] := Module[
+  {answer = 0, numVinte = 0, numPerse = 0, res},
+  While[answer == 0,
+   res = TreCarte[];
+   If[res == 0,
+    numVinte = numVinte + 1,
+    numPerse = numPerse + 1
+    ];
+   answer = ChoiceDialog["Vuoi continuare?", {"Si" -> 0, "No" -> 1}];
+   ];
+  BarChart[{numVinte, numPerse}, 
+   ChartLabels -> {"Vittorie", "Sconfitte"}, 
+   ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel"]
   ]
 
 End[]
