@@ -48,6 +48,9 @@ LanciaDadoProbabilita::usage =
 PlotLanciaDadoProbabilita::usage =
 	"PlotLanciaDadoProbabilita[] genera un bottone per eseguire delle prove ripetute per il lancio di un dado."
 
+DadoTreD::usage =
+	"DadoTreD[] disegna un dado in tre dimensioni."
+
 Begin["Private`"]
 
 (* Function che simula n volte il lancio di un dado. *)
@@ -242,6 +245,25 @@ RipetiTreCarte[] := Module[
 
 (* FUCTION AUSILIARIE *)
 
+(* Function per il disegno di un dado a sei facce *)
+DadoTreD[] := Module[{fullQuad, faces},
+	faces = Import /@ {"http://i.stack.imgur.com/FdfMj.png", 
+    "http://i.stack.imgur.com/Qv7w6.png", 
+    "http://i.stack.imgur.com/WayOQ.png", 
+    "http://i.stack.imgur.com/mgjkA.png", 
+    "http://i.stack.imgur.com/qa5bK.png", 
+    "http://i.stack.imgur.com/T8szh.png"};
+
+	fullQuad = {{0, 0}, {1, 0}, {1, 1}, {0, 1}};
+	cube = PolyhedronData["Cube", "Faces"];
+
+	Graphics3D[
+ 		MapThread[{Texture[#], 
+    	Polygon[cube[[1, #2]], 
+    	VertexTextureCoordinates -> fullQuad]} &, {faces, cube[[2, 1]]}],
+  Lighting -> "Neutral", Boxed -> False]
+]
+
 (* Function ausiliaria del bottone per la Probabilità classica *)
 BottoneProbabilita[] := Module[{output = 1/2},
 	Button["Probabilità Classica",
@@ -264,7 +286,7 @@ BottoneProbabilitaN[] := Module[{output = 1/2},
 	Dynamic@N[output]
 ]
 
-LanciaDadoProbabilita[] := Module[{output = 1, volte},
+LanciaDadoProbabilita[] := Module[{output = {1}, volte},
 	Button["Lancia dado", 
  	output = DialogInput[
    DialogNotebook[{TextCell["Quante volte vuoi lanciare il dado?"], 
