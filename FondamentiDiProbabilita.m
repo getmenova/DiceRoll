@@ -238,7 +238,7 @@ RipetiTreCarte[] := Module[
 
 (* Function ausiliaria del bottone per la Probabilità classica *)
 BottoneProbabilita[] := (
-	Button["Enter value",
+	Button["Probabilità Classica",
 	output=DialogInput[{favorevoli=""},
 	Column[{"Casi favorevoli",
 	InputField[Dynamic[favorevoli],Number],"Casi possibili",
@@ -249,7 +249,7 @@ BottoneProbabilita[] := (
 
 (* Function ausiliaria del bottone per la Probabilità classica con numericizza *)
 BottoneProbabilitaN[] := Module[{output},
-	Button["Enter value",
+	Button["Probabilità Classica",
 	output=DialogInput[{favorevoli=""},
 	Column[{"Casi favorevoli",
 	InputField[Dynamic[favorevoli],Number],"Casi possibili",
