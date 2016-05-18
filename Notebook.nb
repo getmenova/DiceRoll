@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     15728,        367]
-NotebookOptionsPosition[     14719,        330]
-NotebookOutlinePosition[     15056,        345]
-CellTagsIndexPosition[     15013,        342]
+NotebookDataLength[     19926,        480]
+NotebookOptionsPosition[     18344,        425]
+NotebookOutlinePosition[     18941,        445]
+CellTagsIndexPosition[     18898,        442]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -50,16 +50,20 @@ Cell[TextData[{
 a Monopoli o a Dungeons & Dragons, che, lanciando i dadi, uscisse proprio il \
 punteggio che volevate evitare? Avete mai partecipato a qualche gioco a premi \
 in cui avevate comprato molti biglietti, senza riuscire tuttavia a vincere \
-qualcosa?\n\[LeftGuillemet]Che sfortuna!\[RightGuillemet], sar\[AGrave] stato \
-il vostro primo pensiero. Molto spesso, in questi casi, infatti, siamo \
-portati a credere a miti, storie, false credenze. Come dimenticare il buon \
-vecchio ferro di cavallo o il quadrifoglio portafortuna? Proprio lei, la \
-Fortuna, divinit\[AGrave] venerata dagli antichi greci come entit\[AGrave] \
-generatrice degli eventi in maniera favorevole o sfavorefole ad un individuo, \
-sembra essere la causa prima di circostanze non spiegabili razionalmente. La \
-scienza, tuttavia, ancora una volta, riesce a mettere al bando tutto questo, \
-fornendo una teoria concreta e coerente per affrontare questo genere di \
-situazioni. Nei prossimi paragrafi andremo ad analizzare il concetto di \
+qualcosa?\n",
+ StyleBox["\[LeftGuillemet]Che sfortuna!\[RightGuillemet]",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0.6, 0.4, 0.2]],
+ ", sar\[AGrave] stato il vostro primo pensiero. Molto spesso, in questi \
+casi, infatti, siamo portati a credere a miti, storie, false credenze. Come \
+dimenticare il buon vecchio ferro di cavallo o il quadrifoglio portafortuna? \
+Proprio lei, la Fortuna, divinit\[AGrave] venerata dagli antichi greci come \
+entit\[AGrave] generatrice degli eventi in maniera favorevole o sfavorefole \
+ad un individuo, sembra essere la causa prima di circostanze non spiegabili \
+razionalmente. La scienza, tuttavia, ancora una volta, riesce a mettere al \
+bando tutto questo, fornendo una teoria concreta e coerente per affrontare \
+questo genere di situazioni. Nei prossimi paragrafi andremo ad analizzare il \
+concetto di \
 \[OpenCurlyDoubleQuote]probabilit\[AGrave]\[CloseCurlyDoubleQuote] e vedremo, \
 anche tramite esempi pratici, come applicare questa teoria in semplici casi \
 piuttosto verosimli. \nCarichiamo dunque per prima cosa il package ",
@@ -129,6 +133,8 @@ ed un numero di casi possibili pari a 2, otteniamo il risultato desiderato:"
    3.672506247566918*^9}, {3.672506282482089*^9, 3.672506282568886*^9}, {
    3.672549467060843*^9, 3.6725494829173*^9}}],
 
+Cell[CellGroupData[{
+
 Cell[BoxData[
  RowBox[{"BottoneProbabilita", "[", "]"}]], "Code",
  EvaluatorNames->{"Local" -> {"AutoStartOnLaunch" -> True}},
@@ -176,31 +182,37 @@ Cell[BoxData[
  Magnification->1.,
  Background->GrayLevel[0.92]],
 
-Cell[BoxData[{
- ButtonBox["\<\"Enter value\"\>",
-  Appearance->Automatic,
-  ButtonFunction:>(Private`output = DialogInput[{Private`favorevoli = ""}, 
-     Column[{"Casi favorevoli", 
-       InputField[
-        Dynamic[Private`favorevoli], Number], "Casi possibili", 
-       InputField[
-        Dynamic[Private`possibili], Number], 
-       Button["Accept", 
-        DialogReturn[
-        Private`output = 
-         FondamentiDiProbabilita`CalcoloProbabilita[
-          Private`favorevoli, Private`possibili]]]}]]),
-  Evaluator->Automatic,
-  Method->"Queued"], "\[IndentingNewLine]", 
- RowBox[{" ", 
-  DynamicBox[ToBoxes[Private`output, StandardForm],
-   ImageSizeCache->{14.399999999999999`, {15.7, 22.939999999999998`}}]}]}], \
-"Input",
- CellChangeTimes->{{3.672550308991893*^9, 3.672550308995014*^9}},
- Background->RGBColor[0.87, 0.94, 1]],
+Cell[BoxData[
+ RowBox[{
+  ButtonBox["\<\"Probabilit\[AGrave] Classica\"\>",
+   Appearance->Automatic,
+   ButtonFunction:>(Private`output$325 = 
+    DialogInput[{Private`favorevoli = ""}, 
+      Column[{"Casi favorevoli", 
+        InputField[
+         Dynamic[Private`favorevoli], Number], "Casi possibili", 
+        InputField[
+         Dynamic[Private`possibili], Number], 
+        Button["Calcola", 
+         DialogReturn[
+         Private`output$325 = 
+          FondamentiDiProbabilita`CalcoloProbabilita[
+           Private`favorevoli, Private`possibili]]]}]]),
+   Evaluator->Automatic,
+   Method->"Queued"], " ", 
+  DynamicBox[ToBoxes[Private`output$325, StandardForm],
+   ImageSizeCache->{14.399999999999999`, {11.7, 19.93}}]}]], "Output",
+ CellChangeTimes->{3.672551775333918*^9, 3.672553672707891*^9, 
+  3.672553780653288*^9, 3.672553837591221*^9, 3.6725543084283533`*^9, 
+  3.672554359090909*^9, 3.672554451445136*^9, 3.672554568735503*^9, 
+  3.672554802701035*^9, 3.6725548745116463`*^9},
+ Background->RGBColor[0.87, 0.94, 1]]
+}, Open  ]],
 
 Cell["O pi\[UGrave] precisamente:", "Text",
  CellChangeTimes->{{3.672117735640682*^9, 3.6721177808429413`*^9}}],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"BottoneProbabilitaN", "[", "]"}]], "Code",
@@ -208,11 +220,11 @@ Cell[BoxData[
   3.672549707052244*^9, 3.6725497115561113`*^9}, {3.672550136456966*^9, 
   3.672550136786182*^9}}],
 
-Cell[BoxData[{
+Cell[BoxData[
  RowBox[{
-  ButtonBox["\<\"Enter value\"\>",
+  ButtonBox["\<\"Probabilit\[AGrave] Classica\"\>",
    Appearance->Automatic,
-   ButtonFunction:>(Private`output$331 = 
+   ButtonFunction:>(Private`output$332 = 
     DialogInput[{Private`favorevoli = ""}, 
       Column[{"Casi favorevoli", 
         InputField[
@@ -221,16 +233,20 @@ Cell[BoxData[{
          Dynamic[Private`possibili], Number], 
         Button["Accept", 
          DialogReturn[
-         Private`output$331 = 
+         Private`output$332 = 
           FondamentiDiProbabilita`CalcoloProbabilita[
            Private`favorevoli, Private`possibili]]]}]]),
    Evaluator->Automatic,
-   Method->"Queued"], " "}], "\[IndentingNewLine]", 
- DynamicBox[ToBoxes[
-   N[Private`output$331], StandardForm],
-  ImageSizeCache->{36., {0., 10.}}]}], "Input",
- CellChangeTimes->{{3.672550298684867*^9, 3.6725502986877317`*^9}},
- Background->RGBColor[0.87, 0.94, 1]],
+   Method->"Queued"], " ", 
+  DynamicBox[ToBoxes[
+    N[Private`output$332], StandardForm],
+   ImageSizeCache->{27., {0., 10.}}]}]], "Output",
+ CellChangeTimes->{3.6725517753642693`*^9, 3.672553672831678*^9, 
+  3.6725537806897917`*^9, 3.672553837631008*^9, 3.6725543085192547`*^9, 
+  3.67255435918318*^9, 3.6725544515384293`*^9, 3.67255456882366*^9, 
+  3.672554802731557*^9, 3.6725548745702343`*^9},
+ Background->RGBColor[0.87, 0.94, 1]]
+}, Open  ]],
 
 Cell["\<\
 Ossia la probabilit\[AGrave] che, lanciando un dado una volta esca un numero \
@@ -295,8 +311,87 @@ Cell[CellGroupData[{
 Cell["2. Il lancio di un dado", "Section",
  CellChangeTimes->{{3.672507749219702*^9, 3.672507760300048*^9}}],
 
-Cell["Prova", "Text",
- CellChangeTimes->{{3.672507773617742*^9, 3.6725077742462673`*^9}}]
+Cell[TextData[{
+ "Chi non ha mai giocato al classico Gioco dell\[CloseCurlyQuote]Oca o al \
+Monopoli? In questo genere di giochi \[EGrave] frequente \
+l\[CloseCurlyQuote]uso di un ",
+ StyleBox["dado a sei facce",
+  FontColor->RGBColor[1, 0, 0]],
+ " per calcolare il numero di caselle con cui far avanzare una pedina. In ",
+ StyleBox["Dungeons & Dragons",
+  FontColor->RGBColor[0.6, 0.4, 0.2]],
+ " vengono usati addirittura dadi a dieci o venti facce!\nProviamo a lanciare \
+un dado! Usando il seguente pulsante \[EGrave] possibile lanciare un dado una \
+volta sola oppure un certo numero di volte stabilito. Cosa potete dedurre dei \
+risultati?"
+}], "Text",
+ CellChangeTimes->{{3.672507773617742*^9, 3.6725077742462673`*^9}, {
+   3.672551834188925*^9, 3.6725518349909973`*^9}, {3.672552109000663*^9, 
+   3.672552169229372*^9}, {3.672552312241149*^9, 3.672552369088982*^9}, {
+   3.672552403574696*^9, 3.672552455947743*^9}, {3.67255250899045*^9, 
+   3.672552561150082*^9}, {3.6725527251090317`*^9, 3.672552730299067*^9}, 
+   3.672553655121771*^9, {3.672553918726842*^9, 3.67255395303434*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"LanciaDadoProbabilita", "[", "]"}]], "Code",
+ CellChangeTimes->{{3.672553650579014*^9, 3.672553650580736*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  ButtonBox["\<\"Lancia dado\"\>",
+   Appearance->Automatic,
+   ButtonFunction:>(Private`output$340 = DialogInput[
+      DialogNotebook[{
+        TextCell["Quante volte vuoi lanciare il dado?"], 
+        InputField[
+         Dynamic[Private`volte$340], Number], 
+        Button["Lancia", 
+         DialogReturn[
+          FondamentiDiProbabilita`LancioDado[Private`volte$340]]], 
+        Button["Lancia una sola volta", 
+         DialogReturn[
+          FondamentiDiProbabilita`LancioDado[1]]]}]]),
+   Evaluator->Automatic,
+   Method->"Queued"], " ", 
+  DynamicBox[ToBoxes[Private`output$340, StandardForm],
+   ImageSizeCache->{9., {0., 10.}}]}]], "Output",
+ CellChangeTimes->{
+  3.672553780779682*^9, 3.672553837718185*^9, 3.67255430860737*^9, 
+   3.672554359280775*^9, 3.672554451637825*^9, 3.672554568914485*^9, 
+   3.6725548027581053`*^9, {3.672554874624187*^9, 3.67255487477591*^9}},
+ Background->RGBColor[0.87, 0.94, 1]]
+}, Open  ]],
+
+Cell["Adesso proviamo:", "Text",
+ CellChangeTimes->{{3.672554266533989*^9, 3.672554285289606*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PlotLanciaDadoProbabilita", "[", "]"}]], "Code",
+ CellChangeTimes->{{3.672554288281472*^9, 3.6725542882833023`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  ButtonBox["\<\"Prove ripetute\"\>",
+   Appearance->Automatic,
+   ButtonFunction:>(Private`output$347 = DialogInput[
+      DialogNotebook[{
+        TextCell["Quante volte vuoi lanciare il dado?"], 
+        InputField[
+         Dynamic[Private`volte$347], Number], 
+        Button["Lancia", 
+         DialogReturn[
+          FondamentiDiProbabilita`PlotLancioDado[Private`volte$347]]]}]]),
+   Evaluator->Automatic,
+   Method->"Queued"], " ", 
+  DynamicBox[ToBoxes[Private`output$347, StandardForm],
+   ImageSizeCache->{9., {0., 10.}}]}]], "Output",
+ CellChangeTimes->{{3.672554874671568*^9, 3.672554890666999*^9}},
+ Background->RGBColor[0.87, 0.94, 1]]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -312,10 +407,10 @@ Cell[TextData[{
 Supponiamo di trovarci a partecipare ad un quiz televisivo. Al giocatore \
 vengono mostrate tre carte coperte; una corrisponde all\[CloseCurlyQuote]",
  StyleBox["asso di bastoni",
-  FontColor->RGBColor[1, 0, 0]],
+  FontColor->RGBColor[0.6, 0.4, 0.2]],
  ", una carta vincente, mentre le altre due nascondono un ",
  StyleBox["otto di coppe",
-  FontColor->RGBColor[1, 0, 0]],
+  FontColor->RGBColor[0.6, 0.4, 0.2]],
  ", una carta perdente. Il giocatore pu\[OGrave] scegliere una delle tre \
 carte. Dopo aver operato la scelta, la carta del giocatore resta coperta. Il \
 conduttore dello show, a quel punto, che conosce ci\[OGrave] che si trova \
@@ -331,7 +426,12 @@ migliora la chance del giocatore di vincere?\n\nProviamo a giocare."
 WindowSize->{1321, 744},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
 FrontEndVersion->"10.3 for Linux x86 (64-bit) (December 10, 2015)",
-StyleDefinitions->"Default.nb"
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]]}, 
+  WindowMargins -> {{0, Automatic}, {Automatic, 0}}, Visible -> False, 
+  FrontEndVersion -> "10.3 for Linux x86 (64-bit) (December 10, 2015)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"]
 ]
 (* End of Notebook Content *)
 
@@ -348,25 +448,38 @@ Cell[CellGroupData[{
 Cell[580, 22, 471, 13, 136, "Title"],
 Cell[CellGroupData[{
 Cell[1076, 39, 343, 5, 67, "Section"],
-Cell[1422, 46, 1854, 27, 171, "Text"],
-Cell[3279, 75, 141, 2, 51, "Code"],
-Cell[3423, 79, 3196, 50, 287, "Text"],
-Cell[6622, 131, 1636, 45, 51, "Code"],
-Cell[8261, 178, 840, 21, 102, InheritFromParent],
-Cell[9104, 201, 111, 1, 31, "Text"],
-Cell[9218, 204, 232, 4, 51, "Code"],
-Cell[9453, 210, 843, 22, 77, InheritFromParent],
-Cell[10299, 234, 1273, 19, 51, "Text"],
-Cell[11575, 255, 565, 17, 61, "Text"],
-Cell[12143, 274, 958, 15, 51, "Text"]
+Cell[1422, 46, 1934, 31, 171, "Text"],
+Cell[3359, 79, 141, 2, 51, "Code"],
+Cell[3503, 83, 3196, 50, 287, "Text"],
+Cell[CellGroupData[{
+Cell[6724, 137, 1636, 45, 51, "Code"],
+Cell[8363, 184, 1037, 24, 65, "Output"]
+}, Open  ]],
+Cell[9415, 211, 111, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[9551, 216, 232, 4, 51, "Code"],
+Cell[9786, 222, 1028, 25, 55, "Output"]
+}, Open  ]],
+Cell[10829, 250, 1273, 19, 51, "Text"],
+Cell[12105, 271, 565, 17, 61, "Text"],
+Cell[12673, 290, 958, 15, 51, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13138, 294, 108, 1, 67, "Section"],
-Cell[13249, 297, 89, 1, 30, "Text"]
+Cell[13668, 310, 108, 1, 67, "Section"],
+Cell[13779, 313, 1091, 19, 71, "Text"],
+Cell[CellGroupData[{
+Cell[14895, 336, 134, 2, 51, "Code"],
+Cell[15032, 340, 950, 23, 55, "Output"]
+}, Open  ]],
+Cell[15997, 366, 98, 1, 31, "Text"],
+Cell[CellGroupData[{
+Cell[16120, 371, 140, 2, 51, "Code"],
+Cell[16263, 375, 676, 17, 55, "Output"]
+}, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13375, 303, 161, 2, 67, "Section"],
-Cell[13539, 307, 1152, 19, 150, "Text"]
+Cell[16988, 398, 161, 2, 67, "Section"],
+Cell[17152, 402, 1164, 19, 150, "Text"]
 }, Open  ]]
 }, Open  ]]
 }

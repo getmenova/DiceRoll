@@ -42,6 +42,12 @@ BottoneProbabilita::usage =
 BottoneProbabilitaN::usage =
 	"BottoneProbabilitaN[] genera un bottone che permette di imparare il funzionamento della Formula della Probabilità Classica."
 
+LanciaDadoProbabilita::usage =
+	"LanciaDadoProbabilita[] genera un bottone che permette di lanciare un dado un certo numero di volte."
+
+PlotLanciaDadoProbabilita::usage =
+	"PlotLanciaDadoProbabilita[] genera un bottone per eseguire delle prove ripetute per il lancio di un dado."
+
 Begin["Private`"]
 
 (* Function che simula n volte il lancio di un dado. *)
@@ -237,18 +243,18 @@ RipetiTreCarte[] := Module[
 (* FUCTION AUSILIARIE *)
 
 (* Function ausiliaria del bottone per la Probabilità classica *)
-BottoneProbabilita[] := (
+BottoneProbabilita[] := Module[{output = 1/2},
 	Button["Probabilità Classica",
 	output=DialogInput[{favorevoli=""},
 	Column[{"Casi favorevoli",
 	InputField[Dynamic[favorevoli],Number],"Casi possibili",
 	InputField[Dynamic[possibili],Number],
-	Button["Accept",DialogReturn[output=CalcoloProbabilita[favorevoli,possibili]]]}]],Method->"Queued"]
+	Button["Calcola",DialogReturn[output=CalcoloProbabilita[favorevoli,possibili]]]}]],Method->"Queued"]
 	Dynamic@output
-)
+]
 
 (* Function ausiliaria del bottone per la Probabilità classica con numericizza *)
-BottoneProbabilitaN[] := Module[{output},
+BottoneProbabilitaN[] := Module[{output = 1/2},
 	Button["Probabilità Classica",
 	output=DialogInput[{favorevoli=""},
 	Column[{"Casi favorevoli",
@@ -256,6 +262,29 @@ BottoneProbabilitaN[] := Module[{output},
 	InputField[Dynamic[possibili],Number],
 	Button["Accept",DialogReturn[output=CalcoloProbabilita[favorevoli,possibili]]]}]],Method->"Queued"]
 	Dynamic@N[output]
+]
+
+LanciaDadoProbabilita[] := Module[{output = 1, volte},
+	Button["Lancia dado", 
+ 	output = DialogInput[
+   DialogNotebook[{TextCell["Quante volte vuoi lanciare il dado?"], 
+     InputField[Dynamic[volte], Number], 
+     Button["Lancia", DialogReturn[LancioDado[volte]]], 
+     Button["Lancia una sola volta", DialogReturn[LancioDado[1]]]}]], 
+ 	Method -> "Queued"]
+	Dynamic@output
+]
+
+PlotLanciaDadoProbabilita[] := Module[{output = 1, volte},
+	Button["Prove ripetute",
+ 	output = DialogInput[
+   DialogNotebook[{
+     TextCell["Quante volte vuoi lanciare il dado?"],
+     InputField[Dynamic[volte], Number],
+     Button["Lancia", DialogReturn[PlotLancioDado[volte]]
+      ]}]], 
+	Method -> "Queued"]
+	Dynamic@output
 ]
 
 End[]
