@@ -25,16 +25,22 @@ PlotLancioDado::usage =
 	"PlotLancioDado[n] disegna un istogramma per n prove ripetute del lancio di un dado."
 
 CalcoloProbabilita::usage =
-	"CalcoloProbabilita[m,n] restituisce la probabilità che un evento E accada, dati m casi favorevoli e n contrari."
+	"CalcoloProbabilita[m,n] restituisce la probabilit\[AGrave] che un evento E accada, dati m casi favorevoli e n contrari."
 
 CalcoloProbabilitaContraria::usage =
-	"CalcoloProbabilitaContaria[m,n] restituisce la probabilità contraria di un evento, dati m casi favorevoli e n contrari."
+	"CalcoloProbabilitaContaria[m,n] restituisce la probabilit\[AGrave] contraria di un evento, dati m casi favorevoli e n contrari."
 
 TreCarte::usage = 
 	"TreCarte[] simula il famoso gioco delle tre carte."
 
 RipetiTreCarte::usage =
 	"RipetiTreCarte[] simula prove ripetute per il gioco delle tre carte, resitituendo un istogramma dei risultati."
+
+BottoneProbabilita::usage =
+	"BottoneProbabilita[] genera un bottone che permette di imparare il funzionamento della Formula della Probabilità Classica."
+
+BottoneProbabilitaN::usage =
+	"BottoneProbabilitaN[] genera un bottone che permette di imparare il funzionamento della Formula della Probabilità Classica."
 
 Begin["Private`"]
 
@@ -54,14 +60,14 @@ PlotLancioDado[n_] /; IntegerQ[n] && NonNegative[n] :=
 	BarChart[sumTrials, ChartLabels -> {"1","2","3","4","5","6"}, ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel"]
 ]
 
-(* Calcolo della probabilità di un evento *)
+(* Calcolo della probabilit\[AGrave] di un evento *)
 CalcoloProbabilita[favorevoli_, totali_] /; 
 	IntegerQ[favorevoli] && NonNegative[favorevoli] &&
 	IntegerQ[totali] && NonNegative[totali] && 
 	favorevoli <= totali :=
 		favorevoli/totali
 
-(* Calcolo della probabilità contraria di un evento *)
+(* Calcolo della probabilit\[AGrave] contraria di un evento *)
 CalcoloProbabilitaContraria[favorevoli_, totali_] /; 
 	IntegerQ[favorevoli] && NonNegative[favorevoli] &&
 	IntegerQ[totali] && NonNegative[totali] && 
@@ -227,6 +233,30 @@ RipetiTreCarte[] := Module[
    ChartLabels -> {"Vittorie", "Sconfitte"}, 
    ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel"]
   ]
+
+(* FUCTION AUSILIARIE *)
+
+(* Function ausiliaria del bottone per la Probabilità classica *)
+BottoneProbabilita[] := (
+	Button["Enter value",
+	output=DialogInput[{favorevoli=""},
+	Column[{"Casi favorevoli",
+	InputField[Dynamic[favorevoli],Number],"Casi possibili",
+	InputField[Dynamic[possibili],Number],
+	Button["Accept",DialogReturn[output=CalcoloProbabilita[favorevoli,possibili]]]}]],Method->"Queued"]
+	Dynamic@output
+)
+
+(* Function ausiliaria del bottone per la Probabilità classica con numericizza *)
+BottoneProbabilitaN[] := Module[{output},
+	Button["Enter value",
+	output=DialogInput[{favorevoli=""},
+	Column[{"Casi favorevoli",
+	InputField[Dynamic[favorevoli],Number],"Casi possibili",
+	InputField[Dynamic[possibili],Number],
+	Button["Accept",DialogReturn[output=CalcoloProbabilita[favorevoli,possibili]]]}]],Method->"Queued"]
+	Dynamic@N[output]
+]
 
 End[]
 Protect[FondamentiDiProbabilita];
