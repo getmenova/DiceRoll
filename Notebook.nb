@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     19926,        480]
-NotebookOptionsPosition[     18344,        425]
-NotebookOutlinePosition[     18941,        445]
-CellTagsIndexPosition[     18898,        442]
+NotebookDataLength[     19927,        480]
+NotebookOptionsPosition[     18345,        425]
+NotebookOutlinePosition[     18942,        445]
+CellTagsIndexPosition[     18899,        442]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -356,7 +356,7 @@ Cell[BoxData[
    Evaluator->Automatic,
    Method->"Queued"], " ", 
   DynamicBox[ToBoxes[Private`output$340, StandardForm],
-   ImageSizeCache->{9., {0., 10.}}]}]], "Output",
+   ImageSizeCache->{25., {3., 10.}}]}]], "Output",
  CellChangeTimes->{
   3.672553780779682*^9, 3.672553837718185*^9, 3.67255430860737*^9, 
    3.672554359280775*^9, 3.672554451637825*^9, 3.672554568914485*^9, 
@@ -469,17 +469,17 @@ Cell[13668, 310, 108, 1, 67, "Section"],
 Cell[13779, 313, 1091, 19, 71, "Text"],
 Cell[CellGroupData[{
 Cell[14895, 336, 134, 2, 51, "Code"],
-Cell[15032, 340, 950, 23, 55, "Output"]
+Cell[15032, 340, 951, 23, 55, "Output"]
 }, Open  ]],
-Cell[15997, 366, 98, 1, 31, "Text"],
+Cell[15998, 366, 98, 1, 31, "Text"],
 Cell[CellGroupData[{
-Cell[16120, 371, 140, 2, 51, "Code"],
-Cell[16263, 375, 676, 17, 55, "Output"]
+Cell[16121, 371, 140, 2, 51, "Code"],
+Cell[16264, 375, 676, 17, 55, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[16988, 398, 161, 2, 67, "Section"],
-Cell[17152, 402, 1164, 19, 150, "Text"]
+Cell[16989, 398, 161, 2, 67, "Section"],
+Cell[17153, 402, 1164, 19, 150, "Text"]
 }, Open  ]]
 }, Open  ]]
 }
