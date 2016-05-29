@@ -36,6 +36,9 @@ TreCarte::usage =
 RipetiTreCarte::usage =
 	"RipetiTreCarte[] simula prove ripetute per il gioco delle tre carte, resitituendo un istogramma dei risultati."
 
+MediaLancioDado::usage =
+	"MediaLancioDado[N_] calcola la media di N esiti del lancio di un dado."
+
 BottoneProbabilita::usage =
 	"BottoneProbabilita[] genera un bottone che permette di imparare il funzionamento della Formula della Probabilità Classica."
 
@@ -50,6 +53,12 @@ PlotLanciaDadoProbabilita::usage =
 
 DadoTreD::usage =
 	"DadoTreD[] disegna un dado in tre dimensioni."
+
+BottoneTreCarte::usage = 
+	"BottoneTreCarte[] genera un bottone che permette di giocare al Gioco delle Tre Carte."
+
+BottoneTreCarteMultiplo::usage =
+	"BottoneTreCarteMultiplo[] genera un bottone che permette di giocare al Gioco delle Tre Carte in maniera ripetuta e di ottenere un grafico dei risultati."
 
 Begin["Private`"]
 
@@ -243,6 +252,9 @@ RipetiTreCarte[] := Module[
    ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel"]
   ]
 
+MediaLancioDado[pippo_] := 
+	N[Mean[Table[RandomInteger[{1, 6}], pippo]]]
+
 (* FUCTION AUSILIARIE *)
 
 (* Function per il disegno di un dado a sei facce *)
@@ -308,6 +320,14 @@ PlotLanciaDadoProbabilita[] := Module[{output = 1, volte},
 	Method -> "Queued"]
 	Dynamic@output
 ]
+
+BottoneTreCarte[] = 
+  Button["Gioca", TreCarte[], Method -> "Queued"]
+
+BottoneTreCarteMultiplo[] =
+ Module[{output = 1/2}, 
+  Button["Gioca", output = RipetiTreCarte[], 
+    Method -> "Queued"] Dynamic@output]
 
 End[]
 Protect[FondamentiDiProbabilita];
