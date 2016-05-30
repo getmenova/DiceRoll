@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    238640,       5691]
-NotebookOptionsPosition[    213891,       5025]
-NotebookOutlinePosition[    223178,       5210]
-CellTagsIndexPosition[    220530,       5164]
+NotebookDataLength[    251810,       5997]
+NotebookOptionsPosition[    226809,       5325]
+NotebookOutlinePosition[    236091,       5510]
+CellTagsIndexPosition[    233443,       5464]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -5008,7 +5008,7 @@ Cell[BoxData[
       Expand[($CellContext`a + $CellContext`b)^$CellContext`n$$], 
       "Specifications" :> {{$CellContext`n$$, 1, 40, 1}}, "Options" :> {}, 
       "DefaultOptions" :> {}],
-     ImageSizeCache->{252., {61., 68.}},
+     ImageSizeCache->{252., {50., 57.}},
      SingleEvaluation->True],
     Deinitialization:>None,
     DynamicModuleValues:>{},
@@ -5021,11 +5021,311 @@ Cell[BoxData[
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{{3.6729219268571253`*^9, 3.672921937315309*^9}, {
   3.672922044795021*^9, 3.672922053455245*^9}}]
-}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"KCombination", "[", 
+    RowBox[{"elements_List", ",", " ", "k_Integer"}], "]"}], " ", ":=", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"kcombinations", ",", " ", "list"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"FindKCombination", "[", 
+        RowBox[{"list_", ",", " ", "i_", ",", " ", "n_"}], "]"}], " ", ":=", 
+       " ", "\[IndentingNewLine]", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"j", ",", " ", "templist"}], "}"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"i", " ", "<", " ", "n"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"j", "=", "1"}], ",", 
+             RowBox[{"j", "<=", 
+              RowBox[{"Length", "[", "elements", "]"}]}], ",", 
+             RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"templist", " ", "=", " ", 
+               RowBox[{"Append", "[", 
+                RowBox[{"list", ",", " ", 
+                 RowBox[{"elements", "[", 
+                  RowBox[{"[", "j", "]"}], "]"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"FindKCombination", "[", 
+               RowBox[{"templist", ",", " ", 
+                RowBox[{"i", "+", "1"}], ",", " ", "n"}], "]"}], ";"}]}], 
+            "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"kcombinations", "=", 
+             RowBox[{"Append", "[", 
+              RowBox[{"kcombinations", ",", " ", "list"}], "]"}]}], ";"}]}], 
+          "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"kcombinations", " ", "=", " ", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"list", " ", ":=", "  ", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"FindKCombination", "[", 
+       RowBox[{"list", ",", " ", "0", ",", " ", "k"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "kcombinations", "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"KCombination", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"A", ",", " ", "B"}], "}"}], ",", " ", "3"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.673623397573197*^9, 3.6736233981937237`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"KCombinationNoRipetitions", "[", 
+      RowBox[{"elements_List", ",", " ", "k_Integer"}], "]"}], " ", ":=", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"kcombinations", ",", " ", "list"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"FindKCombination", "[", 
+          RowBox[{"list_", ",", " ", "i_", ",", " ", "n_"}], "]"}], " ", ":=",
+          " ", "\[IndentingNewLine]", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"j", ",", " ", "templist", ",", " ", "sortedlist"}], 
+            "}"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"i", " ", "<", " ", "n"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"For", "[", 
+              RowBox[{
+               RowBox[{"j", "=", "1"}], ",", 
+               RowBox[{"j", "<=", 
+                RowBox[{"Length", "[", "elements", "]"}]}], ",", 
+               RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"templist", " ", "=", " ", 
+                 RowBox[{"Append", "[", 
+                  RowBox[{"list", ",", " ", 
+                   RowBox[{"elements", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"FindKCombination", "[", 
+                 RowBox[{"templist", ",", " ", 
+                  RowBox[{"i", "+", "1"}], ",", " ", "n"}], "]"}], ";"}]}], 
+              "\[IndentingNewLine]", "]"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"sortedlist", " ", "=", " ", 
+               RowBox[{"Sort", "[", "list", " ", "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"kcombinations", "=", 
+               RowBox[{"Union", "[", 
+                RowBox[{"kcombinations", ",", " ", 
+                 RowBox[{"{", "sortedlist", "}"}]}], "]"}]}], ";"}]}], 
+            "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"kcombinations", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"list", " ", ":=", "  ", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"FindKCombination", "[", 
+         RowBox[{"list", ",", " ", "0", ",", " ", "k"}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "kcombinations", "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"KCombinationNoRipetitions", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"A", ",", " ", "B", ",", " ", "C", ",", " ", "D"}], "}"}], ",", 
+     " ", "3"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.673623401307543*^9, 3.67362341922304*^9}}],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"DrawKCombinationTree", "[", 
+      RowBox[{"elements_List", ",", " ", "k_Integer"}], "]"}], " ", ":=", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"kcombinations", ",", " ", "list", ",", " ", "edges"}], "}"}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"FindKCombination", "[", 
+          RowBox[{
+          "list_", ",", " ", "i_", ",", " ", "n_", ",", " ", "father_"}], 
+          "]"}], " ", ":=", " ", "\[IndentingNewLine]", 
+         RowBox[{"Module", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"j", ",", " ", "templist", ",", " ", "node"}], "}"}], ",",
+            "\[IndentingNewLine]", 
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"i", " ", "<", " ", "n"}], ",", "\[IndentingNewLine]", 
+             RowBox[{"For", "[", 
+              RowBox[{
+               RowBox[{"j", "=", "1"}], ",", 
+               RowBox[{"j", "<=", 
+                RowBox[{"Length", "[", "elements", "]"}]}], ",", 
+               RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"templist", " ", "=", " ", 
+                 RowBox[{"Append", "[", 
+                  RowBox[{"list", ",", " ", 
+                   RowBox[{"elements", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"kcombinations", "=", 
+                 RowBox[{"Append", "[", 
+                  RowBox[{"kcombinations", ",", " ", "templist"}], "]"}]}], 
+                ";", "\[IndentingNewLine]", 
+                RowBox[{"node", " ", "=", " ", 
+                 RowBox[{"Length", "[", "kcombinations", "]"}]}], ";", 
+                "\[IndentingNewLine]", 
+                RowBox[{"edges", "=", " ", 
+                 RowBox[{"Append", "[", 
+                  RowBox[{"edges", ",", " ", 
+                   RowBox[{"templist", "\[Rule]", " ", "father"}]}], "]"}]}], 
+                ";", "\[IndentingNewLine]", 
+                RowBox[{"FindKCombination", "[", 
+                 RowBox[{"templist", ",", " ", 
+                  RowBox[{"i", "+", "1"}], ",", " ", "n", ",", " ", 
+                  "templist"}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+             ","}], "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"kcombinations", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"list", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"edges", " ", "=", " ", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"FindKCombination", "[", 
+         RowBox[{"list", ",", " ", "0", ",", " ", "k", ",", " ", 
+          RowBox[{"{", "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"TreePlot", "[", 
+         RowBox[{"edges", ",", " ", 
+          RowBox[{"VertexLabeling", "\[Rule]", "True"}]}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"DrawKCombinationTree", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"A", ",", "B"}], "}"}], ",", "3"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.673623421589609*^9, 3.673623433631912*^9}}],
+
+Cell[BoxData["\[IndentingNewLine]"], "Input",
+ CellChangeTimes->{3.6736234352903347`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"DrawKCombinationTreeNoRepetition", "[", 
+    RowBox[{"elements_List", ",", " ", "k_Integer"}], "]"}], " ", ":=", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"kcombinations", ",", " ", "list", ",", " ", "edges"}], "}"}], 
+     ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"FindKCombination", "[", 
+        RowBox[{
+        "list_", ",", " ", "i_", ",", " ", "n_", ",", " ", "father_"}], "]"}],
+        " ", ":=", " ", "\[IndentingNewLine]", 
+       RowBox[{"Module", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+          "j", ",", " ", "templist", ",", " ", "node", ",", "sortedlist"}], 
+          "}"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"i", " ", "<", " ", "n"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"j", "=", "1"}], ",", 
+             RowBox[{"j", "<=", 
+              RowBox[{"Length", "[", "elements", "]"}]}], ",", 
+             RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"templist", " ", "=", " ", 
+               RowBox[{"Append", "[", 
+                RowBox[{"list", ",", " ", 
+                 RowBox[{"elements", "[", 
+                  RowBox[{"[", "j", "]"}], "]"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"sortedlist", " ", "=", " ", 
+               RowBox[{"Sort", "[", "templist", "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"!", 
+                 RowBox[{"MemberQ", "[", 
+                  RowBox[{"kcombinations", ",", "sortedlist"}], "]"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"kcombinations", "=", 
+                  RowBox[{"Union", "[", 
+                   RowBox[{"kcombinations", ",", " ", 
+                    RowBox[{"{", "sortedlist", "}"}]}], "]"}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"node", " ", "=", " ", 
+                  RowBox[{"Length", "[", "kcombinations", "]"}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"edges", "=", " ", 
+                  RowBox[{"Append", "[", 
+                   RowBox[{"edges", ",", " ", 
+                    RowBox[{"sortedlist", "\[Rule]", " ", "father"}]}], 
+                   "]"}]}], ";", "\[IndentingNewLine]", 
+                 RowBox[{"FindKCombination", "[", 
+                  RowBox[{"templist", ",", " ", 
+                   RowBox[{"i", "+", "1"}], ",", " ", "n", ",", " ", 
+                   "templist"}], "]"}]}], ","}], "\[IndentingNewLine]", "]"}],
+               ";"}]}], "\[IndentingNewLine]", "]"}], ","}], 
+          "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"kcombinations", " ", "=", " ", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"list", " ", "=", " ", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"edges", " ", "=", " ", 
+       RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"FindKCombination", "[", 
+       RowBox[{"list", ",", " ", "0", ",", " ", "k", ",", " ", 
+        RowBox[{"{", "}"}]}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"TreePlot", "[", 
+       RowBox[{"edges", ",", " ", 
+        RowBox[{"VertexLabeling", "\[Rule]", "True"}]}], "]"}]}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]], "Input"],
+
+Cell[BoxData[
+ RowBox[{"DrawKCombinationTreeNoRepetition", "[", " ", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"A", ",", "B"}], "}"}], ",", "3"}], "]"}]], "Input"]
 },
-WindowSize->{1321, 690},
-WindowMargins->{{Automatic, 7}, {Automatic, -8}},
-FrontEndVersion->"10.3 for Linux x86 (64-bit) (December 10, 2015)",
+WindowSize->{1301, 744},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"10.0 for Linux x86 (64-bit) (June 27, 2014)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -5033,178 +5333,178 @@ StyleDefinitions->"Default.nb"
 (* Internal cache information *)
 (*CellTagsOutline
 CellTagsIndex->{
- "Info-abed84c0-b21c-4b6d-b9ad-fbd2dfd4f32e"->{
-  Cell[139563, 3370, 512, 12, 44, "Print",
-   CellTags->"Info-abed84c0-b21c-4b6d-b9ad-fbd2dfd4f32e"]},
- "Info-bf5cef95-0f85-4f04-9eae-31ea2b15751d"->{
-  Cell[84740, 1933, 772, 15, 63, "Print",
-   CellTags->"Info-bf5cef95-0f85-4f04-9eae-31ea2b15751d"]},
- "Info-b2c4b6a6-8de2-4598-a757-21f12a8041ba"->{
-  Cell[158288, 3837, 977, 18, 44, "Print",
-   CellTags->"Info-b2c4b6a6-8de2-4598-a757-21f12a8041ba"]},
- "Info-b3f2b1f5-afec-4f22-858e-03092fdc94a9"->{
-  Cell[101790, 2348, 508, 11, 44, "Print",
-   CellTags->"Info-b3f2b1f5-afec-4f22-858e-03092fdc94a9"]},
- "Info-ce61ce8e-a67d-4d58-b15c-c9f5e2ebc056"->{
-  Cell[51928, 1202, 2350, 38, 142, "Print",
-   CellTags->"Info-ce61ce8e-a67d-4d58-b15c-c9f5e2ebc056"]},
- "Info-cf4a7875-73f6-4155-bdd9-e672514b2b23"->{
-  Cell[90573, 2095, 1686, 30, 101, "Print",
-   CellTags->"Info-cf4a7875-73f6-4155-bdd9-e672514b2b23"]},
- "Info-c0c54ed1-4928-4f1f-a0dc-a3bec96adb9b"->{
-  Cell[71939, 1621, 4257, 66, 139, "Print",
-   CellTags->"Info-c0c54ed1-4928-4f1f-a0dc-a3bec96adb9b"]},
- "Info-c006dba7-9d79-47fe-9a0b-b60c0e6ab1dd"->{
-  Cell[79653, 1774, 760, 15, 63, "Print",
-   CellTags->"Info-c006dba7-9d79-47fe-9a0b-b60c0e6ab1dd"]},
- "Info-c7c5d4ea-22bf-4af8-8838-9d8e3be6e3c8"->{
-  Cell[154230, 3725, 1491, 25, 63, "Print",
-   CellTags->"Info-c7c5d4ea-22bf-4af8-8838-9d8e3be6e3c8"]},
- "Info-e693b417-a496-475e-8e33-1eb70b2bfeda"->{
-  Cell[76365, 1696, 2219, 37, 82, "Print",
-   CellTags->"Info-e693b417-a496-475e-8e33-1eb70b2bfeda"]},
- "Info-e9d23d51-3e9c-4ef7-acab-3c558ab80a5d"->{
-  Cell[56900, 1327, 601, 13, 63, "Print",
-   CellTags->"Info-e9d23d51-3e9c-4ef7-acab-3c558ab80a5d"]},
- "Info-fcaf77f9-fc3a-454d-a929-59ab8588f6cd"->{
-  Cell[133232, 3248, 1138, 20, 82, "Print",
-   CellTags->"Info-fcaf77f9-fc3a-454d-a929-59ab8588f6cd"]},
- "Info-fdb2015f-71a9-436a-9495-0a623abd61bd"->{
-  Cell[167351, 4089, 1493, 25, 63, "Print",
-   CellTags->"Info-fdb2015f-71a9-436a-9495-0a623abd61bd"]},
- "Info-fdc69621-efd3-4ac4-a50d-445bf1902e1f"->{
-  Cell[63168, 1450, 1166, 22, 82, "Print",
-   CellTags->"Info-fdc69621-efd3-4ac4-a50d-445bf1902e1f"]},
- "Info-feedd0fe-f32d-47f4-8029-02af9c6f4230"->{
-  Cell[55838, 1290, 504, 12, 44, "Print",
-   CellTags->"Info-feedd0fe-f32d-47f4-8029-02af9c6f4230"]},
- "Info-f892293f-0691-4075-958c-217c169f9776"->{
-  Cell[64535, 1482, 667, 14, 44, "Print",
-   CellTags->"Info-f892293f-0691-4075-958c-217c169f9776"]},
- "Info-f984c0a4-bbb0-4d90-b516-5270d22a906f"->{
-  Cell[163468, 3984, 977, 18, 44, "Print",
-   CellTags->"Info-f984c0a4-bbb0-4d90-b516-5270d22a906f"]},
- "Info-0c593796-c304-409e-a62e-34985b19e485"->{
-  Cell[54434, 1249, 833, 16, 44, "Print",
-   CellTags->"Info-0c593796-c304-409e-a62e-34985b19e485"]},
- "Info-0d331391-2350-4cab-9151-33e93fa9604f"->{
-  Cell[162184, 3954, 1125, 21, 63, "Print",
-   CellTags->"Info-0d331391-2350-4cab-9151-33e93fa9604f"]},
- "Info-0f60749a-1330-49e2-b3af-c67514dbc35f"->{
-  Cell[69654, 1577, 2113, 35, 120, "Print",
-   CellTags->"Info-0f60749a-1330-49e2-b3af-c67514dbc35f"]},
- "Info-036b766b-5cdf-49a6-bbe3-7251872e389d"->{
-  Cell[149024, 3600, 776, 15, 63, "Print",
-   CellTags->"Info-036b766b-5cdf-49a6-bbe3-7251872e389d"]},
  "Info-04200f45-2a9b-4994-87a8-c8d35997eeed"->{
   Cell[732, 27, 1727, 28, 82, "Print",
    CellTags->"Info-04200f45-2a9b-4994-87a8-c8d35997eeed"]},
  "Info-10810e07-7ebf-427f-bbb3-a589ea606f6d"->{
   Cell[3390, 92, 255, 4, 42, "Print",
    CellTags->"Info-10810e07-7ebf-427f-bbb3-a589ea606f6d"]},
- "Info-2c9169cf-4ec0-4f54-9ee6-570ea02bfab2"->{
-  Cell[58487, 1372, 4525, 69, 144, "Print",
-   CellTags->"Info-2c9169cf-4ec0-4f54-9ee6-570ea02bfab2"]},
- "Info-217ab57e-aea4-442a-93d0-19005c6d871b"->{
-  Cell[93728, 2180, 4525, 69, 144, "Print",
-   CellTags->"Info-217ab57e-aea4-442a-93d0-19005c6d871b"]},
- "Info-219a65a6-b33e-4833-8ac6-f862381c99ee"->{
-  Cell[89283, 2066, 1136, 20, 82, "Print",
-   CellTags->"Info-219a65a6-b33e-4833-8ac6-f862381c99ee"]},
- "Info-252db92e-d13d-4bb5-aa92-a2d7304f7e64"->{
-  Cell[65362, 1505, 4126, 63, 140, "Print",
-   CellTags->"Info-252db92e-d13d-4bb5-aa92-a2d7304f7e64"]},
- "Info-29826e5a-f7f0-4d63-8574-7adeebbebced"->{
-  Cell[113708, 2734, 803, 15, 44, "Print",
-   CellTags->"Info-29826e5a-f7f0-4d63-8574-7adeebbebced"]},
- "Info-3c231881-368c-484a-b2f9-3cbb38c6f365"->{
-  Cell[146462, 3530, 1087, 19, 44, "Print",
-   CellTags->"Info-3c231881-368c-484a-b2f9-3cbb38c6f365"]},
- "Info-3064d23d-5b8d-4c66-9a2d-cb53fcf7497e"->{
-  Cell[152114, 3672, 1055, 19, 63, "Print",
-   CellTags->"Info-3064d23d-5b8d-4c66-9a2d-cb53fcf7497e"]},
  "Info-4aea8be7-a096-4e22-a7b0-ae3767d4ac92"->{
   Cell[48401, 1092, 355, 6, 60, "Print",
    CellTags->"Info-4aea8be7-a096-4e22-a7b0-ae3767d4ac92"]},
- "Info-4be0af62-b779-459a-ab08-9d8bb8463a4d"->{
-  Cell[211040, 4956, 646, 14, 59, "Print",
-   CellTags->"Info-4be0af62-b779-459a-ab08-9d8bb8463a4d"]},
- "Info-446b8619-b438-4551-adde-2acea1f4f213"->{
-  Cell[125956, 3076, 2270, 36, 87, "Print",
-   CellTags->"Info-446b8619-b438-4551-adde-2acea1f4f213"]},
- "Info-462a04d6-e0a5-47aa-95b2-e58f068bf30c"->{
-  Cell[99547, 2293, 772, 15, 63, "Print",
-   CellTags->"Info-462a04d6-e0a5-47aa-95b2-e58f068bf30c"]},
- "Info-547f6dac-fa1c-452b-895f-01add382295d"->{
-  Cell[149959, 3624, 1738, 29, 44, "Print",
-   CellTags->"Info-547f6dac-fa1c-452b-895f-01add382295d"]},
- "Info-6b89579f-4681-4552-a563-52afb16b7178"->{
-  Cell[100475, 2317, 1164, 22, 82, "Print",
-   CellTags->"Info-6b89579f-4681-4552-a563-52afb16b7178"]},
  "Info-7c7c1db7-c204-4d80-be48-47e2af1e475f"->{
   Cell[50464, 1157, 722, 14, 44, "Print",
    CellTags->"Info-7c7c1db7-c204-4d80-be48-47e2af1e475f"]},
+ "Info-ce61ce8e-a67d-4d58-b15c-c9f5e2ebc056"->{
+  Cell[51928, 1202, 2350, 38, 142, "Print",
+   CellTags->"Info-ce61ce8e-a67d-4d58-b15c-c9f5e2ebc056"]},
+ "Info-0c593796-c304-409e-a62e-34985b19e485"->{
+  Cell[54434, 1249, 833, 16, 44, "Print",
+   CellTags->"Info-0c593796-c304-409e-a62e-34985b19e485"]},
+ "Info-feedd0fe-f32d-47f4-8029-02af9c6f4230"->{
+  Cell[55838, 1290, 504, 12, 44, "Print",
+   CellTags->"Info-feedd0fe-f32d-47f4-8029-02af9c6f4230"]},
+ "Info-e9d23d51-3e9c-4ef7-acab-3c558ab80a5d"->{
+  Cell[56900, 1327, 601, 13, 63, "Print",
+   CellTags->"Info-e9d23d51-3e9c-4ef7-acab-3c558ab80a5d"]},
+ "Info-2c9169cf-4ec0-4f54-9ee6-570ea02bfab2"->{
+  Cell[58487, 1372, 4525, 69, 144, "Print",
+   CellTags->"Info-2c9169cf-4ec0-4f54-9ee6-570ea02bfab2"]},
+ "Info-fdc69621-efd3-4ac4-a50d-445bf1902e1f"->{
+  Cell[63168, 1450, 1166, 22, 82, "Print",
+   CellTags->"Info-fdc69621-efd3-4ac4-a50d-445bf1902e1f"]},
+ "Info-f892293f-0691-4075-958c-217c169f9776"->{
+  Cell[64535, 1482, 667, 14, 44, "Print",
+   CellTags->"Info-f892293f-0691-4075-958c-217c169f9776"]},
+ "Info-252db92e-d13d-4bb5-aa92-a2d7304f7e64"->{
+  Cell[65362, 1505, 4126, 63, 140, "Print",
+   CellTags->"Info-252db92e-d13d-4bb5-aa92-a2d7304f7e64"]},
+ "Info-0f60749a-1330-49e2-b3af-c67514dbc35f"->{
+  Cell[69654, 1577, 2113, 35, 120, "Print",
+   CellTags->"Info-0f60749a-1330-49e2-b3af-c67514dbc35f"]},
+ "Info-c0c54ed1-4928-4f1f-a0dc-a3bec96adb9b"->{
+  Cell[71939, 1621, 4257, 66, 139, "Print",
+   CellTags->"Info-c0c54ed1-4928-4f1f-a0dc-a3bec96adb9b"]},
+ "Info-e693b417-a496-475e-8e33-1eb70b2bfeda"->{
+  Cell[76365, 1696, 2219, 37, 82, "Print",
+   CellTags->"Info-e693b417-a496-475e-8e33-1eb70b2bfeda"]},
+ "Info-c006dba7-9d79-47fe-9a0b-b60c0e6ab1dd"->{
+  Cell[79653, 1774, 760, 15, 63, "Print",
+   CellTags->"Info-c006dba7-9d79-47fe-9a0b-b60c0e6ab1dd"]},
+ "Info-bf5cef95-0f85-4f04-9eae-31ea2b15751d"->{
+  Cell[84740, 1933, 772, 15, 63, "Print",
+   CellTags->"Info-bf5cef95-0f85-4f04-9eae-31ea2b15751d"]},
+ "Info-219a65a6-b33e-4833-8ac6-f862381c99ee"->{
+  Cell[89283, 2066, 1136, 20, 82, "Print",
+   CellTags->"Info-219a65a6-b33e-4833-8ac6-f862381c99ee"]},
+ "Info-cf4a7875-73f6-4155-bdd9-e672514b2b23"->{
+  Cell[90573, 2095, 1686, 30, 101, "Print",
+   CellTags->"Info-cf4a7875-73f6-4155-bdd9-e672514b2b23"]},
+ "Info-217ab57e-aea4-442a-93d0-19005c6d871b"->{
+  Cell[93728, 2180, 4525, 69, 144, "Print",
+   CellTags->"Info-217ab57e-aea4-442a-93d0-19005c6d871b"]},
+ "Info-462a04d6-e0a5-47aa-95b2-e58f068bf30c"->{
+  Cell[99547, 2293, 772, 15, 63, "Print",
+   CellTags->"Info-462a04d6-e0a5-47aa-95b2-e58f068bf30c"]},
+ "Info-6b89579f-4681-4552-a563-52afb16b7178"->{
+  Cell[100475, 2317, 1164, 22, 82, "Print",
+   CellTags->"Info-6b89579f-4681-4552-a563-52afb16b7178"]},
+ "Info-b3f2b1f5-afec-4f22-858e-03092fdc94a9"->{
+  Cell[101790, 2348, 508, 11, 44, "Print",
+   CellTags->"Info-b3f2b1f5-afec-4f22-858e-03092fdc94a9"]},
  "Info-7977e626-cacd-4d38-8036-b687adf559d8"->{
   Cell[102459, 2368, 772, 15, 63, "Print",
    CellTags->"Info-7977e626-cacd-4d38-8036-b687adf559d8"]},
+ "Info-29826e5a-f7f0-4d63-8574-7adeebbebced"->{
+  Cell[113708, 2734, 803, 15, 44, "Print",
+   CellTags->"Info-29826e5a-f7f0-4d63-8574-7adeebbebced"]},
+ "Info-9f39f715-79fd-4147-8b39-2f0ce8afd7e7"->{
+  Cell[120351, 2924, 803, 15, 44, "Print",
+   CellTags->"Info-9f39f715-79fd-4147-8b39-2f0ce8afd7e7"]},
  "Info-8afd66df-07c6-456f-98cb-94bbd857c053"->{
   Cell[121310, 2948, 2010, 33, 104, "Print",
    CellTags->"Info-8afd66df-07c6-456f-98cb-94bbd857c053"]},
+ "Info-446b8619-b438-4551-adde-2acea1f4f213"->{
+  Cell[125956, 3076, 2270, 36, 87, "Print",
+   CellTags->"Info-446b8619-b438-4551-adde-2acea1f4f213"]},
+ "Info-fcaf77f9-fc3a-454d-a929-59ab8588f6cd"->{
+  Cell[133232, 3248, 1138, 20, 82, "Print",
+   CellTags->"Info-fcaf77f9-fc3a-454d-a929-59ab8588f6cd"]},
  "Info-8eba2e8b-b6e2-426c-a46c-7325be4e9f8d"->{
   Cell[134534, 3277, 4453, 67, 144, "Print",
    CellTags->"Info-8eba2e8b-b6e2-426c-a46c-7325be4e9f8d"]},
+ "Info-abed84c0-b21c-4b6d-b9ad-fbd2dfd4f32e"->{
+  Cell[139563, 3370, 512, 12, 44, "Print",
+   CellTags->"Info-abed84c0-b21c-4b6d-b9ad-fbd2dfd4f32e"]},
+ "Info-3c231881-368c-484a-b2f9-3cbb38c6f365"->{
+  Cell[146462, 3530, 1087, 19, 44, "Print",
+   CellTags->"Info-3c231881-368c-484a-b2f9-3cbb38c6f365"]},
+ "Info-036b766b-5cdf-49a6-bbe3-7251872e389d"->{
+  Cell[149024, 3600, 776, 15, 63, "Print",
+   CellTags->"Info-036b766b-5cdf-49a6-bbe3-7251872e389d"]},
+ "Info-547f6dac-fa1c-452b-895f-01add382295d"->{
+  Cell[149959, 3624, 1738, 29, 44, "Print",
+   CellTags->"Info-547f6dac-fa1c-452b-895f-01add382295d"]},
+ "Info-3064d23d-5b8d-4c66-9a2d-cb53fcf7497e"->{
+  Cell[152114, 3672, 1055, 19, 63, "Print",
+   CellTags->"Info-3064d23d-5b8d-4c66-9a2d-cb53fcf7497e"]},
+ "Info-c7c5d4ea-22bf-4af8-8838-9d8e3be6e3c8"->{
+  Cell[154230, 3725, 1491, 25, 63, "Print",
+   CellTags->"Info-c7c5d4ea-22bf-4af8-8838-9d8e3be6e3c8"]},
+ "Info-b2c4b6a6-8de2-4598-a757-21f12a8041ba"->{
+  Cell[158288, 3837, 977, 18, 44, "Print",
+   CellTags->"Info-b2c4b6a6-8de2-4598-a757-21f12a8041ba"]},
+ "Info-0d331391-2350-4cab-9151-33e93fa9604f"->{
+  Cell[162184, 3954, 1125, 21, 63, "Print",
+   CellTags->"Info-0d331391-2350-4cab-9151-33e93fa9604f"]},
+ "Info-f984c0a4-bbb0-4d90-b516-5270d22a906f"->{
+  Cell[163468, 3984, 977, 18, 44, "Print",
+   CellTags->"Info-f984c0a4-bbb0-4d90-b516-5270d22a906f"]},
+ "Info-fdb2015f-71a9-436a-9495-0a623abd61bd"->{
+  Cell[167351, 4089, 1493, 25, 63, "Print",
+   CellTags->"Info-fdb2015f-71a9-436a-9495-0a623abd61bd"]},
  "Info-8e98c0d4-efaf-4382-aacc-b30046137f3a"->{
   Cell[210208, 4933, 673, 14, 44, "Print",
    CellTags->"Info-8e98c0d4-efaf-4382-aacc-b30046137f3a"]},
- "Info-9f39f715-79fd-4147-8b39-2f0ce8afd7e7"->{
-  Cell[120351, 2924, 803, 15, 44, "Print",
-   CellTags->"Info-9f39f715-79fd-4147-8b39-2f0ce8afd7e7"]}
+ "Info-4be0af62-b779-459a-ab08-9d8bb8463a4d"->{
+  Cell[211040, 4956, 646, 14, 59, "Print",
+   CellTags->"Info-4be0af62-b779-459a-ab08-9d8bb8463a4d"]}
  }
 *)
 (*CellTagsIndex
 CellTagsIndex->{
- {"Info-abed84c0-b21c-4b6d-b9ad-fbd2dfd4f32e", 214212, 5035},
- {"Info-bf5cef95-0f85-4f04-9eae-31ea2b15751d", 214363, 5038},
- {"Info-b2c4b6a6-8de2-4598-a757-21f12a8041ba", 214513, 5041},
- {"Info-b3f2b1f5-afec-4f22-858e-03092fdc94a9", 214664, 5044},
- {"Info-ce61ce8e-a67d-4d58-b15c-c9f5e2ebc056", 214815, 5047},
- {"Info-cf4a7875-73f6-4155-bdd9-e672514b2b23", 214967, 5050},
- {"Info-c0c54ed1-4928-4f1f-a0dc-a3bec96adb9b", 215119, 5053},
- {"Info-c006dba7-9d79-47fe-9a0b-b60c0e6ab1dd", 215271, 5056},
- {"Info-c7c5d4ea-22bf-4af8-8838-9d8e3be6e3c8", 215421, 5059},
- {"Info-e693b417-a496-475e-8e33-1eb70b2bfeda", 215573, 5062},
- {"Info-e9d23d51-3e9c-4ef7-acab-3c558ab80a5d", 215724, 5065},
- {"Info-fcaf77f9-fc3a-454d-a929-59ab8588f6cd", 215874, 5068},
- {"Info-fdb2015f-71a9-436a-9495-0a623abd61bd", 216026, 5071},
- {"Info-fdc69621-efd3-4ac4-a50d-445bf1902e1f", 216178, 5074},
- {"Info-feedd0fe-f32d-47f4-8029-02af9c6f4230", 216329, 5077},
- {"Info-f892293f-0691-4075-958c-217c169f9776", 216479, 5080},
- {"Info-f984c0a4-bbb0-4d90-b516-5270d22a906f", 216629, 5083},
- {"Info-0c593796-c304-409e-a62e-34985b19e485", 216780, 5086},
- {"Info-0d331391-2350-4cab-9151-33e93fa9604f", 216930, 5089},
- {"Info-0f60749a-1330-49e2-b3af-c67514dbc35f", 217082, 5092},
- {"Info-036b766b-5cdf-49a6-bbe3-7251872e389d", 217234, 5095},
- {"Info-04200f45-2a9b-4994-87a8-c8d35997eeed", 217385, 5098},
- {"Info-10810e07-7ebf-427f-bbb3-a589ea606f6d", 217532, 5101},
- {"Info-2c9169cf-4ec0-4f54-9ee6-570ea02bfab2", 217678, 5104},
- {"Info-217ab57e-aea4-442a-93d0-19005c6d871b", 217830, 5107},
- {"Info-219a65a6-b33e-4833-8ac6-f862381c99ee", 217982, 5110},
- {"Info-252db92e-d13d-4bb5-aa92-a2d7304f7e64", 218133, 5113},
- {"Info-29826e5a-f7f0-4d63-8574-7adeebbebced", 218285, 5116},
- {"Info-3c231881-368c-484a-b2f9-3cbb38c6f365", 218436, 5119},
- {"Info-3064d23d-5b8d-4c66-9a2d-cb53fcf7497e", 218588, 5122},
- {"Info-4aea8be7-a096-4e22-a7b0-ae3767d4ac92", 218740, 5125},
- {"Info-4be0af62-b779-459a-ab08-9d8bb8463a4d", 218889, 5128},
- {"Info-446b8619-b438-4551-adde-2acea1f4f213", 219040, 5131},
- {"Info-462a04d6-e0a5-47aa-95b2-e58f068bf30c", 219192, 5134},
- {"Info-547f6dac-fa1c-452b-895f-01add382295d", 219342, 5137},
- {"Info-6b89579f-4681-4552-a563-52afb16b7178", 219494, 5140},
- {"Info-7c7c1db7-c204-4d80-be48-47e2af1e475f", 219646, 5143},
- {"Info-7977e626-cacd-4d38-8036-b687adf559d8", 219796, 5146},
- {"Info-8afd66df-07c6-456f-98cb-94bbd857c053", 219947, 5149},
- {"Info-8eba2e8b-b6e2-426c-a46c-7325be4e9f8d", 220100, 5152},
- {"Info-8e98c0d4-efaf-4382-aacc-b30046137f3a", 220253, 5155},
- {"Info-9f39f715-79fd-4147-8b39-2f0ce8afd7e7", 220404, 5158}
+ {"Info-04200f45-2a9b-4994-87a8-c8d35997eeed", 227125, 5335},
+ {"Info-10810e07-7ebf-427f-bbb3-a589ea606f6d", 227272, 5338},
+ {"Info-4aea8be7-a096-4e22-a7b0-ae3767d4ac92", 227418, 5341},
+ {"Info-7c7c1db7-c204-4d80-be48-47e2af1e475f", 227567, 5344},
+ {"Info-ce61ce8e-a67d-4d58-b15c-c9f5e2ebc056", 227717, 5347},
+ {"Info-0c593796-c304-409e-a62e-34985b19e485", 227869, 5350},
+ {"Info-feedd0fe-f32d-47f4-8029-02af9c6f4230", 228019, 5353},
+ {"Info-e9d23d51-3e9c-4ef7-acab-3c558ab80a5d", 228169, 5356},
+ {"Info-2c9169cf-4ec0-4f54-9ee6-570ea02bfab2", 228319, 5359},
+ {"Info-fdc69621-efd3-4ac4-a50d-445bf1902e1f", 228471, 5362},
+ {"Info-f892293f-0691-4075-958c-217c169f9776", 228622, 5365},
+ {"Info-252db92e-d13d-4bb5-aa92-a2d7304f7e64", 228772, 5368},
+ {"Info-0f60749a-1330-49e2-b3af-c67514dbc35f", 228924, 5371},
+ {"Info-c0c54ed1-4928-4f1f-a0dc-a3bec96adb9b", 229076, 5374},
+ {"Info-e693b417-a496-475e-8e33-1eb70b2bfeda", 229228, 5377},
+ {"Info-c006dba7-9d79-47fe-9a0b-b60c0e6ab1dd", 229379, 5380},
+ {"Info-bf5cef95-0f85-4f04-9eae-31ea2b15751d", 229529, 5383},
+ {"Info-219a65a6-b33e-4833-8ac6-f862381c99ee", 229679, 5386},
+ {"Info-cf4a7875-73f6-4155-bdd9-e672514b2b23", 229830, 5389},
+ {"Info-217ab57e-aea4-442a-93d0-19005c6d871b", 229982, 5392},
+ {"Info-462a04d6-e0a5-47aa-95b2-e58f068bf30c", 230134, 5395},
+ {"Info-6b89579f-4681-4552-a563-52afb16b7178", 230284, 5398},
+ {"Info-b3f2b1f5-afec-4f22-858e-03092fdc94a9", 230436, 5401},
+ {"Info-7977e626-cacd-4d38-8036-b687adf559d8", 230587, 5404},
+ {"Info-29826e5a-f7f0-4d63-8574-7adeebbebced", 230738, 5407},
+ {"Info-9f39f715-79fd-4147-8b39-2f0ce8afd7e7", 230889, 5410},
+ {"Info-8afd66df-07c6-456f-98cb-94bbd857c053", 231040, 5413},
+ {"Info-446b8619-b438-4551-adde-2acea1f4f213", 231193, 5416},
+ {"Info-fcaf77f9-fc3a-454d-a929-59ab8588f6cd", 231345, 5419},
+ {"Info-8eba2e8b-b6e2-426c-a46c-7325be4e9f8d", 231497, 5422},
+ {"Info-abed84c0-b21c-4b6d-b9ad-fbd2dfd4f32e", 231650, 5425},
+ {"Info-3c231881-368c-484a-b2f9-3cbb38c6f365", 231801, 5428},
+ {"Info-036b766b-5cdf-49a6-bbe3-7251872e389d", 231953, 5431},
+ {"Info-547f6dac-fa1c-452b-895f-01add382295d", 232104, 5434},
+ {"Info-3064d23d-5b8d-4c66-9a2d-cb53fcf7497e", 232256, 5437},
+ {"Info-c7c5d4ea-22bf-4af8-8838-9d8e3be6e3c8", 232408, 5440},
+ {"Info-b2c4b6a6-8de2-4598-a757-21f12a8041ba", 232560, 5443},
+ {"Info-0d331391-2350-4cab-9151-33e93fa9604f", 232711, 5446},
+ {"Info-f984c0a4-bbb0-4d90-b516-5270d22a906f", 232863, 5449},
+ {"Info-fdb2015f-71a9-436a-9495-0a623abd61bd", 233014, 5452},
+ {"Info-8e98c0d4-efaf-4382-aacc-b30046137f3a", 233166, 5455},
+ {"Info-4be0af62-b779-459a-ab08-9d8bb8463a4d", 233317, 5458}
  }
 *)
 (*NotebookFileOutline
@@ -5691,8 +5991,14 @@ Cell[211040, 4956, 646, 14, 59, "Print",
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[211723, 4975, 482, 11, 32, "Input"],
-Cell[212208, 4988, 1667, 34, 179, "Output"]
-}, Open  ]]
+Cell[212208, 4988, 1667, 34, 124, "Output"]
+}, Open  ]],
+Cell[213890, 5025, 2552, 60, 407, "Input"],
+Cell[216445, 5087, 2997, 67, 451, "Input"],
+Cell[219445, 5156, 3445, 75, 495, "Input"],
+Cell[222893, 5233, 89, 1, 55, "Input"],
+Cell[222985, 5236, 3655, 81, 517, "Input"],
+Cell[226643, 5319, 162, 4, 32, "Input"]
 }
 ]
 *)
