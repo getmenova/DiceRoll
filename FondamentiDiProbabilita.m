@@ -61,10 +61,16 @@ BottoneTreCarteMultiplo::usage =
 	"BottoneTreCarteMultiplo[] genera un bottone che permette di giocare al Gioco delle Tre Carte in maniera ripetuta e di ottenere un grafico dei risultati."
 
 KCombinationNoRipetitions::usage =
-	"KCombinationNoRipetitions[elements_List, k_Integer] restituisce la lista delle disposizioni semplici dei possibili eventi presenti nella lista elements_List in un esperimento ripetuto k volte."
+	"KCombinationNoRipetitions[elements_List, k_Integer] restituisce la lista delle disposizioni semplici dei possibili eventi presenti nella lista elements_List in un esperimento ripetuto k volte. Non considera le possibili permutazioni."
 
 DrawKCombinationTree::usage =
 	"DrawKCombinationTree[elements_List, k_Integer] permette il disegno di un albero che mostra le disposizioni semplici dei possibili eventi presenti nella lista elements_List in un esperimento ripetuto k volte."
+
+KCombination::usage =
+	"KCombination[elements_List, k_Integer] restituisce la lista delle disposizioni semplici dei possibili eventi presenti nella lista elements_List in un esperimento ripetuto k volte."
+
+ProveRipetuteSimulazione::usage =
+	"ProveRipetuteSimulazione[p_Real, n_Integer, m_Integer] permette di simulare un esperimento di prove ripetute. La probabilità di successo è p, la simulazione è ripetuta n volte e si vogliono ottenere m successi."
 
 Begin["Private`"]
 
@@ -262,7 +268,7 @@ RipetiTreCarte[] := Module[
 MediaLancioDado[pippo_] := 
 	N[Mean[Table[RandomInteger[{1, 6}], pippo]]]
 
-(* Funtion che calcola le disposizioni semplici, ossia le possibili uscite in un esperimento di prove ripetute *)
+(* Funtion che calcola le disposizioni semplici, senza considerare le possibili permutazioni *)
 KCombinationNoRipetitions[elements_List, k_Integer] :=
   Module[{kcombinations, list},
    FindKCombination[list_, i_, n_] := 
@@ -274,6 +280,25 @@ KCombinationNoRipetitions[elements_List, k_Integer] :=
        ],
       sortedlist = Sort[list ];
       kcombinations = Union[kcombinations, {sortedlist}];
+      ]
+     ];
+   kcombinations = {};
+   list :=  {};
+   FindKCombination[list, 0, k];
+   Return[kcombinations];
+   ]
+
+(* Function per il calcolo delle disposizioni semplici *)
+KCombination[elements_List, k_Integer] :=
+  Module[{kcombinations, list},
+   FindKCombination[list_, i_, n_] := 
+    Module[{j, templist},
+     If[i < n,
+      For[j = 1, j <= Length[elements], j++,
+       templist = Append[list, elements[[j]]];
+       FindKCombination[templist, i + 1, n];
+       ],
+      kcombinations = Append[kcombinations, list];
       ]
      ];
    kcombinations = {};
@@ -302,7 +327,24 @@ DrawKCombinationTree[elements_List, k_Integer] :=
    edges = {};
    FindKCombination[list, 0, k, {}];
    TreePlot[edges, VertexLabeling -> True]
+   ]
+
+(* Simulazione delle prove ripetute e della distribuzione binomiale *)
+ProveRipetuteSimulazione[p_Real, n_Integer, m_Integer] := 
+ Module[{randomValues, i, successCounter, j, results},
+  results = Table[0, {n + 1}];
+  For[j = 1, j < m, j++,
+   randomValues = RandomReal[{0, 1}, n];
+   successCounter = 0;
+   For[i = 1, i <= n, ++i,
+    If[randomValues[[i]] <= p,
+      successCounter++
+      ];
+    ];
+   results[[successCounter + 1]]++;
    ];
+  Return[results];
+  ]
 
 (* FUCTION AUSILIARIE *)
 
