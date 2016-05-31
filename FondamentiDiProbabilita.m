@@ -60,6 +60,12 @@ BottoneTreCarte::usage =
 BottoneTreCarteMultiplo::usage =
 	"BottoneTreCarteMultiplo[] genera un bottone che permette di giocare al Gioco delle Tre Carte in maniera ripetuta e di ottenere un grafico dei risultati."
 
+KCombinationNoRipetitions::usage =
+	"KCombinationNoRipetitions[elements_List, k_Integer] restituisce la lista delle disposizioni semplici dei possibili eventi presenti nella lista elements_List in un esperimento ripetuto k volte."
+
+DrawKCombinationTree::usage =
+	"DrawKCombinationTree[elements_List, k_Integer] permette il disegno di un albero che mostra le disposizioni semplici dei possibili eventi presenti nella lista elements_List in un esperimento ripetuto k volte."
+
 Begin["Private`"]
 
 (* Function che simula n volte il lancio di un dado. *)
@@ -252,8 +258,51 @@ RipetiTreCarte[] := Module[
    ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel"]
   ]
 
+(* Function che calcola la media delle uscite del lancio di un dado ripetuto un certo numero di volte *)
 MediaLancioDado[pippo_] := 
 	N[Mean[Table[RandomInteger[{1, 6}], pippo]]]
+
+(* Funtion che calcola le disposizioni semplici, ossia le possibili uscite in un esperimento di prove ripetute *)
+KCombinationNoRipetitions[elements_List, k_Integer] :=
+  Module[{kcombinations, list},
+   FindKCombination[list_, i_, n_] := 
+    Module[{j, templist, sortedlist},
+     If[i < n,
+      For[j = 1, j <= Length[elements], j++,
+       templist = Append[list, elements[[j]]];
+       FindKCombination[templist, i + 1, n];
+       ],
+      sortedlist = Sort[list ];
+      kcombinations = Union[kcombinations, {sortedlist}];
+      ]
+     ];
+   kcombinations = {};
+   list :=  {};
+   FindKCombination[list, 0, k];
+   Return[kcombinations];
+   ]
+
+(* Funcion per il disegno delle disposizioni semplici servendosi dell'ausilio di un albero *)
+DrawKCombinationTree[elements_List, k_Integer] :=
+  Module[{kcombinations, list, edges},
+   FindKCombination[list_, i_, n_, father_] := 
+    Module[{j, templist, node},
+     If[i < n,
+      For[j = 1, j <= Length[elements], j++,
+       templist = Append[list, elements[[j]]];
+       kcombinations = Append[kcombinations, templist];
+       node = Length[kcombinations];
+       edges = Append[edges, templist -> father];
+       FindKCombination[templist, i + 1, n, templist];
+       ]
+      ]
+     ];
+   kcombinations = {};
+   list = {};
+   edges = {};
+   FindKCombination[list, 0, k, {}];
+   TreePlot[edges, VertexLabeling -> True]
+   ];
 
 (* FUCTION AUSILIARIE *)
 
