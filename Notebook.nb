@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    597146,      10355]
-NotebookOptionsPosition[    592598,      10205]
-NotebookOutlinePosition[    593007,      10221]
-CellTagsIndexPosition[    592964,      10218]
+NotebookDataLength[    599209,      10417]
+NotebookOptionsPosition[    594650,      10267]
+NotebookOutlinePosition[    595062,      10283]
+CellTagsIndexPosition[    595019,      10280]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -75,13 +75,14 @@ piuttosto verosimli. \nCarichiamo dunque per prima cosa il package ",
    3.672113492136977*^9, 3.6721136611907063`*^9}, {3.672113735181714*^9, 
    3.672114038475952*^9}, {3.672114077971511*^9, 3.672114103365088*^9}, {
    3.6721141682989483`*^9, 3.672114279668131*^9}, {3.6721143163271093`*^9, 
-   3.6721143486858177`*^9}, 3.6721146334896708`*^9, 3.672114697981059*^9}],
+   3.6721143486858177`*^9}, 3.6721146334896708`*^9, 3.672114697981059*^9},
+ TextJustification->1.],
 
 Cell[BoxData[
  RowBox[{"<<", " ", "FondamentiDiProbabilita.m"}]], "Code",
  Editable->False,
  CellChangeTimes->{{3.672114374160486*^9, 3.6721143827651043`*^9}, {
-  3.673698342734425*^9, 3.6736983429120903`*^9}}],
+   3.673698342734425*^9, 3.6736983429120903`*^9}, 3.6737577970671597`*^9}],
 
 Cell[TextData[{
  "Diamo dunque alcune definizioni di base che ci saranno \
@@ -107,17 +108,25 @@ possiamo considerare anche casi pi\[UGrave] eclatanti: \
 l\[CloseCurlyQuote]estrazione dei biglietti vincenti della Lotteria Italia, i \
 numeri del SuperEnalotto o della Tombola, il Sette e Mezzo sono tutti giochi \
 basati sulla probabilit\[AGrave] e sul verificarsi o meno di determinati \
-eventi.\nUn evento certo (ossia un evento che sicuramente accadr\[AGrave]) ha \
-probabilit\[AGrave] 1, mentre un evento impossibile ha probabilit\[AGrave] 0. \
-Di conseguenza, la probabilit\[AGrave] di un evento, come definita sopra, \
-\[EGrave] un numero compreso fra 0 e 1.\n\nIl calcolo diretto della \
-probabilit\[AGrave] \[EGrave] applicabile solo ad eventi che possono essere \
-ricondotti ad uno schema di casi. Prendiamo in considerazione il lancio di un \
-dado a sei facce. Supponiamo di desiderare l\[CloseCurlyQuote]uscita di un \
-numero pari da questo evento (ossia 2,4 oppure 6). I casi possibili tuttavia \
-sono in numero maggiore: il dado pu\[OGrave] restuirci 1,2,3,4,5 o 6. Allora, \
-dando in input alla seguente funzione un numero di casi favorevoli pari ad 1 \
-ed un numero di casi possibili pari a 2, otteniamo il risultato desiderato:"
+eventi.\nUn ",
+ StyleBox["evento certo",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0, 0]],
+ " (ossia un evento che sicuramente accadr\[AGrave]) ha probabilit\[AGrave] \
+1, mentre un ",
+ StyleBox["evento impossibile",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0, 0]],
+ " ha probabilit\[AGrave] 0. Di conseguenza, la probabilit\[AGrave] di un \
+evento, come definita sopra, \[EGrave] un numero compreso fra 0 e 1.\n\nIl \
+calcolo diretto della probabilit\[AGrave] \[EGrave] applicabile solo ad \
+eventi che possono essere ricondotti ad uno schema di casi. Prendiamo in \
+considerazione il lancio di un dado a sei facce. Supponiamo di desiderare l\
+\[CloseCurlyQuote]uscita di un numero pari da questo evento (ossia 2, 4 \
+oppure 6). I casi possibili tuttavia sono in numero maggiore: il dado pu\
+\[OGrave] restuirci 1, 2, 3, 4, 5 o 6. Allora, dando in input alla seguente \
+funzione un numero di casi favorevoli pari ad 1 ed un numero di casi \
+possibili pari a 2, otteniamo il risultato desiderato:"
 }], "Text",
  CellChangeTimes->{{3.67211366211733*^9, 3.672113664172353*^9}, 
    3.672114357137917*^9, {3.672114407684277*^9, 3.672114447778171*^9}, {
@@ -135,7 +144,9 @@ ed un numero di casi possibili pari a 2, otteniamo il risultato desiderato:"
    3.6721170173839207`*^9}, {3.672117061966423*^9, 3.672117111439934*^9}, {
    3.672117698192212*^9, 3.672117730327649*^9}, {3.672506244828734*^9, 
    3.672506247566918*^9}, {3.672506282482089*^9, 3.672506282568886*^9}, {
-   3.672549467060843*^9, 3.6725494829173*^9}}],
+   3.672549467060843*^9, 3.6725494829173*^9}, {3.673757898446898*^9, 
+   3.673757917057967*^9}},
+ TextJustification->1.],
 
 Cell[CellGroupData[{
 
@@ -191,7 +202,7 @@ Cell[BoxData[
  RowBox[{
   ButtonBox["\<\"Probabilit\[AGrave] Classica\"\>",
    Appearance->Automatic,
-   ButtonFunction:>(Private`output$2666 = 
+   ButtonFunction:>(Private`output$1074 = 
     DialogInput[{Private`favorevoli = ""}, 
       Column[{"Casi favorevoli", 
         InputField[
@@ -200,15 +211,16 @@ Cell[BoxData[
          Dynamic[Private`possibili], Number], 
         Button["Calcola", 
          DialogReturn[
-         Private`output$2666 = 
+         Private`output$1074 = 
           FondamentiDiProbabilita`CalcoloProbabilita[
            Private`favorevoli, Private`possibili]]]}]]),
    Evaluator->Automatic,
    Method->"Queued"], " ", 
-  DynamicBox[ToBoxes[Private`output$2666, StandardForm],
+  DynamicBox[ToBoxes[Private`output$1074, StandardForm],
    ImageSizeCache->{14.399999999999999`, {11.7, 19.93}}]}]], "Output",
  CellChangeTimes->{{3.673698010117589*^9, 3.673698015916984*^9}, 
-   3.673698157086667*^9, 3.6736983164032087`*^9, 3.6736990928919573`*^9},
+   3.673698157086667*^9, 3.6736983164032087`*^9, 3.6736990928919573`*^9, 
+   3.6737577924959307`*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
@@ -228,7 +240,7 @@ Cell[BoxData[
  RowBox[{
   ButtonBox["\<\"Probabilit\[AGrave] Classica\"\>",
    Appearance->Automatic,
-   ButtonFunction:>(Private`output$2668 = 
+   ButtonFunction:>(Private`output$1081 = 
     DialogInput[{Private`favorevoli = ""}, 
       Column[{"Casi favorevoli", 
         InputField[
@@ -237,13 +249,13 @@ Cell[BoxData[
          Dynamic[Private`possibili], Number], 
         Button["Accept", 
          DialogReturn[
-         Private`output$2668 = 
+         Private`output$1081 = 
           FondamentiDiProbabilita`CalcoloProbabilita[
            Private`favorevoli, Private`possibili]]]}]]),
    Evaluator->Automatic,
    Method->"Queued"], " ", 
   DynamicBox[ToBoxes[
-    N[Private`output$2668], StandardForm],
+    N[Private`output$1081], StandardForm],
    ImageSizeCache->{27., {0., 10.}}]}]], "Output",
  CellChangeTimes->{
   3.6725517753642693`*^9, 3.672553672831678*^9, 3.6725537806897917`*^9, 
@@ -261,18 +273,22 @@ Cell[BoxData[
    3.6736926143289967`*^9, 3.6736926775369663`*^9, 3.673692782229313*^9, 
    3.673692977449411*^9, 3.673693825890051*^9, 3.673693879357815*^9, 
    3.67369414740525*^9, 3.67369694627414*^9, 3.673698039777781*^9, 
-   3.673698157115841*^9, 3.6736983164181623`*^9, 3.673699092902225*^9},
+   3.673698157115841*^9, 3.6736983164181623`*^9, 3.673699092902225*^9, 
+   3.6737577925130177`*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
-Cell["\<\
-Ossia la probabilit\[AGrave] che, lanciando un dado una volta esca un numero \
-pari, \[EGrave] esattamente un mezzo. Questo significa che abbiamo la stessa \
-probabilit\[AGrave] che esca un numero pari o un numero dispari: il 50%. \
-Questo calcolo, all\[CloseCurlyQuote]apparenza quasi magico, \[EGrave] in \
-realt\[AGrave] giustificato dalla Formula della Probabilit\[AGrave] Classica:\
-\
-\>", "Text",
+Cell[TextData[{
+ "Ossia la probabilit\[AGrave] che, lanciando un dado una volta esca un \
+numero pari, \[EGrave] esattamente un mezzo. Questo significa che abbiamo la \
+stessa probabilit\[AGrave] che esca un numero pari o un numero dispari: il \
+50%. Questo calcolo, all\[CloseCurlyQuote]apparenza quasi magico, \[EGrave] \
+in realt\[AGrave] giustificato dalla",
+ StyleBox[" Formula della Probabilit\[AGrave] Classica",
+  FontWeight->"Bold",
+  FontColor->RGBColor[0, 0, 1]],
+ ":"
+}], "Text",
  CellChangeTimes->{{3.672117846191703*^9, 3.672118021429335*^9}, 
    3.6721180546382923`*^9, {3.672118518705114*^9, 3.672118529065544*^9}, {
    3.672118562377221*^9, 3.6721185715471087`*^9}, {3.6721186780403852`*^9, 
@@ -284,7 +300,8 @@ realt\[AGrave] giustificato dalla Formula della Probabilit\[AGrave] Classica:\
    3.672120792465859*^9, 3.672120828807845*^9}, {3.672120871815578*^9, 
    3.6721210642088213`*^9}, {3.672121124413814*^9, 3.672121249434353*^9}, {
    3.672121302600556*^9, 3.672121369919874*^9}, 3.672121582336383*^9, {
-   3.672121612852648*^9, 3.672121648955352*^9}}],
+   3.672121612852648*^9, 3.672121648955352*^9}},
+ TextJustification->1.],
 
 Cell[TextData[{
  StyleBox["P(A) = ",
@@ -320,7 +337,8 @@ avviene. Provate a modificare i parametri sopra. Come cambia la probabilit\
   3.672507323680303*^9, 3.672507360516911*^9}, {3.672507415004366*^9, 
   3.672507438127041*^9}, {3.672507510768991*^9, 3.672507514837904*^9}, {
   3.6725075714446287`*^9, 3.672507572209221*^9}, {3.6725076733618107`*^9, 
-  3.672507674305101*^9}}]
+  3.672507674305101*^9}},
+ TextJustification->1.]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -337,6 +355,7 @@ l\[CloseCurlyQuote]uso di un ",
   FontColor->RGBColor[1, 0, 0]],
  " per calcolare il numero di caselle con cui far avanzare una pedina. In ",
  StyleBox["Dungeons & Dragons",
+  FontWeight->"Bold",
   FontColor->RGBColor[0.6, 0.4, 0.2]],
  " vengono usati addirittura dadi a dieci o venti facce!"
 }], "Text",
@@ -346,7 +365,8 @@ l\[CloseCurlyQuote]uso di un ",
    3.672552403574696*^9, 3.672552455947743*^9}, {3.67255250899045*^9, 
    3.672552561150082*^9}, {3.6725527251090317`*^9, 3.672552730299067*^9}, 
    3.672553655121771*^9, {3.672553918726842*^9, 3.67255395303434*^9}, {
-   3.672555188197886*^9, 3.672555203306391*^9}}],
+   3.672555188197886*^9, 3.672555203306391*^9}},
+ TextJustification->1.],
 
 Cell[CellGroupData[{
 
@@ -1082,7 +1102,8 @@ KK1wW40aNcjc3JxCQkIk4TgnoqOjhf1PV1dXMjExEXy80gqu8bqHvb29EEvv
    3.6736925790794687`*^9, 3.6736926151962547`*^9, 3.673692678463196*^9, 
    3.673692783093542*^9, 3.67369297814615*^9, 3.673693826948082*^9, 
    3.6736938801900053`*^9, 3.6736941482439833`*^9, 3.673696947095787*^9, 
-   3.6736981579466143`*^9, 3.673698317220764*^9, 3.673699093729649*^9},
+   3.6736981579466143`*^9, 3.673698317220764*^9, 3.673699093729649*^9, 
+   3.673757794772942*^9},
  Background->RGBColor[
   0.87, 0.94, 1],ImageCache->GraphicsData["CompressedBitmap", "\<\
 eJy8vXecVdW5/38ydFTEgooFS+yJvdEZygxduiC9S4eZAaNGhagRwZ6osURj
@@ -1992,11 +2013,11 @@ f578g/8LVaJnog==\
 
 Cell["\<\
 Proviamo a lanciare un dado! Usando il seguente pulsante \[EGrave] possibile \
-lanciare un dado una volta sola oppure un certo numero di volte \
-stabilito.Cosa potete dedurre dei risultati?\
+lanciare un dado una volta sola oppure un certo numero di volte stabilito. \
+Cosa potete dedurre dei risultati?\
 \>", "Text",
  CellChangeTimes->{{3.672555205223344*^9, 3.672555212810884*^9}, {
-  3.6734980413917713`*^9, 3.673498042992036*^9}}],
+   3.6734980413917713`*^9, 3.673498042992036*^9}, 3.673758075276833*^9}],
 
 Cell[CellGroupData[{
 
@@ -2009,21 +2030,21 @@ Cell[BoxData[
  RowBox[{
   ButtonBox["\<\"Lancia dado\"\>",
    Appearance->Automatic,
-   ButtonFunction:>(Private`output$3512 = DialogInput[
+   ButtonFunction:>(Private`output$1860 = DialogInput[
       DialogNotebook[{
         TextCell["Quante volte vuoi lanciare il dado?"], 
         InputField[
-         Dynamic[Private`volte$3512], Number], 
+         Dynamic[Private`volte$1860], Number], 
         Button["Lancia", 
          DialogReturn[
-          FondamentiDiProbabilita`LancioDado[Private`volte$3512]]], 
+          FondamentiDiProbabilita`LancioDado[Private`volte$1860]]], 
         Button["Lancia una sola volta", 
          DialogReturn[
           FondamentiDiProbabilita`LancioDado[1]]]}]]),
    Evaluator->Automatic,
    Method->"Queued"], " ", 
-  DynamicBox[ToBoxes[Private`output$3512, StandardForm],
-   ImageSizeCache->{25., {3., 10.}}]}]], "Output",
+  DynamicBox[ToBoxes[Private`output$1860, StandardForm],
+   ImageSizeCache->{232., {3., 10.}}]}]], "Output",
  CellChangeTimes->{
   3.672553780779682*^9, 3.672553837718185*^9, 3.67255430860737*^9, 
    3.672554359280775*^9, 3.672554451637825*^9, 3.672554568914485*^9, 
@@ -2040,7 +2061,7 @@ Cell[BoxData[
    3.673692615465158*^9, 3.673692678689171*^9, 3.673692783301923*^9, 
    3.673692978348*^9, 3.6736938270485992`*^9, 3.6736938802307577`*^9, 
    3.673694148281118*^9, 3.6736969472234507`*^9, 3.673698158052437*^9, 
-   3.6736983173062067`*^9, 3.6736990938700666`*^9},
+   3.6736983173062067`*^9, 3.6736990938700666`*^9, 3.67375779485909*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
@@ -2065,18 +2086,18 @@ Cell[BoxData[
  RowBox[{
   ButtonBox["\<\"Prove ripetute\"\>",
    Appearance->Automatic,
-   ButtonFunction:>(Private`output$3514 = DialogInput[
+   ButtonFunction:>(Private`output$1862 = DialogInput[
       DialogNotebook[{
         TextCell["Quante volte vuoi lanciare il dado?"], 
         InputField[
-         Dynamic[Private`volte$3514], Number], 
+         Dynamic[Private`volte$1862], Number], 
         Button["Lancia", 
          DialogReturn[
-          FondamentiDiProbabilita`PlotLancioDado[Private`volte$3514]]]}]]),
+          FondamentiDiProbabilita`PlotLancioDado[Private`volte$1862]]]}]]),
    Evaluator->Automatic,
    Method->"Queued"], " ", 
-  DynamicBox[ToBoxes[Private`output$3514, StandardForm],
-   ImageSizeCache->{9., {0., 10.}}]}]], "Output",
+  DynamicBox[ToBoxes[Private`output$1862, StandardForm],
+   ImageSizeCache->{90., {27., 33.}}]}]], "Output",
  CellChangeTimes->{{3.672554874671568*^9, 3.672554890666999*^9}, 
    3.672555262017418*^9, 3.6725553091254807`*^9, 3.672555348678885*^9, 
    3.672555422953433*^9, 3.6725554579257317`*^9, 3.672555507219208*^9, {
@@ -2089,7 +2110,8 @@ Cell[BoxData[
    3.673692579450738*^9, 3.6736926155546913`*^9, 3.6736926787548122`*^9, 
    3.67369278337897*^9, 3.673692978428565*^9, 3.673693827073163*^9, 
    3.67369388024717*^9, 3.673694148367711*^9, 3.673696947229721*^9, 
-   3.6736981580735903`*^9, 3.673698317322979*^9, 3.673699093884612*^9},
+   3.6736981580735903`*^9, 3.673698317322979*^9, 3.673699093884612*^9, 
+   3.673757794880815*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
@@ -2106,13 +2128,15 @@ Il grafico sembra stabilizzarsi ad un certo livello. Questo fenomeno pu\
 a calcolare la media dei risultati, per \[OpenCurlyDoubleQuote]grandi numeri\
 \[CloseCurlyDoubleQuote] vedremo che questa si stabilizzer\[AGrave] intorno \
 ad un valore preciso.\n\[LineSeparator]Proviamo a ripetere quindi l\
-\[CloseCurlyQuote]esperimento 5000 volte e calcoliamo la media:"
+\[CloseCurlyQuote]esperimento 5000 volte e calcoliamo la media dei \
+risultati:"
 }], "Text",
  CellChangeTimes->{{3.6727174447125998`*^9, 3.672717562993556*^9}, {
   3.672717617877005*^9, 3.672717622122431*^9}, {3.672717851268827*^9, 
   3.6727179304842167`*^9}, {3.672718082531201*^9, 3.672718105600268*^9}, {
   3.672718441620368*^9, 3.672718442232189*^9}, {3.673497911012439*^9, 
-  3.673497937433779*^9}}],
+  3.673497937433779*^9}, {3.673758138023612*^9, 3.6737581401115026`*^9}},
+ TextJustification->1.],
 
 Cell[CellGroupData[{
 
@@ -2121,7 +2145,7 @@ Cell[BoxData[
  Editable->False,
  CellChangeTimes->{{3.6727184446588*^9, 3.672718448330759*^9}}],
 
-Cell[BoxData["3.4902`"], "Output",
+Cell[BoxData["3.5046`"], "Output",
  CellChangeTimes->{
   3.672718457345965*^9, 3.6727185430639763`*^9, {3.67271872996589*^9, 
    3.672718731797329*^9}, 3.672719444284658*^9, 3.672719769511142*^9, 
@@ -2133,7 +2157,7 @@ Cell[BoxData["3.4902`"], "Output",
    3.6736929785090513`*^9, 3.673693827096404*^9, 3.673693880267112*^9, 
    3.673694148390094*^9, 3.6736969472444887`*^9, 3.673698158089652*^9, 
    3.673698317341175*^9, 3.673699093899659*^9, {3.673699360967678*^9, 
-   3.673699367593932*^9}},
+   3.673699367593932*^9}, 3.673757794898212*^9, 3.6737581801147842`*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
@@ -2152,15 +2176,23 @@ Cell["3. Il Gioco delle Tre Carte", "Section",
   3.672507780498917*^9, 3.672507780558095*^9}}],
 
 Cell[TextData[{
- "Il Gioco delle Tre Carte, conosciuto anche come \
-\[OpenCurlyDoubleQuote]Problema di Monty Hall\[CloseCurlyDoubleQuote] \
-\[EGrave] un famoso problema della Teoria della Probabilit\[AGrave]. \
-Supponiamo di trovarci a partecipare ad un quiz televisivo. Al giocatore \
-vengono mostrate tre carte coperte; una corrisponde all\[CloseCurlyQuote]",
+ "Il",
+ StyleBox[" Gioco delle Tre Carte",
+  FontWeight->"Bold",
+  FontColor->RGBColor[1, 0, 0]],
+ ", conosciuto anche come \[OpenCurlyDoubleQuote]Problema di Monty Hall\
+\[CloseCurlyDoubleQuote] \[EGrave] un famoso problema della Teoria della \
+Probabilit\[AGrave]. Supponiamo di trovarci a partecipare ad un quiz \
+televisivo. Al giocatore vengono mostrate tre carte coperte; una corrisponde \
+all\[CloseCurlyQuote]",
  StyleBox["asso di bastoni",
+  FontWeight->"Bold",
   FontColor->RGBColor[0.6, 0.4, 0.2]],
- ", una carta vincente, mentre le altre due nascondono un ",
+ ", una carta vincente, mentre le altre due nascondono un",
+ StyleBox[" ",
+  FontWeight->"Bold"],
  StyleBox["otto di coppe",
+  FontWeight->"Bold",
   FontColor->RGBColor[0.6, 0.4, 0.2]],
  ", una carta perdente. Il giocatore pu\[OGrave] scegliere una delle tre \
 carte. Dopo aver operato la scelta, la carta del giocatore resta coperta. Il \
@@ -2170,7 +2202,8 @@ e offre al giocatore la possibilit\[AGrave] di cambiare la propria scelta \
 iniziale, passando all\[CloseCurlyQuote]unica carta restante. Cambiare carta \
 migliora la chance del giocatore di vincere?\n\nProviamo a giocare."
 }], "Text",
- CellChangeTimes->{{3.6725076669187*^9, 3.67250768261416*^9}}],
+ CellChangeTimes->{{3.6725076669187*^9, 3.67250768261416*^9}},
+ TextJustification->1.],
 
 Cell[CellGroupData[{
 
@@ -2192,7 +2225,8 @@ Cell[BoxData[
   3.673692579631963*^9, 3.6736926157339153`*^9, 3.673692678911756*^9, 
   3.673692783543852*^9, 3.6736929785891314`*^9, 3.673693827117132*^9, 
   3.6736938803492928`*^9, 3.673694148408223*^9, 3.67369694726299*^9, 
-  3.673698158105071*^9, 3.673698317356267*^9, 3.673699093910823*^9},
+  3.673698158105071*^9, 3.673698317356267*^9, 3.673699093910823*^9, 
+  3.673757794914796*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
@@ -2218,12 +2252,12 @@ Cell[BoxData[
  RowBox[{
   ButtonBox["\<\"Gioca\"\>",
    Appearance->Automatic,
-   ButtonFunction:>(Private`output$2664 = 
+   ButtonFunction:>(Private`output$1072 = 
     FondamentiDiProbabilita`RipetiTreCarte[]),
    Evaluator->Automatic,
    Method->"Queued"], " ", 
-  DynamicBox[ToBoxes[Private`output$2664, StandardForm],
-   ImageSizeCache->{90., {26., 31.}}]}]], "Output",
+  DynamicBox[ToBoxes[Private`output$1072, StandardForm],
+   ImageSizeCache->{14.399999999999999`, {11.7, 19.93}}]}]], "Output",
  CellChangeTimes->{3.6734929139559383`*^9, 3.673509591996624*^9, 
   3.673520820580637*^9, 3.673675631925346*^9, 3.67367995706178*^9, 
   3.673682097030724*^9, 3.673689940191189*^9, 3.6736910757709503`*^9, 
@@ -2231,7 +2265,7 @@ Cell[BoxData[
   3.6736926158291693`*^9, 3.673692678986712*^9, 3.6736927836207047`*^9, 
   3.6736929786659203`*^9, 3.67369382714872*^9, 3.6736938803628073`*^9, 
   3.673694148425168*^9, 3.673696947277402*^9, 3.6736981581383953`*^9, 
-  3.673698317369679*^9, 3.673699093922783*^9},
+  3.673698317369679*^9, 3.673699093922783*^9, 3.6737577949350157`*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
@@ -2241,7 +2275,7 @@ Cell[TextData[{
   FontColor->RGBColor[0.6, 0.4, 0.2]],
  " Sembra che il numero di vittorie raggiunga circa il 66% mentre le \
 sconfitte si attestino intorno al 33%. ",
- StyleBox["Come \[EGrave] possibile??\n",
+ StyleBox["Come \[EGrave] possibile?\n",
   FontWeight->"Bold",
   FontColor->RGBColor[1, 0, 0]],
  StyleBox["Consideriamo le varie opzioni che ci si possono presentare quando \
@@ -2253,7 +2287,8 @@ ci viene chiesto di cambiare:",
    3.673494185531034*^9, 3.6734942027419357`*^9}, {3.673496938025008*^9, 
    3.673497000144977*^9}, {3.67349707859879*^9, 3.673497107036751*^9}, {
    3.673497146230575*^9, 3.673497153709093*^9}, {3.6734971957094173`*^9, 
-   3.673497196587874*^9}, 3.67349727546697*^9}],
+   3.673497196587874*^9}, 3.67349727546697*^9, 3.6737582845674267`*^9},
+ TextJustification->1.],
 
 Cell[CellGroupData[{
 
@@ -2317,7 +2352,8 @@ il gioco viene chiamato \[OpenCurlyDoubleQuote]delle tre porte\
 cliccando sull\[CloseCurlyQuote]immagine seguente."
 }], "Text",
  CellChangeTimes->{{3.67350949564503*^9, 3.673509563677868*^9}, {
-  3.6735209401042643`*^9, 3.673520942129796*^9}}],
+  3.6735209401042643`*^9, 3.673520942129796*^9}},
+ TextJustification->1.],
 
 Cell[CellGroupData[{
 
@@ -9484,7 +9520,7 @@ imqZUMwtk5dAeP+VOoVCUw6DbTDX8ovzYbP/HytChRU=
   3.673692679715394*^9, 3.673692784378393*^9, 3.673692979073203*^9, 
   3.6736938278000383`*^9, 3.673693881065106*^9, 3.67369414914767*^9, 
   3.673696947949909*^9, 3.673698159123321*^9, 3.673698318122695*^9, 
-  3.673699094646003*^9},
+  3.673699094646003*^9, 3.673757800383271*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]]
 }, Open  ]],
@@ -9519,7 +9555,8 @@ almeno m successi.",
  " Come possiamo calcolare ci\[OGrave]?"
 }], "Text",
  CellChangeTimes->{{3.673675809850877*^9, 3.673675810954093*^9}, {
-  3.673675867265308*^9, 3.673676045834622*^9}}],
+  3.673675867265308*^9, 3.673676045834622*^9}},
+ TextJustification->1.],
 
 Cell[TextData[{
  "Prima di procedere, ci serve conoscere alcuni dettagli sulle leggi che \
@@ -9570,7 +9607,8 @@ probabilit\[AGrave] che esca un numero minore di 3 \[EGrave] pari a 2/6 = \
   3.673677581535722*^9, 3.6736777869519672`*^9}, {3.673677824663164*^9, 
   3.673678030237455*^9}, {3.673678087424781*^9, 3.673678245909541*^9}, {
   3.673678299761106*^9, 3.6736784026955013`*^9}, {3.673678443620523*^9, 
-  3.6736784619500113`*^9}}]
+  3.6736784619500113`*^9}},
+ TextJustification->1.]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -9593,7 +9631,8 @@ a 3 , ossia:"
 }], "Text",
  CellChangeTimes->{{3.673680657302236*^9, 3.6736806848951483`*^9}, {
   3.6736808200938587`*^9, 3.6736808252540216`*^9}, {3.673690529788721*^9, 
-  3.673690530461372*^9}}],
+  3.673690530461372*^9}},
+ TextJustification->1.],
 
 Cell[CellGroupData[{
 
@@ -9610,7 +9649,7 @@ Cell[BoxData["10"], "Output",
   3.673692679958893*^9, 3.673692784576015*^9, 3.673692979168384*^9, 
   3.67369382784903*^9, 3.673693881103491*^9, 3.6736941491809196`*^9, 
   3.6736969479938793`*^9, 3.673698159201674*^9, 3.673698318161371*^9, 
-  3.673699094680603*^9},
+  3.673699094680603*^9, 3.673757800471212*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
@@ -9670,7 +9709,7 @@ Cell[BoxData[
   3.673692680036034*^9, 3.673692784652816*^9, 3.673692979341587*^9, 
   3.673693827869639*^9, 3.6736938811173*^9, 3.673694149203916*^9, 
   3.673695424471714*^9, 3.6736969480116*^9, 3.6736981592170143`*^9, 
-  3.673698318175929*^9, 3.673699094692073*^9},
+  3.673698318175929*^9, 3.673699094692073*^9, 3.67375780048801*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
@@ -9706,11 +9745,11 @@ Cell[BoxData[
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`n$$], 1, 5, 1}}, Typeset`size$$ = {83., {3., 9.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`n$3928$$ = 0}, 
+    True, $CellContext`n$2278$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`n$$ = 1}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`n$$, $CellContext`n$3928$$, 0]}, 
+        Hold[$CellContext`n$$, $CellContext`n$2278$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -9738,7 +9777,7 @@ Cell[BoxData[
    3.6736926171210003`*^9, 3.673692680185845*^9, 3.67369278475268*^9, 
    3.673692979435505*^9, 3.673693827930629*^9, 3.6736938811509857`*^9, 
    3.673694149240633*^9, 3.673696948044797*^9, 3.6736981592610292`*^9, 
-   3.673698318207835*^9, 3.6736990947129583`*^9},
+   3.673698318207835*^9, 3.6736990947129583`*^9, 3.673757800518716*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
@@ -9774,11 +9813,11 @@ Cell[BoxData[
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`n$$], 1, 3, 1}}, Typeset`size$$ = {
     360., {177., 183.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
-    Typeset`skipInitDone$$ = True, $CellContext`n$3961$$ = 0}, 
+    Typeset`skipInitDone$$ = True, $CellContext`n$2323$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`n$$ = 1}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`n$$, $CellContext`n$3961$$, 0]}, 
+        Hold[$CellContext`n$$, $CellContext`n$2323$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -9805,7 +9844,7 @@ Cell[BoxData[
   3.673692680367529*^9, 3.673692784899767*^9, 3.6736929795704603`*^9, 
   3.6736938281040773`*^9, 3.673693881251604*^9, 3.673694149387492*^9, 
   3.673696948121976*^9, 3.673698159382206*^9, 3.673698318354212*^9, 
-  3.673699094924129*^9},
+  3.673699094924129*^9, 3.6737578006907997`*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
@@ -9832,14 +9871,28 @@ della moneta. Indichiamo con ",
   FontSlant->"Italic"],
  " la probabilit\[AGrave] che esca croce. Qual \[EGrave] la probabilit\
 \[AGrave] che esca la sequenza T T C T C T ? Per la formula del prodotto di \
-eventi \[EGrave] pari a T * T * C * T * C * T = T^4 * C^2.\n\nNotiamo \
-esplicitamente che sommando questi casi risulta:"
+eventi \[EGrave] pari a T * T * C * T * C * T = ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["C", "2"], " ", 
+    SuperscriptBox["T", "4"]}], TraditionalForm]], "Output",
+  GeneratedCell->False,
+  CellAutoOverwrite->False,
+  CellChangeTimes->{3.673758543202978*^9}],
+ ".\n\nNotiamo esplicitamente che sommando tutti i casi possibili di una \
+sequenza di lanci lunga ",
+ StyleBox["n",
+  FontSlant->"Italic"],
+ " si ottiene:"
 }], "Text",
  CellChangeTimes->{{3.673691552706006*^9, 3.673691599204967*^9}, {
   3.6736916400897293`*^9, 3.6736917024783487`*^9}, {3.673691801312112*^9, 
   3.673691806312232*^9}, {3.673691839398159*^9, 3.673691876318614*^9}, {
   3.673691925421872*^9, 3.673691927162122*^9}, {3.673692042673197*^9, 
-  3.673692085536172*^9}}],
+  3.673692085536172*^9}, {3.673758549762788*^9, 3.673758559325248*^9}, {
+  3.673758617463418*^9, 3.673758635600621*^9}},
+ TextJustification->1.],
 
 Cell[CellGroupData[{
 
@@ -9883,11 +9936,11 @@ Cell[BoxData[
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`n$$], 1, 4, 1}}, Typeset`size$$ = {37., {0., 9.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`n$4001$$ = 0}, 
+    True, $CellContext`n$2368$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`n$$ = 1}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`n$$, $CellContext`n$4001$$, 0]}, 
+        Hold[$CellContext`n$$, $CellContext`n$2368$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -9916,7 +9969,7 @@ Cell[BoxData[
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{{3.6736981341326323`*^9, 3.673698159545615*^9}, 
-   3.673698318540386*^9, 3.673699095101866*^9}]
+   3.673698318540386*^9, 3.673699095101866*^9, 3.67375780094545*^9}]
 }, Open  ]],
 
 Cell[TextData[{
@@ -9954,11 +10007,11 @@ Cell[BoxData[
     "\"untitled\"", Typeset`specs$$ = {{
       Hold[$CellContext`n$$], 1, 4, 1}}, Typeset`size$$ = {36., {0., 10.}}, 
     Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
-    True, $CellContext`n$4028$$ = 0}, 
+    True, $CellContext`n$2395$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, "Variables" :> {$CellContext`n$$ = 1}, 
       "ControllerVariables" :> {
-        Hold[$CellContext`n$$, $CellContext`n$4028$$, 0]}, 
+        Hold[$CellContext`n$$, $CellContext`n$2395$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -9980,12 +10033,15 @@ Cell[BoxData[
   Manipulate`InterpretManipulate[1]]], "Output",
  CellChangeTimes->{3.673693312470881*^9, 3.673693828322917*^9, 
   3.673693881501636*^9, 3.673694149643999*^9, 3.6736969483953857`*^9, 
-  3.6736981596351023`*^9, 3.673698318608878*^9, 3.673699095238042*^9},
+  3.6736981596351023`*^9, 3.673698318608878*^9, 3.673699095238042*^9, 
+  3.673757801025352*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
 Cell[TextData[{
- "Di fatti andiamo a definire la probabilit\[AGrave], su ",
+ "Questo \[EGrave] il motivo per cui la distribuzione \[EGrave] detta \
+\[OpenCurlyDoubleQuote]binomiale\[CloseCurlyDoubleQuote]. Di fatto, andiamo a \
+definire la probabilit\[AGrave] su ",
  StyleBox["n",
   FontSlant->"Italic"],
  " tentativi di ottenere ",
@@ -9993,7 +10049,8 @@ Cell[TextData[{
   FontSlant->"Italic"],
  " successi come:"
 }], "Text",
- CellChangeTimes->{{3.673693370464807*^9, 3.673693397055873*^9}}],
+ CellChangeTimes->{{3.673693370464807*^9, 3.673693397055873*^9}, {
+  3.673758670249284*^9, 3.673758693849587*^9}}],
 
 Cell[TextData[{
  StyleBox["P(m,n) = ",
@@ -10078,15 +10135,15 @@ Cell[BoxData[
        Hold[$CellContext`n$$], 5, "Numero Prove"}, 1, 100, 1}, {{
        Hold[$CellContext`m$$], 100, "Ripetizione Esperimento"}, 1, 1000, 1}}, 
     Typeset`size$$ = {360., {110., 116.}}, Typeset`update$$ = 0, 
-    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`p$4052$$ =
-     0, $CellContext`n$4053$$ = 0, $CellContext`m$4054$$ = 0}, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, $CellContext`p$2418$$ =
+     0, $CellContext`n$2419$$ = 0, $CellContext`m$2420$$ = 0}, 
     DynamicBox[Manipulate`ManipulateBoxes[
      1, StandardForm, 
       "Variables" :> {$CellContext`m$$ = 100, $CellContext`n$$ = 
         5, $CellContext`p$$ = 0.5}, "ControllerVariables" :> {
-        Hold[$CellContext`p$$, $CellContext`p$4052$$, 0], 
-        Hold[$CellContext`n$$, $CellContext`n$4053$$, 0], 
-        Hold[$CellContext`m$$, $CellContext`m$4054$$, 0]}, 
+        Hold[$CellContext`p$$, $CellContext`p$2418$$, 0], 
+        Hold[$CellContext`n$$, $CellContext`n$2419$$, 0], 
+        Hold[$CellContext`m$$, $CellContext`m$2420$$, 0]}, 
       "OtherVariables" :> {
        Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
         Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
@@ -10113,7 +10170,8 @@ $CellContext`n$$, $CellContext`m$$], ChartLabels ->
  CellChangeTimes->{
   3.673693846016815*^9, 3.673693901323024*^9, 3.67369397738601*^9, 
    3.6736941498404093`*^9, {3.6736969484608793`*^9, 3.673696977947194*^9}, 
-   3.673698159717744*^9, 3.673698318709092*^9, 3.6736990963295813`*^9},
+   3.673698159717744*^9, 3.673698318709092*^9, 3.6736990963295813`*^9, 
+   3.673757801170109*^9},
  Background->RGBColor[0.87, 0.94, 1]]
 }, Open  ]],
 
@@ -10129,11 +10187,14 @@ almeno m successi.",
 \[AGrave] di ottenere con 5 lanci di un dado 3 volte \[OpenCurlyDoubleQuote]4\
 \[CloseCurlyDoubleQuote].\nOgni singola prova ha probabilit\[AGrave] p = 1/6 \
 del verificarsi dell\[CloseCurlyQuote]evento e probabilit\[AGrave] q = 5/6 \
-del non verificarsi. Il numero di successi con 5 prove \[EGrave] allora \
-descritto da una variabile aleatoria di legge P(3,5) = 0.0322."
+del non verificarsi. Il numero di successi 3, che si vuole ottenere, con 5 \
+prove \[EGrave] allora descritto da una variabile aleatoria di legge P(3,5) = \
+0.0322."
 }], "Text",
  CellChangeTimes->{{3.673695101393607*^9, 3.673695193547261*^9}, {
-  3.67369527262868*^9, 3.6736953901779337`*^9}}]
+  3.67369527262868*^9, 3.6736953901779337`*^9}, {3.673758735667494*^9, 
+  3.673758740477244*^9}},
+ TextJustification->1.]
 }, Open  ]]
 }, Open  ]],
 
@@ -10154,7 +10215,8 @@ agli esperimenti di prove ripetute.\
 \>", "Text",
  CellChangeTimes->{{3.673694852044759*^9, 3.673694891287096*^9}, {
   3.673694978281156*^9, 3.673695066404684*^9}, {3.673695411642755*^9, 
-  3.673695413689899*^9}}]
+  3.673695413689899*^9}},
+ TextJustification->1.]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -10204,7 +10266,7 @@ Cell[TextData[{
 }, Open  ]]
 },
 WindowSize->{1321, 744},
-WindowMargins->{{0, Automatic}, {Automatic, 0}},
+WindowMargins->{{1366, Automatic}, {Automatic, 0}},
 FrontEndVersion->"10.3 for Linux x86 (64-bit) (December 10, 2015)",
 StyleDefinitions->FrontEnd`FileName[{"Report"}, "AutomatedReport.nb", 
   CharacterEncoding -> "UTF-8"]
@@ -10224,136 +10286,136 @@ Cell[CellGroupData[{
 Cell[580, 22, 471, 13, 126, "Title"],
 Cell[CellGroupData[{
 Cell[1076, 39, 343, 5, 82, "Section"],
-Cell[1422, 46, 1934, 31, 171, "Text"],
-Cell[3359, 79, 210, 4, 46, "Code"],
-Cell[3572, 85, 3240, 52, 287, "Text"],
+Cell[1422, 46, 1958, 32, 171, "Text"],
+Cell[3383, 80, 235, 4, 46, "Code"],
+Cell[3621, 86, 3467, 62, 287, "Text"],
 Cell[CellGroupData[{
-Cell[6837, 141, 1690, 46, 46, "Code"],
-Cell[8530, 189, 927, 22, 57, "Output"]
+Cell[7113, 152, 1690, 46, 46, "Code"],
+Cell[8806, 200, 955, 23, 57, "Output"]
 }, Open  ]],
-Cell[9472, 214, 111, 1, 31, "Text"],
+Cell[9776, 226, 111, 1, 31, "Text"],
 Cell[CellGroupData[{
-Cell[9608, 219, 274, 5, 46, "Code"],
-Cell[9885, 226, 1944, 38, 47, "Output"]
+Cell[9912, 231, 274, 5, 46, "Code"],
+Cell[10189, 238, 1972, 39, 47, "Output"]
 }, Open  ]],
-Cell[11844, 267, 1273, 19, 51, "Text"],
-Cell[13120, 288, 565, 17, 61, "Text"],
-Cell[13688, 307, 958, 15, 51, "Text"]
+Cell[12176, 280, 1376, 23, 51, "Text"],
+Cell[13555, 305, 565, 17, 61, "Text"],
+Cell[14123, 324, 982, 16, 51, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[14683, 327, 108, 1, 82, "Section"],
-Cell[14794, 330, 969, 18, 51, "Text"],
+Cell[15142, 345, 108, 1, 82, "Section"],
+Cell[15253, 348, 1015, 20, 51, "Text"],
 Cell[CellGroupData[{
-Cell[15788, 352, 241, 5, 46, "Code"],
-Cell[16032, 359, 97428, 1630, 414, 41620, 714, "CachedBoxData", "BoxData", \
+Cell[16293, 372, 241, 5, 46, "Code"],
+Cell[16537, 379, 97454, 1631, 414, 41620, 714, "CachedBoxData", "BoxData", \
 "Output"]
 }, Open  ]],
-Cell[113475, 1992, 330, 6, 31, "Text"],
+Cell[114006, 2013, 354, 6, 31, "Text"],
 Cell[CellGroupData[{
-Cell[113830, 2002, 152, 3, 46, "Code"],
-Cell[113985, 2007, 1870, 36, 47, "Output"]
+Cell[114385, 2023, 152, 3, 46, "Code"],
+Cell[114540, 2028, 1892, 36, 47, "Output"]
 }, Open  ]],
-Cell[115870, 2046, 477, 8, 51, "Text"],
+Cell[116447, 2067, 477, 8, 51, "Text"],
 Cell[CellGroupData[{
-Cell[116372, 2058, 158, 3, 46, "Code"],
-Cell[116533, 2063, 1542, 29, 47, "Output"]
+Cell[116949, 2079, 158, 3, 46, "Code"],
+Cell[117110, 2084, 1570, 30, 85, "Output"]
 }, Open  ]],
-Cell[118090, 2095, 1031, 19, 110, "Text"],
+Cell[118695, 2117, 1119, 21, 110, "Text"],
 Cell[CellGroupData[{
-Cell[119146, 2118, 152, 3, 46, "Code"],
-Cell[119301, 2123, 835, 13, 40, "Output"]
+Cell[119839, 2142, 152, 3, 46, "Code"],
+Cell[119994, 2147, 881, 13, 40, "Output"]
 }, Open  ]],
-Cell[120151, 2139, 265, 5, 31, "Text"]
+Cell[120890, 2163, 265, 5, 31, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[120453, 2149, 161, 2, 82, "Section"],
-Cell[120617, 2153, 1164, 19, 150, "Text"],
+Cell[121192, 2173, 161, 2, 82, "Section"],
+Cell[121356, 2177, 1343, 28, 150, "Text"],
 Cell[CellGroupData[{
-Cell[121806, 2176, 148, 3, 46, "Code"],
-Cell[121957, 2181, 770, 14, 47, "Output"]
+Cell[122724, 2209, 148, 3, 46, "Code"],
+Cell[122875, 2214, 795, 15, 47, "Output"]
 }, Open  ]],
-Cell[122742, 2198, 439, 9, 31, "Text"],
+Cell[123685, 2232, 439, 9, 31, "Text"],
 Cell[CellGroupData[{
-Cell[123206, 2211, 156, 3, 46, "Code"],
-Cell[123365, 2216, 907, 18, 82, "Output"]
+Cell[124149, 2245, 156, 3, 46, "Code"],
+Cell[124308, 2250, 950, 18, 57, "Output"]
 }, Open  ]],
-Cell[124287, 2237, 826, 18, 51, "Text"],
+Cell[125273, 2271, 873, 19, 51, "Text"],
 Cell[CellGroupData[{
-Cell[125138, 2259, 625, 12, 60, "Item"],
-Cell[125766, 2273, 906, 16, 78, "Item"],
-Cell[126675, 2291, 607, 12, 60, "Item"]
+Cell[126171, 2294, 625, 12, 60, "Item"],
+Cell[126799, 2308, 906, 16, 78, "Item"],
+Cell[127708, 2326, 607, 12, 60, "Item"]
 }, Open  ]],
-Cell[127297, 2306, 577, 13, 51, "Text"],
+Cell[128330, 2341, 601, 14, 51, "Text"],
 Cell[CellGroupData[{
-Cell[127899, 2323, 333, 9, 46, "Code"],
-Cell[128235, 2334, 435455, 7153, 137, "Output"]
+Cell[128956, 2359, 333, 9, 46, "Code"],
+Cell[129292, 2370, 435477, 7153, 137, "Output"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[563739, 9493, 212, 3, 82, "Section"],
+Cell[564818, 9529, 212, 3, 82, "Section"],
 Cell[CellGroupData[{
-Cell[563976, 9500, 103, 1, 43, "Subsection"],
-Cell[564082, 9503, 974, 18, 110, "Text"],
-Cell[565059, 9523, 2321, 49, 323, "Text"]
+Cell[565055, 9536, 103, 1, 43, "Subsection"],
+Cell[565161, 9539, 998, 19, 110, "Text"],
+Cell[566162, 9560, 2345, 50, 323, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[567417, 9577, 111, 1, 43, "Subsection"],
-Cell[567531, 9580, 698, 15, 90, "Text"],
+Cell[568544, 9615, 111, 1, 43, "Subsection"],
+Cell[568658, 9618, 722, 16, 90, "Text"],
 Cell[CellGroupData[{
-Cell[568254, 9599, 171, 4, 46, "Code"],
-Cell[568428, 9605, 509, 8, 40, "Output"]
+Cell[569405, 9638, 171, 4, 46, "Code"],
+Cell[569579, 9644, 531, 8, 40, "Output"]
 }, Open  ]],
-Cell[568952, 9616, 713, 15, 31, "Text"],
+Cell[570125, 9655, 713, 15, 31, "Text"],
 Cell[CellGroupData[{
-Cell[569690, 9635, 415, 9, 46, "Code"],
-Cell[570108, 9646, 1170, 27, 40, "Output"]
+Cell[570863, 9674, 415, 9, 46, "Code"],
+Cell[571281, 9685, 1191, 27, 40, "Output"]
 }, Open  ]],
-Cell[571293, 9676, 258, 5, 31, "Text"],
+Cell[572487, 9715, 258, 5, 31, "Text"],
 Cell[CellGroupData[{
-Cell[571576, 9685, 462, 12, 46, "Code"],
-Cell[572041, 9699, 2167, 42, 132, "Output"]
+Cell[572770, 9724, 462, 12, 46, "Code"],
+Cell[573235, 9738, 2189, 42, 132, "Output"]
 }, Open  ]],
-Cell[574223, 9744, 357, 6, 31, "Text"],
+Cell[575439, 9783, 357, 6, 31, "Text"],
 Cell[CellGroupData[{
-Cell[574605, 9754, 415, 11, 46, "Code"],
-Cell[575023, 9767, 2069, 41, 474, "Output"]
+Cell[575821, 9793, 415, 11, 46, "Code"],
+Cell[576239, 9806, 2093, 41, 474, "Output"]
 }, Open  ]],
-Cell[577107, 9811, 267, 5, 31, "Text"]
+Cell[578347, 9850, 267, 5, 31, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[577411, 9821, 128, 1, 43, "Subsection"],
-Cell[577542, 9824, 847, 17, 90, "Text"],
+Cell[578651, 9860, 128, 1, 43, "Subsection"],
+Cell[578782, 9863, 1283, 31, 92, "Text"],
 Cell[CellGroupData[{
-Cell[578414, 9845, 1077, 29, 106, "Code"],
-Cell[579494, 9876, 2064, 42, 116, "Output"]
+Cell[580090, 9898, 1077, 29, 106, "Code"],
+Cell[581170, 9929, 2085, 42, 116, "Output"]
 }, Open  ]],
-Cell[581573, 9921, 345, 9, 31, "Text"],
+Cell[583270, 9974, 345, 9, 31, "Text"],
 Cell[CellGroupData[{
-Cell[581943, 9934, 400, 11, 85, "Code"],
-Cell[582346, 9947, 1792, 36, 132, "Output"]
+Cell[583640, 9987, 400, 11, 85, "Code"],
+Cell[584043, 10000, 1817, 37, 132, "Output"]
 }, Open  ]],
-Cell[584153, 9986, 278, 9, 31, "Text"],
-Cell[584434, 9997, 915, 29, 59, "Text"],
-Cell[585352, 10028, 341, 7, 31, "Text"],
+Cell[585875, 10040, 457, 12, 31, "Text"],
+Cell[586335, 10054, 915, 29, 59, "Text"],
+Cell[587253, 10085, 341, 7, 31, "Text"],
 Cell[CellGroupData[{
-Cell[585718, 10039, 977, 27, 85, "Code"],
-Cell[586698, 10068, 2567, 48, 390, "Output"]
+Cell[587619, 10096, 977, 27, 85, "Code"],
+Cell[588599, 10125, 2593, 49, 390, "Output"]
 }, Open  ]],
-Cell[589280, 10119, 997, 16, 169, "Text"]
+Cell[591207, 10177, 1098, 19, 169, "Text"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[590326, 10141, 98, 1, 82, "Section"],
-Cell[590427, 10144, 724, 12, 71, "Text"]
+Cell[592354, 10202, 98, 1, 82, "Section"],
+Cell[592455, 10205, 748, 13, 71, "Text"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[591188, 10161, 99, 1, 82, "Section"],
+Cell[593240, 10223, 99, 1, 82, "Section"],
 Cell[CellGroupData[{
-Cell[591312, 10166, 258, 5, 42, "Item"],
-Cell[591573, 10173, 299, 6, 43, "Item"],
-Cell[591875, 10181, 208, 5, 43, "Item"],
-Cell[592086, 10188, 240, 5, 42, "Item"],
-Cell[592329, 10195, 229, 5, 59, "Item"]
+Cell[593364, 10228, 258, 5, 42, "Item"],
+Cell[593625, 10235, 299, 6, 43, "Item"],
+Cell[593927, 10243, 208, 5, 43, "Item"],
+Cell[594138, 10250, 240, 5, 42, "Item"],
+Cell[594381, 10257, 229, 5, 59, "Item"]
 }, Open  ]]
 }, Open  ]]
 }, Open  ]]
