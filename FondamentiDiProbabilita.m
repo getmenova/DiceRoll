@@ -40,10 +40,10 @@ MediaLancioDado::usage =
 	"MediaLancioDado[N_] calcola la media di N esiti del lancio di un dado."
 
 BottoneProbabilita::usage =
-	"BottoneProbabilita[] genera un bottone che permette di imparare il funzionamento della Formula della Probabilità Classica."
+	"BottoneProbabilita[] genera un bottone che permette di imparare il funzionamento della Formula della Probabilit\[AGrave] Classica."
 
 BottoneProbabilitaN::usage =
-	"BottoneProbabilitaN[] genera un bottone che permette di imparare il funzionamento della Formula della Probabilità Classica."
+	"BottoneProbabilitaN[] genera un bottone che permette di imparare il funzionamento della Formula della Probabilit\[AGrave] Classica."
 
 LanciaDadoProbabilita::usage =
 	"LanciaDadoProbabilita[] genera un bottone che permette di lanciare un dado un certo numero di volte."
@@ -70,14 +70,14 @@ KCombination::usage =
 	"KCombination[elements_List, k_Integer] restituisce la lista delle disposizioni semplici dei possibili eventi presenti nella lista elements_List in un esperimento ripetuto k volte."
 
 ProveRipetuteSimulazione::usage =
-	"ProveRipetuteSimulazione[p_Real, n_Integer, m_Integer] permette di simulare un esperimento di prove ripetute. La probabilità di successo è p, la simulazione è ripetuta n volte e si vogliono ottenere m successi."
+	"ProveRipetuteSimulazione[p_Real, n_Integer, m_Integer] permette di simulare un esperimento di prove ripetute. La probabilit\[AGrave] di successo \[EGrave] p, la simulazione \[EGrave] ripetuta n volte e si vogliono ottenere m successi."
 
 Begin["Private`"]
 
 (* Function che simula n volte il lancio di un dado. *)
 (* Se chiamata senza parametri, il valore di default \[EGrave] 1 *)
 LancioDado[n_:1] /; IntegerQ[n] && NonNegative[n] := 
-	Table[RandomChoice[{1,2,3,4,5,6}],n]
+	Table[RandomChoice[{1,2,3,4,5,6}],{n}]
 
 (* Function che genera un grafico a barre per il lancio di un dado eseguito n volte *)
 PlotLancioDado[n_] /; IntegerQ[n] && NonNegative[n] :=
@@ -87,7 +87,7 @@ PlotLancioDado[n_] /; IntegerQ[n] && NonNegative[n] :=
 	For[i = 1, i < 7, i++,
 			sumTrials[[i]] = Count[trials, i];
 	];
-	BarChart[sumTrials, ChartLabels -> {"1","2","3","4","5","6"}, ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel"]
+	BarChart[sumTrials, ChartLabels -> {"1","2","3","4","5","6"}, ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel", ImageSize->Medium]
 ]
 
 (* Calcolo della probabilit\[AGrave] di un evento *)
@@ -261,12 +261,12 @@ RipetiTreCarte[] := Module[
    ];
   BarChart[{numVinte, numPerse}, 
    ChartLabels -> {"Vittorie", "Sconfitte"}, 
-   ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel"]
+   ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel", ImageSize->Medium]
   ]
 
 (* Function che calcola la media delle uscite del lancio di un dado ripetuto un certo numero di volte *)
-MediaLancioDado[pippo_] := 
-	N[Mean[Table[RandomInteger[{1, 6}], pippo]]]
+MediaLancioDado[n_] := 
+	N[Mean[Table[RandomInteger[{1, 6}], {n}]]]
 
 (* Funtion che calcola le disposizioni semplici, senza considerare le possibili permutazioni *)
 KCombinationNoRipetitions[elements_List, k_Integer] :=
@@ -326,7 +326,7 @@ DrawKCombinationTree[elements_List, k_Integer] :=
    list = {};
    edges = {};
    FindKCombination[list, 0, k, {}];
-   TreePlot[edges, VertexLabeling -> True]
+   TreePlot[edges, VertexLabeling -> True, ImageSize->Large]
    ]
 
 (* Simulazione delle prove ripetute e della distribuzione binomiale *)
@@ -370,11 +370,11 @@ DadoTreD[] := Module[{fullQuad, faces},
   Lighting -> "Neutral", Boxed -> False]
 ]
 
-(* Function ausiliaria del bottone per la Probabilità classica *)
-BottoneProbabilita[] := Module[{output = "Probabilità: "},
-	Button["Probabilità Classica",
+(* Function ausiliaria del bottone per la Probabilit\[AGrave] classica *)
+BottoneProbabilita[] := Module[{output = "Premi il bottone per calcolare la probabilit\[AGrave] di un evento."},
+	Button["Probabilit\[AGrave] Classica",
 		output = DialogInput[
-			{favorevoli=""},
+			{},
 			Column[
 				{"Casi favorevoli",
 				 InputField[Dynamic[favorevoli],Number],"Casi possibili",
@@ -382,8 +382,9 @@ BottoneProbabilita[] := Module[{output = "Probabilità: "},
 				 Button["Calcola", 
 				 	DialogReturn[
 						If[favorevoli > possibili || favorevoli < 0 || possibili < 0,
-							 output = "Errore: i casi favorevoli non possono essere maggiori in numero dei casi possibili nè negativi.",
-							 Grid[{{"Probabilità:", output = CalcoloProbabilita[favorevoli,possibili]}}]
+							 output = "Errore: i casi favorevoli non possono essere maggiori in numero dei casi possibili n\[EGrave] negativi.",
+							 output = Grid[{{"Probabilit\[AGrave]:", CalcoloProbabilita[favorevoli,possibili]}}],
+							 output = "Inserisci i casi favorevoli e possibili per eseguire il calcolo."
 						]
 					]
 				]
@@ -393,11 +394,11 @@ BottoneProbabilita[] := Module[{output = "Probabilità: "},
 	Dynamic@output
 ]
 
-(* Function ausiliaria del bottone per la Probabilità classica con numericizza *)
-BottoneProbabilitaN[] := Module[{output = "Probabilità: "},
-	Button["Probabilità Classica",
+(* Function ausiliaria del bottone per la Probabilit\[AGrave] classica con numericizza *)
+BottoneProbabilitaN[] := Module[{output = "Premi il bottone per calcolare la probabilit\[AGrave] di un evento."},
+	Button["Probabilit\[AGrave] Classica",
 		output = DialogInput[
-			{favorevoli=""},
+			{},
 			Column[
 				{"Casi favorevoli",
 				 InputField[Dynamic[favorevoli],Number],"Casi possibili",
@@ -405,8 +406,9 @@ BottoneProbabilitaN[] := Module[{output = "Probabilità: "},
 				 Button["Calcola", 
 				 	DialogReturn[
 						If[favorevoli > possibili || favorevoli < 0 || possibili < 0,
-							 output = "Errore: i casi favorevoli non possono essere maggiori in numero dei casi possibili nè negativi.",
-							 Grid[{{"Probabilità:", output = CalcoloProbabilita[favorevoli,possibili]}}]
+							 output = "Errore: i casi favorevoli non possono essere maggiori in numero dei casi possibili n\[EGrave] negativi.",
+							 output = Grid[{{"Probabilit\[AGrave]:", CalcoloProbabilita[favorevoli,possibili]}}],
+							 output = "Inserisci i casi favorevoli e possibili per eseguire il calcolo."
 						]
 					]
 				]
@@ -416,7 +418,7 @@ BottoneProbabilitaN[] := Module[{output = "Probabilità: "},
 	Dynamic@N[output]
 ]
 
-LanciaDadoProbabilita[] := Module[{output = {1}, volte},
+LanciaDadoProbabilita[] := Module[{output = "Premi il bottone per simulare il lancio di un dado a 6 facce.", volte},
 	Button["Lancia dado", 
  		output = DialogInput[
    		DialogNotebook[
@@ -425,16 +427,17 @@ LanciaDadoProbabilita[] := Module[{output = {1}, volte},
      		 Button["Lancia", DialogReturn[
 					If[volte > 50 || volte < 1,
 						output = "Errore: il numero di lanci deve essere maggiore di uno e non superiore a cinquanta.",	
-						LancioDado[volte]
+						output = Grid[{{"Risultati lanci:", LancioDado[volte]}}],
+						output = "Inserisci un numero di lanci."
 					]]], 
-     		 Button["Lancia una sola volta", DialogReturn[LancioDado[1]]]
+     		 Button["Lancia una sola volta", DialogReturn[output = Grid[{{"Risultato lancio:", LancioDado[1]}}]]]
 				}
 			]
 		], Method -> "Queued"]
 	Dynamic@output
 ]
 
-PlotLanciaDadoProbabilita[] := Module[{output = BarChart[{4,5,2,4,1,6}, ChartLabels -> {"1","2","3","4","5","6"}, ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel"], volte},
+PlotLanciaDadoProbabilita[] := Module[{output = PlotLancioDado[10], volte},
 	Button["Prove ripetute",
  		output = DialogInput[
    		DialogNotebook[{
@@ -443,7 +446,8 @@ PlotLanciaDadoProbabilita[] := Module[{output = BarChart[{4,5,2,4,1,6}, ChartLab
      		Button["Lancia", DialogReturn[
 					If[volte < 1, 
 						output = "Errore: il numero di lanci deve essere maggiore di o uguale ad uno.",					
-					PlotLancioDado[volte]
+						PlotLancioDado[volte],
+						output = "Inserisci un numero di lanci."
 					]]]
 			}]
 		], Method -> "Queued"]
@@ -456,7 +460,7 @@ BottoneTreCarte[] =
 BottoneTreCarteMultiplo[] =
  Module[{output = BarChart[{20, 4}, 
    ChartLabels -> {"Vittorie", "Sconfitte"}, 
-   ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel"]}, 
+   ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel", ImageSize->Medium]}, 
   Button["Gioca", output = RipetiTreCarte[], 
     Method -> "Queued"] Dynamic@output]
 
