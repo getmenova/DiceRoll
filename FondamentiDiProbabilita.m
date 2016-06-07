@@ -443,7 +443,9 @@ BottoneTreCarte[] =
   Button["Gioca", TreCarte[], Method -> "Queued"]
 
 BottoneTreCarteMultiplo[] =
- Module[{output = 1/2}, 
+ Module[{output = BarChart[{20, 4}, 
+   ChartLabels -> {"Vittorie", "Sconfitte"}, 
+   ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel"]}, 
   Button["Gioca", output = RipetiTreCarte[], 
     Method -> "Queued"] Dynamic@output]
 
