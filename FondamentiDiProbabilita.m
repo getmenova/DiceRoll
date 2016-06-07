@@ -343,7 +343,7 @@ ProveRipetuteSimulazione[p_Real, n_Integer, m_Integer] :=
     ];
    results[[successCounter + 1]]++;
   ];
-	For[j = 1, j < Length[results], ++j,
+	For[j = 1, j <= Length[results], ++j,
 		results[[j]] = N[results[[j]] / m];
 	];
 	Return[results];
@@ -371,7 +371,7 @@ DadoTreD[] := Module[{fullQuad, faces},
 ]
 
 (* Function ausiliaria del bottone per la Probabilità classica *)
-BottoneProbabilita[] := Module[{output = 1/2},
+BottoneProbabilita[] := Module[{output = "Probabilità: "},
 	Button["Probabilità Classica",
 		output = DialogInput[
 			{favorevoli=""},
@@ -394,13 +394,25 @@ BottoneProbabilita[] := Module[{output = 1/2},
 ]
 
 (* Function ausiliaria del bottone per la Probabilità classica con numericizza *)
-BottoneProbabilitaN[] := Module[{output = 1/2},
+BottoneProbabilitaN[] := Module[{output = "Probabilità: "},
 	Button["Probabilità Classica",
-	output=DialogInput[{favorevoli=""},
-	Column[{"Casi favorevoli",
-	InputField[Dynamic[favorevoli],Number],"Casi possibili",
-	InputField[Dynamic[possibili],Number],
-	Button["Accept",DialogReturn[output=CalcoloProbabilita[favorevoli,possibili]]]}]],Method->"Queued"]
+		output = DialogInput[
+			{favorevoli=""},
+			Column[
+				{"Casi favorevoli",
+				 InputField[Dynamic[favorevoli],Number],"Casi possibili",
+				 InputField[Dynamic[possibili],Number],
+				 Button["Calcola", 
+				 	DialogReturn[
+						If[favorevoli > possibili,
+							 output = "Errore: i casi favorevoli non possono essere maggiori in numero dei casi possibili.",
+							 Grid[{{"Probabilità:", output = CalcoloProbabilita[favorevoli,possibili]}}]
+						]
+					]
+				]
+			 }
+			]
+		], Method->"Queued"]
 	Dynamic@N[output]
 ]
 
