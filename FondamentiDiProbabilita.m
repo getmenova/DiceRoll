@@ -381,8 +381,8 @@ BottoneProbabilita[] := Module[{output = "Probabilità: "},
 				 InputField[Dynamic[possibili],Number],
 				 Button["Calcola", 
 				 	DialogReturn[
-						If[favorevoli > possibili,
-							 output = "Errore: i casi favorevoli non possono essere maggiori in numero dei casi possibili.",
+						If[favorevoli > possibili || favorevoli < 0 || possibili < 0,
+							 output = "Errore: i casi favorevoli non possono essere maggiori in numero dei casi possibili nè negativi.",
 							 Grid[{{"Probabilità:", output = CalcoloProbabilita[favorevoli,possibili]}}]
 						]
 					]
@@ -404,8 +404,8 @@ BottoneProbabilitaN[] := Module[{output = "Probabilità: "},
 				 InputField[Dynamic[possibili],Number],
 				 Button["Calcola", 
 				 	DialogReturn[
-						If[favorevoli > possibili,
-							 output = "Errore: i casi favorevoli non possono essere maggiori in numero dei casi possibili.",
+						If[favorevoli > possibili || favorevoli < 0 || possibili < 0,
+							 output = "Errore: i casi favorevoli non possono essere maggiori in numero dei casi possibili nè negativi.",
 							 Grid[{{"Probabilità:", output = CalcoloProbabilita[favorevoli,possibili]}}]
 						]
 					]
@@ -418,24 +418,35 @@ BottoneProbabilitaN[] := Module[{output = "Probabilità: "},
 
 LanciaDadoProbabilita[] := Module[{output = {1}, volte},
 	Button["Lancia dado", 
- 	output = DialogInput[
-   DialogNotebook[{TextCell["Quante volte vuoi lanciare il dado?"], 
-     InputField[Dynamic[volte], Number], 
-     Button["Lancia", DialogReturn[LancioDado[volte]]], 
-     Button["Lancia una sola volta", DialogReturn[LancioDado[1]]]}]], 
- 	Method -> "Queued"]
+ 		output = DialogInput[
+   		DialogNotebook[
+				{TextCell["Quante volte vuoi lanciare il dado?"], 
+     		 InputField[Dynamic[volte], Number], 
+     		 Button["Lancia", DialogReturn[
+					If[volte > 50 || volte < 1,
+						output = "Errore: il numero di lanci deve essere maggiore di uno e non superiore a cinquanta.",	
+						LancioDado[volte]
+					]]], 
+     		 Button["Lancia una sola volta", DialogReturn[LancioDado[1]]]
+				}
+			]
+		], Method -> "Queued"]
 	Dynamic@output
 ]
 
-PlotLanciaDadoProbabilita[] := Module[{output = 1, volte},
+PlotLanciaDadoProbabilita[] := Module[{output = BarChart[{4,5,2,4,1,6}, ChartLabels -> {"1","2","3","4","5","6"}, ChartElementFunction -> "GlassRectangle", ChartStyle -> "Pastel"], volte},
 	Button["Prove ripetute",
- 	output = DialogInput[
-   DialogNotebook[{
-     TextCell["Quante volte vuoi lanciare il dado?"],
-     InputField[Dynamic[volte], Number],
-     Button["Lancia", DialogReturn[PlotLancioDado[volte]]
-      ]}]], 
-	Method -> "Queued"]
+ 		output = DialogInput[
+   		DialogNotebook[{
+     		TextCell["Quante volte vuoi lanciare il dado?"],
+     		InputField[Dynamic[volte], Number],
+     		Button["Lancia", DialogReturn[
+					If[volte < 1, 
+						output = "Errore: il numero di lanci deve essere maggiore di o uguale ad uno.",					
+					PlotLancioDado[volte]
+					]]]
+			}]
+		], Method -> "Queued"]
 	Dynamic@output
 ]
 
